@@ -1,5 +1,5 @@
 
-package bibliotecaenso;
+package biblioteca;
 import java.util.ArrayList;
 public class Historico {
     private int idUsuario; 
@@ -10,14 +10,6 @@ public class Historico {
         this.emprestimos = new ArrayList<>();
     }
       public void registrarEmprestimo(Emprestimo emprestimo) {
-        if (emprestimo != null) {
-            emprestimos.add(emprestimo);
-            System.out.println("Empréstimo registrado com sucesso!");
-        } else {
-            System.out.println("Erro: O empréstimo é inválido.");
-        }
-    }
-       public void registrarEmprestimo(Emprestimo emprestimo) {
         if (emprestimo != null) {
             emprestimos.add(emprestimo);
             System.out.println("Empréstimo registrado com sucesso!");

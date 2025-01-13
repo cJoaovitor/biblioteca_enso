@@ -1,6 +1,6 @@
 
 package biblioteca;
-import java.util.Scanner
+import java.util.Scanner;
 
 public class Usuario {
     protected int  idusuario;
@@ -12,7 +12,7 @@ public class Usuario {
     protected Emprestimo enpresyimosAtivos;
     protected Historico historicoEmprestimos;
 
-    public Usuario() {
+    public Usuario(int idusuario ) {
         String axuSenha;
         Scanner cafe = new Scanner (System.in);
         Scanner cafeline = new Scanner (System.in);
@@ -30,9 +30,7 @@ public class Usuario {
         senha=cafe.next();
         }
         StatusConta="ativo";
-        enpresyimosAtivos = new Emprestimo();
-        historicoEmprestimos = new Historico();
-        
+        historicoEmprestimos = new Historico(this.idusuario);
     }
     public void EditarDados(String novonome, String novoemail, String novasenhar){
          nome = novonome;
@@ -41,7 +39,9 @@ public class Usuario {
     }
     public void visualizarHistorico(){
     historicoEmprestimos.mostrarHistorico;
-    /* isso vai ter o nome da funcao de exbição do hidtorico */
+    /* isso vai ter o nome da funcao de exbição do historico */
 }
-    
+    void verificarStatusConta(){
+        System.out.println("olá "+nome+"");
+    }
 };
