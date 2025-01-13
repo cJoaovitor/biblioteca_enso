@@ -17,6 +17,7 @@ public class Historico {
             System.out.println("Erro: O empréstimo é inválido.");
         }
     }
+      
 
     public int getIdUsuario() {
         return idUsuario;
