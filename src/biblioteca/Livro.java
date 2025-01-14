@@ -135,56 +135,74 @@ public class Livro {
         }
     }
 
-    public void atualizarDisponibilidadeExemplares(Scanner scanner) {
-        if (exemplares.isEmpty()) {
-            System.out.println("Nenhum exemplar cadastrado.");
-            return;
-        }
-
+    public void atualizarDisponibilidadeExemplares(List<Livro> livros, Scanner scanner) {
         while (true) {
-            // Exibe todos os exemplares do livro atual com seus IDs
-            System.out.println("Exemplares disponíveis para o livro \"" + titulo + "\":");
-            for (Exemplar exemplar : exemplares) {
-                System.out.println("ID do Exemplar: " + exemplar.getIdExemplar() + " - " +
-                        (exemplar.isDisponivel() ? "Disponível" : "Não disponível"));
-            }
-
-            System.out.print("Digite o ID do exemplar para atualizar a disponibilidade: ");
-            int idExemplar = scanner.nextInt();
+            System.out.print("Digite o ID do livro para atualizar a disponibilidade: ");
+            int idLivro = scanner.nextInt();
             scanner.nextLine(); // Limpa o buffer
-            Exemplar exemplar = buscarExemplarPorId(idExemplar);
-            if (exemplar == null) {
-                System.out.println("Exemplar não encontrado.");
-                return;
-            }
-            System.out.println("O exemplar ID " + exemplar.getIdExemplar() + " está " +
-                    (exemplar.isDisponivel() ? "disponível." : "não disponível."));
-            System.out.print("Deseja alterar a disponibilidade? (d - disponível, n - não disponível): ");
-            char status = scanner.nextLine().charAt(0);
-            if (status == 'd') {
-                if (!exemplar.isDisponivel()) {
-                    exemplar.setDisponivel(true);
-                    System.out.println("Exemplar agora disponível.");
-                } else {
-                    System.out.println("O exemplar já está disponível.");
-                }
-            } else if (status == 'n') {
-                if (exemplar.isDisponivel()) {
-                    System.out.print("Por que o exemplar está sendo marcado como não disponível? ");
-                    String justificativa = scanner.nextLine();
-                    exemplar.setDisponivel(false);
-                    System.out.println("Exemplar agora não disponível. Justificativa: " + justificativa);
-                } else {
-                    System.out.println("O exemplar já está não disponível.");
-                }
-            } else {
-                System.out.println("Opção inválida.");
+            Livro livro = buscarLivroPorId(livros, idLivro);
+            
+            if (livro == null) {
+                System.out.println("Livro não encontrado.");
+                continue; // Volta para o início do loop se o livro não for encontrado
             }
 
-            System.out.print("Deseja atualizar a disponibilidade de outro exemplar? (s/n): ");
-            char resposta = scanner.nextLine().charAt(0);
-            if (resposta != 's') {
-                break;
+            if (livro.exemplares.isEmpty()) {
+                System.out.println("Nenhum exemplar cadastrado para este livro.");
+                continue; // Volta para o início do loop se não houver exemplares
+            }
+
+            while (true) {
+                // Exibe todos os exemplares do livro atual com seus IDs
+                System.out.println("Exemplares disponíveis para o livro \"" + livro.getTitulo() + "\":");
+                for (Exemplar exemplar : livro.exemplares) {
+                    System.out.println("ID do Exemplar: " + exemplar.getIdExemplar() + " - " +
+                            (exemplar.isDisponivel() ? "Disponível" : "Não disponível"));
+                }
+
+                System.out.print("Digite o ID do exemplar para atualizar a disponibilidade: ");
+                int idExemplar = scanner.nextInt();
+                scanner.nextLine(); // Limpa o buffer
+                Exemplar exemplar = livro.buscarExemplarPorId(idExemplar);
+                if (exemplar == null) {
+                    System.out.println("Exemplar não encontrado.");
+                    continue; // Volta para o início do loop se o exemplar não for encontrado
+                }
+                System.out.println("O exemplar ID " + exemplar.getIdExemplar() + " está " +
+                        (exemplar.isDisponivel() ? "disponível." : "não disponível."));
+                System.out.print("Deseja alterar a disponibilidade? (d - disponível, n - não disponível): ");
+                char status = scanner.nextLine().charAt(0);
+                if (status == 'd') {
+                    if (!exemplar.isDisponivel()) {
+                        exemplar.setDisponivel(true);
+                        System.out.println("Exemplar agora disponível.");
+                    } else {
+                        System.out.println("O exemplar já está disponível.");
+                    }
+                } else if (status == 'n') {
+                    if (exemplar.isDisponivel()) {
+                        System.out.print("Por que o exemplar está sendo marcado como não disponível? ");
+                        String justificativa = scanner.nextLine();
+                        exemplar.setDisponivel(false);
+                        System.out.println("Exemplar agora não disponível. Justificativa: " + justificativa);
+                    } else {
+                        System.out.println("O exemplar já está não disponível.");
+                    }
+                } else {
+                    System.out.println("Opção inválida.");
+                }
+
+                System.out.print("Deseja atualizar a disponibilidade de outro exemplar deste livro? (s/n): ");
+                char resposta = scanner.nextLine().charAt(0);
+                if (resposta != 's') {
+                    break; // Sai do loop interno para escolher outro livro
+                }
+            }
+
+            System.out.print("Deseja atualizar a disponibilidade de exemplares de outro livro? (s/n): ");
+            char respostaLivro = scanner.nextLine().charAt(0);
+            if (respostaLivro != 's') {
+                break; // Sai do loop externo
             }
         }
     }
@@ -299,6 +317,10 @@ public class Livro {
             }
         }
         return count;
+    }
+
+    private Livro buscarLivroPorId(List<Livro> livros, int idLivro) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     // Classe interna Exemplar
