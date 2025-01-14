@@ -38,10 +38,24 @@ public class Usuario {
          senha = novasenhar;
     }
     public void visualizarHistorico(){
-    historicoEmprestimos.mostrarHistorico;
+    historicoEmprestimos.exibirHistoricoCompleto();
     /* isso vai ter o nome da funcao de exbição do historico */
 }
     void verificarStatusConta(){
         System.out.println("olá "+nome+"");
     }
-};
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+    
+}
+ 

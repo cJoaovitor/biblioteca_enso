@@ -11,7 +11,10 @@ public class Bibliotecario extends Usuario{
         cargo = "bibliotecario";
         this.codigoBibliotecario = codigoBibliotecario;
     }
-      public void gerenciarlivros(){
-          
-      }
+
+    public String getCodigoBibliotecario() {
+        return codigoBibliotecario;
+    }
+      
+      
 }

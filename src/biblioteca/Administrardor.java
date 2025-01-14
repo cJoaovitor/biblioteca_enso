@@ -9,6 +9,10 @@ public class Administrardor extends Bibliotecario{
         super(codigoBibliotecario, idusuario);
         this.codigoAdd = codigoAdd;
     }
+
+    public String getCodigoAdd() {
+        return codigoAdd;
+    }
    
     
 }
