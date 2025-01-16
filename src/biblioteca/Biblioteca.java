@@ -3,20 +3,22 @@ package biblioteca;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Biblioteca {
+public class  Biblioteca {
 
-    ArrayList<Usuario> us = new ArrayList<Usuario>();
-    ArrayList<Bibliotecario> bli = new ArrayList<Bibliotecario>();
-    ArrayList<Administrardor> adm = new ArrayList<Administrardor>();
-    ArrayList<Livro> livros = new ArrayList<Livro>();
-
+    static ArrayList<Usuario> us = new ArrayList<Usuario>();
+    static ArrayList<Bibliotecario> bli = new ArrayList<Bibliotecario>();
+    static ArrayList<Administrardor> adm = new ArrayList<Administrardor>();
+    static ArrayList<Livro> livros = new ArrayList<Livro>();
+    static Scanner cafe = new Scanner(System.in);
+    static Scanner cafeln = new Scanner(System.in);
+    static int contadorusurio;
     public static void main(String[] args) {
-      Administrardor a = new Administrardor( "teste", "teste", 0);
+    criarconta();
+    criarconta();
+    criarconta();
     }
 
-    public boolean login() {
-        Scanner cafe = new Scanner(System.in);
-        Scanner cafeln = new Scanner(System.in);
+       static boolean login() {
         System.out.println("bem vindo a nossa biblioteca:");
         int escolha;
         boolean loginFeito;
@@ -101,7 +103,15 @@ public class Biblioteca {
         return loginFeito;
     }
 
-    public void criarconta() {
-
+    static void criarconta() {
+        System.out.println("bem vindo para criar a sua conta primeiro nos diga a nivel dela 1 para usuario 2 para bibliotecaro 3 para add ");
+        int escolhaconta = cafe.nextInt();
+        switch (escolhaconta) {
+            case 1:
+                contadorusurio ++;
+                System.out.println(contadorusurio);
+                //Usuario u = new Usuario(contadorusurio);
+                
+        }   
     }
 }

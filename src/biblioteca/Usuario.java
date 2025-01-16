@@ -1,5 +1,6 @@
 
 package biblioteca;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Usuario {
@@ -12,7 +13,7 @@ public class Usuario {
     protected Emprestimo enpresyimosAtivos;
     protected Historico historicoEmprestimos;
 
-    public Usuario(int idusuario ) {
+    public Usuario(int idusuario, String cpf  ) {
         String axuSenha;
         Scanner cafe = new Scanner (System.in);
         Scanner cafeline = new Scanner (System.in);
@@ -56,6 +57,5 @@ public class Usuario {
     public String getEmail() {
         return email;
     }
-    
 }
- 
+    

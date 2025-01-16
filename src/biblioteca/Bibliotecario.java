@@ -6,8 +6,8 @@ public class Bibliotecario extends Usuario{
     protected String cargo;
     protected String codigoBibliotecario;
 
-    public Bibliotecario( String codigoBibliotecario, int idusuario) {
-        super(idusuario);
+    public Bibliotecario( String codigoBibliotecario, int idusuario, String cpf) {
+        super(idusuario,cpf);
         cargo = "bibliotecario";
         this.codigoBibliotecario = codigoBibliotecario;
     }
