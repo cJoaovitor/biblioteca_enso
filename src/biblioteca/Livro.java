@@ -104,7 +104,11 @@ public class Livro {
     }
 
     // Adiciona novos livros à lista de livros
+<<<<<<< HEAD
     public  void adicionarLivros( Scanner scanner) {
+=======
+    public static void adicionarLivros(List<Livro> livros, Scanner scanner) {
+>>>>>>> e23ad74e6f83da4a06913d97cfbd4d55c790e956
         while (true) {
             System.out.print("Digite o ID do livro: ");
             int idLivro = scanner.nextInt();
@@ -121,10 +125,23 @@ public class Livro {
             String anoPublicacao = scanner.nextLine();
             System.out.print("Digite a editora: ");
             String editora = scanner.nextLine();
+<<<<<<< HEAD
+=======
+
+            livros.add(new Livro(idLivro, titulo, autor, genero, descricao, anoPublicacao, editora));
+            System.out.println("Livro adicionado com sucesso!");
+
+            System.out.print("Deseja adicionar outro livro? (s/n): ");
+            char resposta = scanner.nextLine().charAt(0);
+            if (resposta != 's') {
+                break;
+            }
+>>>>>>> e23ad74e6f83da4a06913d97cfbd4d55c790e956
         }
     }
 
         // Atualiza a disponibilidade de um livro
+<<<<<<< HEAD
     public  void atualizarDisponibilidade( Scanner scanner) {
         disponivel = true;
     }
@@ -132,6 +149,46 @@ public class Livro {
 
     // Pesquisa livros com base em diferentes critérios //pesquisa livro vai ser função da principal
     public  void pesquisarLivros(List<Livro> livros, Scanner scanner) {
+=======
+    public static void atualizarDisponibilidade(List<Livro> livros, Scanner scanner) {
+        while (true) {
+            System.out.print("Digite o ID do livro para atualizar a disponibilidade: ");
+            int idLivro = Livro.obterEntradaInteira(scanner);
+            scanner.nextLine(); // Limpa o buffer
+            Livro livro = Livro.buscarLivroPorId(livros, idLivro);
+
+            if (livro == null) {
+                System.out.println("Livro não encontrado.");
+                continue; // Volta para o início do loop se o livro não for encontrado
+            }
+
+            // Exibe o status atual de disponibilidade do livro
+            System.out.println("Livro \"" + livro.getTitulo() + "\" está atualmente " + (livro.isDisponivel() ? "disponível" : "indisponível"));
+
+            // Pergunta ao usuário se deseja alterar a disponibilidade
+            System.out.print("Deseja deixar este livro " + (livro.isDisponivel() ? "indisponível" : "disponível") + "? (s/n): ");
+            char respostaLivro = scanner.nextLine().charAt(0);
+
+            if (respostaLivro == 's') {
+                // Altera o status de disponibilidade do livro
+                livro.setDisponivel(!livro.isDisponivel());
+                System.out.println("Disponibilidade do livro \"" + livro.getTitulo() + "\" atualizada com sucesso!");
+            }
+
+            // Pergunta ao usuário se deseja atualizar a disponibilidade de outro livro
+            System.out.print("Deseja atualizar a disponibilidade de outro livro? (s/n): ");
+            respostaLivro = scanner.nextLine().charAt(0);
+
+            if (respostaLivro != 's') {
+                break; // Sai do loop externo
+            }
+        }
+    }
+
+
+    // Pesquisa livros com base em diferentes critérios
+    public static void pesquisarLivros(List<Livro> livros, Scanner scanner) {
+>>>>>>> e23ad74e6f83da4a06913d97cfbd4d55c790e956
         while (true) {
             System.out.println("=== Pesquisa de Livros ===");
             System.out.println("Escolha o critério de pesquisa:");
@@ -214,8 +271,12 @@ public class Livro {
     }
 
     // Busca um livro na lista de livros pelo ID
+<<<<<<< HEAD
     
     public Livro buscarLivroPorId(List<Livro> livros, int idLivro) {
+=======
+    static Livro buscarLivroPorId(List<Livro> livros, int idLivro) {
+>>>>>>> e23ad74e6f83da4a06913d97cfbd4d55c790e956
         for (Livro livro : livros) {
             if (livro.getIdLivro() == idLivro) {
                 return livro;
@@ -225,7 +286,11 @@ public class Livro {
     }
 
     // Obtém uma entrada inteira do usuário, tratando exceções
+<<<<<<< HEAD
     public int obterEntradaInteira(Scanner scanner) {
+=======
+    static int obterEntradaInteira(Scanner scanner) {
+>>>>>>> e23ad74e6f83da4a06913d97cfbd4d55c790e956
         while (true) {
             try {
                 return scanner.nextInt();
