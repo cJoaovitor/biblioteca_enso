@@ -12,11 +12,11 @@ public class Livro {
     private String descricao;
     private String anoPublicacao;
     private String editora;
-    private List<Exemplar> exemplares;
+    private boolean disponivel;
 
     // Construtor
     public Livro(int idLivro, String titulo, String autor, String genero, String descricao,
-                 String anoPublicacao, String editora, int numExemplares) {
+                 String anoPublicacao, String editora) {
         this.idLivro = idLivro;
         this.titulo = titulo;
         this.autor = autor;
@@ -24,12 +24,7 @@ public class Livro {
         this.descricao = descricao;
         this.anoPublicacao = anoPublicacao;
         this.editora = editora;
-        this.exemplares = new ArrayList<>();
-
-        // Adiciona exemplares ao livro com IDs únicos
-        for (int i = 1; i <= numExemplares; i++) {
-            exemplares.add(new Exemplar(idLivro * 100 + i)); // Combina o ID do livro com um número sequencial
-        }
+        this.disponivel = true; // Inicialmente, o livro está disponível
     }
 
     // Métodos Getters
@@ -61,8 +56,8 @@ public class Livro {
         return editora;
     }
 
-    public List<Exemplar> getExemplares() {
-        return exemplares;
+    public boolean isDisponivel() {
+        return disponivel;
     }
 
     // Métodos Setters
@@ -94,16 +89,22 @@ public class Livro {
         this.editora = editora;
     }
 
+    public void setDisponivel(boolean disponivel) {
+        this.disponivel = disponivel;
+    }
+
+    // Exibe o menu principal da biblioteca
     public static void exibirMenu() {
         System.out.println("=== Menu da Biblioteca ===");
         System.out.println("1. Adicionar Livro");
-        System.out.println("2. Atualizar Disponibilidade de Exemplares");
+        System.out.println("2. Atualizar Disponibilidade");
         System.out.println("3. Pesquisar Livro");
         System.out.println("4. Sair");
         System.out.print("Escolha uma opção: ");
     }
 
-    public static void adicionarLivros(List<Livro> livros, Scanner scanner) {
+    // Adiciona novos livros à lista de livros
+    public  void adicionarLivros( Scanner scanner) {
         while (true) {
             System.out.print("Digite o ID do livro: ");
             int idLivro = scanner.nextInt();
@@ -120,103 +121,17 @@ public class Livro {
             String anoPublicacao = scanner.nextLine();
             System.out.print("Digite a editora: ");
             String editora = scanner.nextLine();
-            System.out.print("Digite o número de exemplares: ");
-            int numExemplares = scanner.nextInt();
-            scanner.nextLine(); // Limpa o buffer
-
-            livros.add(new Livro(idLivro, titulo, autor, genero, descricao, anoPublicacao, editora, numExemplares));
-            System.out.println("Livro adicionado com sucesso!");
-
-            System.out.print("Deseja adicionar outro livro? (s/n): ");
-            char resposta = scanner.nextLine().charAt(0);
-            if (resposta != 's') {
-                break;
-            }
         }
     }
 
-    public void atualizarDisponibilidadeExemplares(List<Livro> livros, Scanner scanner) {
-        while (true) {
-            System.out.print("Digite o ID do livro para atualizar a disponibilidade: ");
-            int idLivro = scanner.nextInt();
-            scanner.nextLine(); // Limpa o buffer
-            Livro livro = buscarLivroPorId(livros, idLivro);
-            
-            if (livro == null) {
-                System.out.println("Livro não encontrado.");
-                continue; // Volta para o início do loop se o livro não for encontrado
-            }
-
-            if (livro.exemplares.isEmpty()) {
-                System.out.println("Nenhum exemplar cadastrado para este livro.");
-                continue; // Volta para o início do loop se não houver exemplares
-            }
-
-            while (true) {
-                // Exibe todos os exemplares do livro atual com seus IDs
-                System.out.println("Exemplares disponíveis para o livro \"" + livro.getTitulo() + "\":");
-                for (Exemplar exemplar : livro.exemplares) {
-                    System.out.println("ID do Exemplar: " + exemplar.getIdExemplar() + " - " +
-                            (exemplar.isDisponivel() ? "Disponível" : "Não disponível"));
-                }
-
-                System.out.print("Digite o ID do exemplar para atualizar a disponibilidade: ");
-                int idExemplar = scanner.nextInt();
-                scanner.nextLine(); // Limpa o buffer
-                Exemplar exemplar = livro.buscarExemplarPorId(idExemplar);
-                if (exemplar == null) {
-                    System.out.println("Exemplar não encontrado.");
-                    continue; // Volta para o início do loop se o exemplar não for encontrado
-                }
-                System.out.println("O exemplar ID " + exemplar.getIdExemplar() + " está " +
-                        (exemplar.isDisponivel() ? "disponível." : "não disponível."));
-                System.out.print("Deseja alterar a disponibilidade? (d - disponível, n - não disponível): ");
-                char status = scanner.nextLine().charAt(0);
-                if (status == 'd') {
-                    if (!exemplar.isDisponivel()) {
-                        exemplar.setDisponivel(true);
-                        System.out.println("Exemplar agora disponível.");
-                    } else {
-                        System.out.println("O exemplar já está disponível.");
-                    }
-                } else if (status == 'n') {
-                    if (exemplar.isDisponivel()) {
-                        System.out.print("Por que o exemplar está sendo marcado como não disponível? ");
-                        String justificativa = scanner.nextLine();
-                        exemplar.setDisponivel(false);
-                        System.out.println("Exemplar agora não disponível. Justificativa: " + justificativa);
-                    } else {
-                        System.out.println("O exemplar já está não disponível.");
-                    }
-                } else {
-                    System.out.println("Opção inválida.");
-                }
-
-                System.out.print("Deseja atualizar a disponibilidade de outro exemplar deste livro? (s/n): ");
-                char resposta = scanner.nextLine().charAt(0);
-                if (resposta != 's') {
-                    break; // Sai do loop interno para escolher outro livro
-                }
-            }
-
-            System.out.print("Deseja atualizar a disponibilidade de exemplares de outro livro? (s/n): ");
-            char respostaLivro = scanner.nextLine().charAt(0);
-            if (respostaLivro != 's') {
-                break; // Sai do loop externo
-            }
-        }
+        // Atualiza a disponibilidade de um livro
+    public  void atualizarDisponibilidade( Scanner scanner) {
+        disponivel = true;
     }
 
-    private Exemplar buscarExemplarPorId(int idExemplar) {
-        for (Exemplar exemplar : exemplares) {
-            if (exemplar.getIdExemplar() == idExemplar) {
-                return exemplar;
-            }
-        }
-        return null;
-    }
 
-    public static void pesquisarLivros(List<Livro> livros, Scanner scanner) {
+    // Pesquisa livros com base em diferentes critérios //pesquisa livro vai ser função da principal
+    public  void pesquisarLivros(List<Livro> livros, Scanner scanner) {
         while (true) {
             System.out.println("=== Pesquisa de Livros ===");
             System.out.println("Escolha o critério de pesquisa:");
@@ -280,7 +195,7 @@ public class Livro {
                     System.out.println("Ano de Publicação: " + livro.getAnoPublicacao());
                     System.out.println("Editora: " + livro.getEditora());
                     System.out.println("ID: " + livro.getIdLivro());
-                    System.out.println("Exemplares disponíveis: " + livro.getExemplaresDisponiveis());
+                    System.out.println("Disponibilidade: " + (livro.isDisponivel() ? "Disponível" : "Indisponível"));
                     System.out.println("-------------------------------");
                     encontrado = true;
                 }
@@ -298,51 +213,27 @@ public class Livro {
         }
     }
 
-    private static int obterEntradaInteira(Scanner scanner) {
+    // Busca um livro na lista de livros pelo ID
+    
+    public Livro buscarLivroPorId(List<Livro> livros, int idLivro) {
+        for (Livro livro : livros) {
+            if (livro.getIdLivro() == idLivro) {
+                return livro;
+            }
+        }
+        return null;
+    }
+
+    // Obtém uma entrada inteira do usuário, tratando exceções
+    public int obterEntradaInteira(Scanner scanner) {
         while (true) {
             try {
                 return scanner.nextInt();
             } catch (Exception e) {
-                System.out.println("Entrada inválida. Por favor, digite um número inteiro.");
+                System.out.println("Entrada inválida. Tente novamente.");
                 scanner.nextLine(); // Limpa o buffer
             }
         }
     }
-
-    public int getExemplaresDisponiveis() {
-        int count = 0;
-        for (Exemplar exemplar : exemplares) {
-            if (exemplar.isDisponivel()) {
-                count++;
-            }
-        }
-        return count;
-    }
-
-    private Livro buscarLivroPorId(List<Livro> livros, int idLivro) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    // Classe interna Exemplar
-    public class Exemplar {
-        private final int idExemplar;
-        private boolean disponivel;
-
-        public Exemplar(int idExemplar) {
-            this.idExemplar = idExemplar;
-            this.disponivel = true; // Exemplar começa disponível
-        }
-
-        public int getIdExemplar() {
-            return idExemplar;
-        }
-
-        public boolean isDisponivel() {
-            return disponivel;
-        }
-
-        public void setDisponivel(boolean disponivel) {
-            this.disponivel = disponivel;
-        }
-    }
 }
+
