@@ -40,11 +40,16 @@ public class Historico {
  }
  }
  }
- public void exibirHistoricoCompleto() {
+ public int exibirHistoricoCompleto() {
  System.out.println("Exibindo histórico completo:");
- for (Emprestimo emprestimo : emprestimos) {
- System.out.println("Usuário ID: " + idUsuario + ", Empréstimo: " +
-emprestimo);
+ for (int i = 0 ; i< emprestimos.size() ; i++) {
+ System.out.println("Usuário ID: " + idUsuario + ", Empréstimo:");
+ emprestimos.get(i).exibirEmprestimo();
+ return i;
  }
+ return 0;
+ }
+ void renovar(int i){
+     emprestimos.get(i).renovarEmprestimo();
  }
 }

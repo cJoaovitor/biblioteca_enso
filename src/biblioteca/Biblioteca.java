@@ -13,6 +13,7 @@ public class Biblioteca {
     static Scanner cafe = new Scanner(System.in);
     static Scanner cafeln = new Scanner(System.in);
     static int contadorusurio;
+    static int contadoemprestimo;
     static int pociçãoUsuario;
     static String tipoUsurio;
 
@@ -20,18 +21,20 @@ public class Biblioteca {
         int tes = 1;
         do {
             menu();
-            if (tipoUsurio.equalsIgnoreCase("usuario")){
-                menuUsuariov(pociçãoUsuario);
-            }if (tipoUsurio.equalsIgnoreCase("bibliotecario")){
+            if (tipoUsurio.equalsIgnoreCase("usuario")) {
+                menuUsuario(pociçãoUsuario);
+            }
+            if (tipoUsurio.equalsIgnoreCase("bibliotecario")) {
                 menuBibliotecario();
-            }if(tipoUsurio.equalsIgnoreCase("adm")){
+            }
+            if (tipoUsurio.equalsIgnoreCase("adm")) {
                 menuadm();
             }
         } while (tes == 1);
     }
 
     static boolean login() {
-        System.out.println("bem vindo a nossa biblioteca:");
+        System.out.println("Bem vindo!");
         int escolha;
         boolean loginFeito;
         do {
@@ -43,7 +46,7 @@ public class Biblioteca {
                 return loginFeito;
             }
             if (escolha == 1) {
-                System.out.println("qual e o nivel da sua conta 1 para usurio 2 para bibliotecario 3 para adm ");
+                System.out.println("nivel de conta 1 para usurio 2 para bibliotecario 3 para adm ");
                 int nivelConta = cafe.nextInt();
                 String pesNome;
                 String PesSenha;
@@ -51,35 +54,31 @@ public class Biblioteca {
                 switch (nivelConta) {
 
                     case 1:
-                        System.out.println("digite se nome de usuario");
-                        pesNome = cafeln.nextLine();
-                        System.out.println("digite sua senha");
+                        System.out.println("Senha:");
                         PesSenha = cafeln.nextLine();
-                        System.out.println("digite seu email");
+                        System.out.println("Email:");
                         PesEmail = cafeln.nextLine();
                         for (int i = 0; i < us.size(); i++) {
-                            if (us.get(i).getNome().equals(pesNome) && us.get(i).getSenha().equalsIgnoreCase(PesEmail) && us.get(i).getSenha().equalsIgnoreCase(PesSenha)) {
+                            if (us.get(i).getSenha().equalsIgnoreCase(PesEmail) && us.get(i).getSenha().equalsIgnoreCase(PesSenha)) {
                                 pociçãoUsuario = i;
                                 tipoUsurio = "usuario";
                                 loginFeito = true;
                                 return loginFeito;
                             }
                         }
-                        System.out.println("error no login tente novamente ou crei uma conta");
+                        System.out.println("Error tente novamente ou crei uma conta");
                         loginFeito = false;
                         return loginFeito;
                     case 2:
-                        System.out.println("digite se nome de usuario");
-                        pesNome = cafeln.nextLine();
-                        System.out.println("digite sua senha");
+                        System.out.println("Senha:");
                         PesSenha = cafeln.nextLine();
-                        System.out.println("digite seu email");
+                        System.out.println("Email:");
                         PesEmail = cafeln.nextLine();
                         System.out.println("digite o codigo de bibliotecario");
                         String pescodigo = cafe.next();
                         PesEmail = cafeln.nextLine();
                         for (int i = 0; i < bli.size(); i++) {
-                            if (bli.get(i).getNome().equals(pesNome) && bli.get(i).getSenha().equalsIgnoreCase(PesEmail) && bli.get(i).codigoBibliotecario.equalsIgnoreCase(pescodigo)) {
+                            if ( bli.get(i).getSenha().equalsIgnoreCase(PesEmail) && bli.get(i).codigoBibliotecario.equalsIgnoreCase(pescodigo)) {
                                 System.out.println("login feito con sucesso");
                                 pociçãoUsuario = i;
                                 tipoUsurio = "bibliotecario";
@@ -87,21 +86,19 @@ public class Biblioteca {
                                 return loginFeito;
                             }
                         }
-                        System.out.println("error no login tente novamente ou crei uma conta");
+                        System.out.println("Error tente novamente ou crie uma conta");
                         loginFeito = false;
                         return loginFeito;
                     case 3:
-                        System.out.println("digite se nome de usuario");
-                        pesNome = cafeln.nextLine();
-                        System.out.println("digite sua senha");
+                        System.out.println("Senha:");
                         PesSenha = cafeln.nextLine();
-                        System.out.println("digite seu email");
+                        System.out.println("Email:");
                         PesEmail = cafeln.nextLine();
-                        System.out.println("digite o codigo de bibliotecario");
+                        System.out.println("digite o codigo de adm");
                         String pescodigoadm = cafe.next();
                         PesEmail = cafeln.nextLine();
                         for (int i = 0; i < adm.size(); i++) {
-                            if (adm.get(i).getNome().equals(pesNome) && adm.get(i).getSenha().equalsIgnoreCase(PesEmail) && adm.get(i).getCodigoAdd().equalsIgnoreCase(pescodigoadm)) {
+                            if (adm.get(i).getSenha().equalsIgnoreCase(PesEmail) && adm.get(i).getCodigoAdd().equalsIgnoreCase(pescodigoadm)) {
                                 System.out.println("login feito con sucesso");
                                 pociçãoUsuario = i;
                                 tipoUsurio = "adm";
@@ -109,7 +106,7 @@ public class Biblioteca {
                                 return loginFeito;
                             }
                         }
-                        System.out.println("error no login tente novamente ou crei uma conta");
+                        System.out.println("Error tente novamente ou crie uma conta");
                         loginFeito = false;
                         return loginFeito;
                 }
@@ -121,20 +118,21 @@ public class Biblioteca {
     }
 
     static void criarconta() {
-        System.out.println("bem vindo para criar a sua conta primeiro nos diga a nivel dela 1 para usuario 2 para bibliotecaro 3 para add ");
+        System.out.println("Bem vindo para criar a sua conta! Primeiro nos diga o nivel dela 1 para usuario 2 para bibliotecaro 3 para adm ");
         int escolhaconta = cafe.nextInt();
-        System.out.println("digite seu cpf ");
+        System.out.println(" cpf ");
         String testecpf = cafe.next();
         switch (escolhaconta) {
             case 1:
                 for (int i = 0; i < us.size(); i++) {
                     if (us.get(i).getCpf().equalsIgnoreCase(testecpf)) {
+                        System.out.println("O cpf ja esta castrasdo");
                     }
                 }
                 contadorusurio++;
                 Usuario u = new Usuario(contadorusurio, testecpf);
                 us.add(u);
-                System.out.println("conta criada com sucesso");
+                System.out.println("Conta criada com sucesso");
                 break;
             case 2:
                 for (int i = 0; i < bli.size(); i++) {
@@ -142,7 +140,7 @@ public class Biblioteca {
                     }
                 }
                 contadorusurio++;
-                System.out.println("conta criada com suceso, o codigo de bibliotecario e bli123");
+                System.out.println("Conta criada com suceso, o codigo de bibliotecario e bli123");
                 Bibliotecario b = new Bibliotecario("bli123", contadorusurio, testecpf);
                 bli.add(b);
                 break;
@@ -152,7 +150,7 @@ public class Biblioteca {
                     }
                 }
                 contadorusurio++;
-                System.out.println("conta criada com suceso, o codigo de bibliotecario e adm123");
+                System.out.println("Conta criada com suceso, o codigo de bibliotecario e adm123");
                 Administrardor a = new Administrardor("adm123", contadorusurio, testecpf);
                 adm.add(a);
                 break;
@@ -254,10 +252,10 @@ public class Biblioteca {
         }
     }
 
-    static void menuUsuariov(int posiçãoUsuario) {
+    static void menuUsuario(int posiçãoUsuario) {
         System.out.println("o que deseja");
         System.out.println("+---+-------------------------+\n"
-                + "| 1 | fazer emprestimo        |\n"
+                + "| 1 | realizar emprestimo        |\n"
                 + "+---+-------------------------+\n"
                 + "| 2 | renovar emprestimo      |\n"
                 + "+---+-------------------------+\n"
@@ -269,33 +267,180 @@ public class Biblioteca {
                 + "+---+-------------------------+\n"
                 + "| 6 | sair                    |\n"
                 + "+---+-------------------------+");
-                int escolhaUsuario = cafe.nextInt();
-                switch(escolhaUsuario){
-                    case 1:
-                        //função a ser feita pois emprestimo falta correção
-                         System.out.println("em desemvovimento");
-                        break;
-                    case 2:
-                       //função a ser feita pois emprestimo falta correção
-                         System.out.println("em desemvovimento");
-                         break;
-                    case 3:
-                        visualizarhistorico(posiçãoUsuario);
-                        break;
-                    case 4:
-                         verificarStatusConta(pociçãoUsuario);
-                        break;
-                    case 5:
-                        pesquisaLivros();
-                        //falta atulizar a classe livro
-                    case 6:
-                        break;
+        int escolhaUsuario = cafe.nextInt();
+        switch (escolhaUsuario) {
+            case 1:
+                System.out.println("para fazer o emprestimo primeiro pesquise o livro");
+                pesquisaLivros();
+                break;
+            case 2:
+                us.get(pociçãoUsuario).historicoEmprestimos.exibirHistoricoCompleto();
+                System.out.println("deseja remova o emprestimo se sim digite 1");
+                int removarEmprestimo = cafe.nextInt();
+                if (removarEmprestimo == 1) {
+                    int a = us.get(pociçãoUsuario).historicoEmprestimos.exibirHistoricoCompleto();
+                    us.get(pociçãoUsuario).historicoEmprestimos.renovar(a);
                 }
+                break;
+            case 3:
+                visualizarhistorico(posiçãoUsuario);
+                break;
+            case 4:
+                verificarStatusConta(pociçãoUsuario);
+                break;
+            case 5:
+                pesquisaLivros();
+            case 6:
+                break;
+        }
     }
-    static void menuBibliotecario(){
-        // falta correção da classe
+
+    static void menuBibliotecario() {
+        System.out.println("o que deseja fazer");
+        System.out.println("+---+-------------------+\n"
+                + "| 1 | remover usuário   |\n"
+                + "+---+-------------------+\n"
+                + "| 2 | adicionar usuário |\n"
+                + "+---+-------------------+\n"
+                + "| 3 | adicionar livro   |\n"
+                + "+---+-------------------+\n"
+                + "| 4 | remover livro     |\n"
+                + "+---+-------------------+");
+        int escolha = cafe.nextInt();
+        switch (escolha) {
+            case 1:
+                removerusuario();
+                break;
+            case 2:
+                criarconta();
+                break;
+            case 3:
+                adicionarlivro();
+                break;
+            case 4:
+                removerlivro();
+                break;
+        }
     }
-    static void menuadm(){
-        // falta correção do jogo
+
+    static void menuadm() {
+        System.out.println("o que deseja fazer");
+        System.out.println("+---+-------------------------+\n"
+                + "| 1 | remover bibliotecario   |\n"
+                + "+---+-------------------------+\n"
+                + "| 2 | adicionar bibliotecario |\n"
+                + "+---+-------------------------+");
+        int escolhar = cafe.nextInt();
+        switch (escolhar) {
+            case 1:
+                removerbibliotecario();
+            case 2:
+                criarconta();
+        }
     }
+
+    static void pesquisaLivros() {
+        System.out.println("pelo oque quer pesquisa o livro; 1 nome do livro, 2 autor, 3 genero");
+        int peslv = cafe.nextInt();
+        int fazeremprestimo;
+        switch (peslv) {
+            case 1:
+                System.out.println("qual e o nome do livro");
+                String peslvnomme = cafeln.nextLine();
+                for (int i = 0; i < livros.size(); i++) {
+                    if (livros.get(i).getTitulo().equals(peslvnomme)) {
+                        livros.get(i).exibir();
+                        System.out.println("deseja fazer empretimo desse livro se sim 1 ");
+                        fazeremprestimo = cafe.nextInt();
+                        if (fazeremprestimo == 1) {
+                            emprestimo(pociçãoUsuario, livros.get(i).getIdLivro(), livros.get(i));
+                        }
+                    }
+                }
+                break;
+            case 2:
+                System.out.println("qual e o titulo");
+                String peslvtitulo = cafeln.nextLine();
+                for (int i = 0; i < livros.size(); i++) {
+                    if (livros.get(i).getTitulo().equals(peslvtitulo)) {
+                        livros.get(i).exibir();
+                        System.out.println("deseja fazer empretimo desse livro se sim 1 ");
+                        fazeremprestimo = cafe.nextInt();
+                        if (fazeremprestimo == 1) {
+                            emprestimo(pociçãoUsuario, livros.get(i).getIdLivro(), livros.get(i));
+                        }
+                    }
+                }
+                break;
+            case 3:
+                System.out.println("qual e o titulo");
+                String peslvgenero = cafeln.nextLine();
+                for (int i = 0; i < livros.size(); i++) {
+                    if (livros.get(i).getTitulo().equals(peslvgenero)) {
+                        livros.get(i).exibir();
+                        System.out.println("deseja fazer empretimo desse livro se sim 1 ");
+                        fazeremprestimo = cafe.nextInt();
+                        if (fazeremprestimo == 1) {
+                            emprestimo(pociçãoUsuario, livros.get(i).getIdLivro(), livros.get(i));
+                        }
+                    }
+                }
+                break;
+
+        }
+
+    }
+
+    static void emprestimo(int posiçãousuario, int idlivro, Livro l) {
+        contadoemprestimo++;
+        String data = "21/01/2025";
+        String datadevo = "daqui ha sete dias";
+        Emprestimo e = new Emprestimo(contadoemprestimo, us.get(posiçãousuario).idusuario, idlivro, data, datadevo, false, l);
+    }
+
+    static void removerusuario() {
+        System.out.println("Usuario");
+        for (int i = 0; i < us.size(); i++) {
+            us.get(i).exibir();
+            System.out.println("Quer excluir esse Usuario 1 para sim");
+            int escolharex = cafe.nextInt();
+            if (escolharex == 1) {
+                us.remove(i);
+            }
+        }
+    }
+
+    static void adicionarlivro() {
+        int cont;
+        do {
+            Livro l = new Livro(cafe);
+            System.out.println("quer adicionar mais um livro se sim digite 1");
+            cont = cafe.nextInt();
+        } while (cont == 1);
+    }
+
+    static void removerlivro() {
+        System.out.println("qual livro deseja renover");
+        for (int i = 0; i < livros.size(); i++) {
+            livros.get(i).exibir();
+            System.out.println("quer remover esse livro se sim digite 1");
+            int escolharemover = cafe.nextInt();
+            if (escolharemover == 1) {
+                livros.remove(i);
+            }
+        }
+    }
+
+    static void removerbibliotecario() {
+        System.out.println("bibliotecario");
+        for (int i = 0; i < bli.size(); i++) {
+            us.get(i).exibir();
+            System.out.println("Quer excluir esse bibliotecario 1 para sim");
+            int escolharex = cafe.nextInt();
+            if (escolharex == 1) {
+                bli.remove(i);
+            }
+        }
+    }
+
 }

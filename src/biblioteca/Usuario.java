@@ -18,12 +18,11 @@ public class Usuario {
 
     public Usuario(int idusuario, String cpf) {
         String axuSenha;
-        System.out.println("olá usuario seja bem vindo a nossa biblioteca");
-        System.out.println("para ragistar a sua conta por favor digite seu nome ");
+        System.out.println("nome:");
         nome = cafeline.nextLine();
-        System.out.println("digite o seu email");
+        System.out.println("email:");
         email = cafe.next();
-        System.out.println("digite a sua senha ");
+        System.out.println("senha:");
         axuSenha = cafe.next();
         this.cpf = cpf;
         System.out.println("comfirne a sua senha");
@@ -69,7 +68,7 @@ public class Usuario {
     }
 
     public void recuperarSenha() {
-        System.out.println("digite a sua senha ");
+        System.out.println("digite senha ");
         String axuSenha = cafe.next();
         System.out.println("comfirne a sua senha");
         senha = cafe.next();
@@ -77,5 +76,10 @@ public class Usuario {
             System.out.println("comfirne a sua senha");
             senha = cafe.next();
         }
+    }
+    public void exibir (){
+        System.out.println("nome:"+nome);
+        System.out.println("id Usuario:"+idusuario);
+        System.out.println("cpf"+cpf);
     }
 }
