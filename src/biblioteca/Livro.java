@@ -1,39 +1,48 @@
 package biblioteca;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Livro {
-    private int idLivro;
-    private String titulo;
-    private String autor;
-    private String genero;
-    private String descricao;
-    private String anoPublicacao;
-    private String editora;
-    private boolean disponivel;
+       // Atributos da classe Livro
+    private final int idLivro;
+    private final String titulo;
+    private final String autor;
+    private final String genero;
+    private final String descricao;
+    private final String anoPublicacao;
+    private final String editora;
+    private final int numExemplares;
+    private int disponiveis; // Este pode ser alterado
+    private final String categoria;
 
-    // Construtor
-   public  Livro( Scanner scanner) {
-            System.out.print("Digite o ID do livro: ");
-            int idLivro = scanner.nextInt();
-            scanner.nextLine(); // Limpa o buffer
-            System.out.print("Digite o título do livro: ");
-            String titulo = scanner.nextLine();
-            System.out.print("Digite o autor do livro: ");
-            String autor = scanner.nextLine();
-            System.out.print("Digite o gênero do livro: ");
-            String genero = scanner.nextLine();
-            System.out.print("Digite a descrição do livro: ");
-            String descricao = scanner.nextLine();
-            System.out.print("Digite o ano de publicação: ");
-            String anoPublicacao = scanner.nextLine();
-            System.out.print("Digite a editora: ");
-            String editora = scanner.nextLine();
-        }
+    
+     // Chaves de acesso
+    private static final String CHAVE_ADM = "D&48QH83@NWk#";
+    private static final String CHAVE_BIBLIOTECARIO = "B@18OTe61$IKo&";
 
-    // Métodos Getters
+    // Lista para armazenar os livros
+    private static List<Livro> biblioteca = new ArrayList<>();
+    
+    
+    
+    // Construtor da classe Livro
+    public Livro(int idLivro, String titulo, String autor, String genero, 
+                 String descricao, String anoPublicacao, String editora, 
+                 int numExemplares, int disponiveis, String categoria) {
+        this.idLivro = idLivro;
+        this.titulo = titulo;
+        this.autor = autor;
+        this.genero = genero;
+        this.descricao = descricao;
+        this.anoPublicacao = anoPublicacao;
+        this.editora = editora;
+        this.numExemplares = numExemplares;
+        this.disponiveis = disponiveis;
+        this.categoria = categoria;
+    }
+
+    // Getters
     public int getIdLivro() {
         return idLivro;
     }
@@ -62,171 +71,252 @@ public class Livro {
         return editora;
     }
 
-    public boolean isDisponivel() {
-        return disponivel;
+    public int getNumExemplares() {
+        return numExemplares;
     }
 
-    // Métodos Setters
-    public void setIdLivro(int idLivro) {
-        this.idLivro = idLivro;
+    public int getDisponiveis() {
+        return disponiveis;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public String getCategoria() {
+        return categoria;
     }
 
-    public void setAutor(String autor) {
-        this.autor = autor;
+    // Setter para 'disponiveis'
+    public void setDisponiveis(int disponiveis) {
+        this.disponiveis = disponiveis;
     }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public void setAnoPublicacao(String anoPublicacao) {
-        this.anoPublicacao = anoPublicacao;
-    }
-
-    public void setEditora(String editora) {
-        this.editora = editora;
-    }
-
-    public void setDisponivel(boolean disponivel) {
-        this.disponivel = disponivel;
-    }
-
-
-    // Adiciona novos livros à lista de livros
-    
     
 
-        // Atualiza a disponibilidade de um livro
-    public  void atualizarDisponibilidade( Scanner scanner) {
-        if (disponivel = true){
-            disponivel = false;
-        }else {
-            disponivel = true;
+    
+// Método para atualizar a disponibilidade de exemplares
+    public void atualizarDisponibilidade() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Digite a chave de acesso: ");
+        String chave = scanner.nextLine();
+
+        // Verifica se a chave é válida
+        if (!chave.equals(CHAVE_ADM) && !chave.equals(CHAVE_BIBLIOTECARIO)) {
+            System.out.println("Acesso negado. Chave inválida.");
+            return;
+        }
+
+        System.out.print("Digite o título do exemplar: ");
+        String tituloExemplar = scanner.nextLine();
+
+        // Verifica se o exemplar existe na biblioteca
+        if (!tituloExemplar.equals(this.titulo)) {
+            System.out.println("Exemplar não encontrado.");
+            return;
+        }
+
+        // Verifica a disponibilidade
+        if (this.disponiveis > 0) {
+            System.out.println("O exemplar \"" + this.titulo + "\" está disponível para empréstimo.");
+        } else {
+            System.out.println("O exemplar \"" + this.titulo + "\" não está disponível.");
+            System.out.print("Deseja registrar um motivo? (s/n): ");
+            char resposta = scanner.next().charAt(0);
+
+            if (resposta == 's' || resposta == 'S') {
+                System.out.print("Digite o motivo: ");
+                scanner.nextLine(); // Limpa o buffer
+                String motivo = scanner.nextLine();
+                System.out.println("Motivo registrado: " + motivo);
+            }
+        }
+
+        // Alterar status
+        System.out.print("Deseja alterar o status do exemplar? (d - disponível, n - não disponível): ");
+        char novoStatus = scanner.next().charAt(0);
+
+        switch (novoStatus) {
+            case 'd':
+                this.disponiveis = this.numExemplares; // Define como disponível
+                System.out.println("O exemplar \"" + this.titulo + "\" agora está disponível.");
+                break;
+            case 'D':
+                this.disponiveis = this.numExemplares; // Define como disponível
+                System.out.println("O exemplar \"" + this.titulo + "\" agora está disponível.");
+                break;
+            case 'n' :
+                this.disponiveis = 0; // Define como não disponível
+                System.out.print("Digite o motivo para não estar disponível: ");
+                scanner.nextLine(); // Limpa o buffer
+                String motivo = scanner.nextLine();
+                System.out.println("O exemplar \"" + this.titulo + "\" agora está não disponível. Motivo registrado: " + motivo);
+                break;
+            case  'N':
+                this.disponiveis = 0; // Define como não disponível
+                System.out.print("Digite o motivo para não estar disponível: ");
+                scanner.nextLine(); // Limpa o buffer
+                String Motivo = scanner.nextLine();
+                System.out.println("O exemplar \"" + this.titulo + "\" agora está não disponível. Motivo registrado: " + Motivo);
+                break;
+            default :System.out.println("Opção inválida.");
         }
     }
 
+    
+    
+    
+ // Método para pesquisar livros 
+    public static void pesquisarLivros() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("=== Pesquisa de Livros ===");
+        System.out.println("Escolha um critério de pesquisa:");
+        System.out.println("1. Título");
+        System.out.println("2. Autor");
+        System.out.println("3. Categoria");
+        System.out.println("4. Gênero");
+        System.out.println("5. Ano de Publicação");
+        System.out.println("6. Editora");
+        System.out.print("Digite o número do critério desejado: ");
+        
+        int opcao = scanner.nextInt();
+        scanner.nextLine(); // Limpa o buffer
 
-    // Pesquisa livros com base em diferentes critérios
-    public  void pesquisarLivros(List<Livro> livros, Scanner scanner) {
-        while (true) {
-            System.out.println("=== Pesquisa de Livros ===");
-            System.out.println("Escolha o critério de pesquisa:");
-            System.out.println("1. Título");
-            System.out.println("2. Autor");
-            System.out.println("3. Gênero");
-            System.out.println("4. Ano de Publicação");
-            System.out.print("Digite o número da opção desejada: ");
+        String criterio = "";
+        switch (opcao) {
+            case 1 : criterio = "titulo";
+            case 2 : criterio = "autor";
+            case 3 : criterio = "categoria";
+            case 4 : criterio = "genero";
+            case 5 : criterio = "ano";
+            case 6 : criterio = "editora";
+            default :
+                System.out.println("Opção inválida.");
+             
+            
+        }
 
-            int opcao = obterEntradaInteira(scanner);
-            scanner.nextLine(); // Limpa o buffer
-
-            String termo = "";
-            switch (opcao) {
-                case 1:
-                    System.out.print("Digite o título do livro: ");
-                    termo = scanner.nextLine();
-                    break;
-                case 2:
-                    System.out.print("Digite o autor do livro: ");
-                    termo = scanner.nextLine();
-                    break;
-                case 3:
-                    System.out.print("Digite o gênero do livro: ");
-                    termo = scanner.nextLine();
-                    break;
-                case 4:
-                    System.out.print("Digite o ano de publicação do livro: ");
-                    termo = scanner.nextLine();
-                    break;
-                default:
-                    System.out.println("Opção inválida. Pesquisa cancelada.");
-                    return;
+        // Exibir todos os livros que correspondem ao critério selecionado
+        System.out.println("=== Livros disponíveis para o critério: " + criterio + " ===");
+        boolean encontrouLivros = false;
+        for (Livro livro : biblioteca) {
+            switch (criterio) {
+                case "titulo" :
+                    System.out.println("Título: " + livro.titulo);
+                    encontrouLivros = true;
+                break;
+                case "autor" :
+                    System.out.println("Autor: " + livro.autor);
+                    encontrouLivros = true;
+                break;
+                case "categoria" :
+                    System.out.println("Categoria: " + livro.categoria);
+                    encontrouLivros = true;
+                break;
+                case "genero" :
+                    System.out.println("Gênero: " + livro.genero);
+                    encontrouLivros = true;
+                break;
+                case "ano" :
+                    System.out.println("Ano de Publicação: " + livro.anoPublicacao);
+                    encontrouLivros = true;
+                break;
+                case "editora" :
+                    System.out.println("Editora: " + livro.editora);
+                    encontrouLivros = true;
+                break;
+                
             }
+        }
 
-            boolean encontrado = false;
-            for (Livro livro : livros) {
-                boolean corresponde = false;
+        if (!encontrouLivros) {
+            System.out.println("Nenhum livro disponível para o critério selecionado.");
+            return;
+        }
 
-                switch (opcao) {
-                    case 1:
-                        corresponde = livro.getTitulo().toLowerCase().contains(termo.toLowerCase());
-                        break;
-                    case 2:
-                        corresponde = livro.getAutor().toLowerCase().contains(termo.toLowerCase());
-                        break;
-                    case 3:
-                        corresponde = livro.getGenero().toLowerCase().contains(termo.toLowerCase());
-                        break;
-                    case 4:
-                        corresponde = livro.getAnoPublicacao().contains(termo);
-                        break;
-                }
+        // Solicitar valor para pesquisa
+        System.out.print("Digite o valor para pesquisa: ");
+        String valor = scanner.nextLine();
+        boolean encontrado = false;
 
-                if (corresponde) {
-                    System.out.println("Livro encontrado:");
-                    System.out.println("Título: " + livro.getTitulo());
-                    System.out.println("Autor: " + livro.getAutor());
-                    System.out.println("Gênero: " + livro.getGenero());
-                    System.out.println("Descrição: " + livro.getDescricao());
-                    System.out.println("Ano de Publicação: " + livro.getAnoPublicacao());
-                    System.out.println("Editora: " + livro.getEditora());
-                    System.out.println("ID: " + livro.getIdLivro());
-                    System.out.println("Disponibilidade: " + (livro.isDisponivel() ? "Disponível" : "Indisponível"));
-                    System.out.println("-------------------------------");
-                    encontrado = true;
-                }
-            }
-
-            if (!encontrado) {
-                System.out.println("Nenhum livro encontrado com o termo: " + termo);
-            }
-
-            System.out.print("Deseja realizar outra pesquisa? (s/n): ");
-            char resposta = scanner.nextLine().charAt(0);
-            if (resposta != 's') {
+        for (Livro livro : biblioteca) {
+            switch (criterio) {
+                case "titulo" :
+                    if (livro.titulo.equalsIgnoreCase(valor)) {
+                        livro.exibirDetalhes();
+                        encontrado = true;
+                    }
+                break;
+                case "autor" :
+                    if (livro.autor.equalsIgnoreCase(valor)) {
+                        livro.exibirDetalhes();
+                        encontrado = true;
+                    }
+                break;
+                case "categoria" :
+                    if (livro.categoria.equalsIgnoreCase(valor)) {
+                        livro.exibirDetalhes();
+                        encontrado = true;
+                    }
+                break;
+                case "genero" :
+                    if (livro.genero.equalsIgnoreCase(valor)) {
+                        livro.exibirDetalhes();
+                        encontrado = true;
+                    }
+                break;
+                case "ano" :
+                    if (livro.anoPublicacao.equals(valor)) {
+                        livro.exibirDetalhes();
+                        encontrado = true;
+                    }
+                break;
+                case "editora" :
+                    if (livro.editora.equalsIgnoreCase(valor)) {
+                        livro.exibirDetalhes();
+                        encontrado = true;
+                    }
                 break;
             }
         }
-    }
 
-    // Busca um livro na lista de livros pelo ID
-    static Livro buscarLivroPorId(List<Livro> livros, int idLivro) {
-        for (Livro livro : livros) {
-            if (livro.getIdLivro() == idLivro) {
-                return livro;
-            }
-        }
-        return null;
-    }
-
-    // Obtém uma entrada inteira do usuário, tratando exceções
-    static int obterEntradaInteira(Scanner scanner) {
-        while (true) {
-            try {
-                return scanner.nextInt();
-            } catch (Exception e) {
-                System.out.println("Entrada inválida. Tente novamente.");
-                scanner.nextLine(); // Limpa o buffer
-            }
+        if (!encontrado) {
+            System.out.println("Nenhum livro encontrado com o critério: " + valor);
         }
     }
-    public void exibir(){
-        System.out.println(titulo);
-        System.out.println(genero);
-        System.out.println(autor);
-        System.out.println(editora);
-        System.out.println(disponivel);
-        System.out.println(descricao);
-        System.out.println(idLivro);
-        System.out.println(anoPublicacao);
+    
+    
+    
+    
+    // Método para exibir detalhes do livro
+    public void exibirDetalhes() {
+        System.out.println("=== Detalhes do Livro ===");
+        System.out.println("ID: " + idLivro);
+        System.out.println("Título: " + titulo);
+        System.out.println("Autor: " + autor);
+        System.out.println("Gênero: " + genero);
+        System.out.println("Descrição: " + descricao);
+        System.out.println("Ano de Publicação: " + anoPublicacao);
+        System.out.println("Editora: " + editora);
+        System.out.println("Número de Exemplares: " + numExemplares);
+        System.out.println("Disponíveis: " + disponiveis);
+        System.out.println("Categoria: " + categoria);
+        System.out.println("=========================");
+    }
+    
+    
+    
+
+    // Método para adicionar livro à biblioteca
+    public static void adicionarLivro(Livro livro) {
+        biblioteca.add(livro);
+        System.out.println("Livro adicionado com sucesso: " + livro.titulo);
+    }
+
+    
+    
+    // Método para exibir o menu
+    public static void exibirMenu() {
+        System.out.println("=== Menu da Biblioteca ===");
+        System.out.println("1. Adicionar Livro");
+        System.out.println("2. Atualizar Disponibilidade de Exemplares");
+        System.out.println("3. Pesquisar Livro");
+        System.out.println("4. Sair");
+        System.out.print("Escolha uma opção: ");
     }
 }
-
