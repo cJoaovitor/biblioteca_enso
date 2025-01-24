@@ -1,8 +1,6 @@
-
 package biblioteca;
 
 import java.util.Date;
-
 
 class Notificacao {
     private static int contador = 0; // Contador estático para gerar um ID único para cada notificação
@@ -13,17 +11,17 @@ class Notificacao {
     private String mensagem; // Conteúdo da notificação
     private String emailDestinatario; // Endereço de e-mail do destinatário
 
-   
-    public Notificacao(int idUsuario, String tipo, String emailDestinatario, int idNotifiçao) {
-        this.idNotificacao = idNotifiçao;// Incrementa o contador para gerar um novo ID
+    // Construtor
+    public Notificacao(int idUsuario, String tipo, String emailDestinatario) {
+        this.idNotificacao = ++contador; // Incrementa o contador para gerar um novo ID
         this.idUsuario = idUsuario; // Atribui o ID do usuário
         this.dataEnvio = new Date(); // Define a data de envio como a data atual
         this.tipo = tipo; // Define o tipo da notificação
         this.emailDestinatario = emailDestinatario; // Atribui o e-mail do destinatário
     }
 
-        public void enviarNotificacao() {
-        // Simula o envio de uma notificação
+    // Método para enviar a notificação
+    public void enviarNotificacao() {
         System.out.println("Enviando notificação para: " + emailDestinatario);
         System.out.println("Tipo: " + tipo);
         System.out.println("Mensagem: " + mensagem);
@@ -32,33 +30,35 @@ class Notificacao {
         // Aqui você pode integrar um sistema de envio de e-mail real
     }
 
-    //funcão padrão vou usa de base so mudar a mensagem
-     public String criarconta(String nome){
-       mensagem = "sua conta foi criada com suceso bem vindo "+nome;
-       return mensagem;
+    // Método para criar conta
+    public void criarConta(String nome) {
+        mensagem = "Sua conta foi criada com sucesso. Bem-vindo, " + nome + "!";
+        enviarNotificacao();
     }
-    
-    
-    public String recuperarsenha(String email, String nome, boolean senharescuperada ){
-        if (senharescuperada == false){
-            mensagem = "foi enviado um coddigo por email para o senhor "+nome;
-            return mensagem;
-        }else{
-            mensagem = "sua senha foi mudar com suceso ";
-            return mensagem;
+
+    // Método para recuperar senha
+    public void recuperarSenha(String email, String nome, boolean senhaRecuperada) {
+        if (!senhaRecuperada) {
+            mensagem = "Foi enviado um código por e-mail para o senhor " + nome + ".";
+        } else {
+            mensagem = "Sua senha foi mudada com sucesso.";
         }
-    }
-    public String notificarEmprestimo (String nomelivro, String dataDevolução){
-        mensagem= "seu emprestimo "+nomelivro+"do foi relisado com suceso a data para devolução e:"+dataDevolução;
-        return mensagem;
+        enviarNotificacao();
     }
 
-    public String notificarprazo(int dia){
-        mensagem  = "seu empretime tem penas "+dia+" de validez";
-        return mensagem;
+    // Método para notificar sobre empréstimo
+    public void notificarEmprestimo(String nomeLivro, String dataDevolucao) {
+        mensagem = "Seu empréstimo do livro " + nomeLivro + " foi realizado com sucesso. A data para devolução é: " + dataDevolucao + ".";
+        enviarNotificacao();
     }
 
+    // Método para notificar sobre prazo
+    public void notificarPrazo(int dias) {
+        mensagem = "Seu empréstimo tem apenas " + dias + " dias de validade.";
+        enviarNotificacao();
+    }
 
+    // Getters
     public int getIdNotificacao() {
         return idNotificacao; // Retorna o ID da notificação
     }
