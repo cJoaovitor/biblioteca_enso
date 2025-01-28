@@ -1,8 +1,8 @@
 package biblioteca;
 
-import static biblioteca.Biblioteca.bibliotecarios;
+import static dados.Dados.*;
 import static biblioteca.Biblioteca.contadorUsuario;
-import static biblioteca.Biblioteca.usuarios;
+import static biblioteca.Biblioteca.*;
 
 public class Administrador extends Usuario {
     private final String codigoAdm;
@@ -32,12 +32,12 @@ public class Administrador extends Usuario {
 
     public void visualizarHistorico(int posicaoUsuario) {
         System.out.println("Histórico de empréstimos do usuário: ");
-        usuarios.get(posicaoUsuario).visualizarHistorico();
+        getUsuarios().get(posicaoUsuario).visualizarHistorico();
     }
 
     public void removerUsuario(int posicaoUsuario) {
-        if (posicaoUsuario >= 0 && posicaoUsuario < usuarios.size()) {
-            usuarios.remove(posicaoUsuario);
+        if (posicaoUsuario >= 0 && posicaoUsuario < getUsuarios().size()) {
+            getUsuarios().remove(posicaoUsuario);
             System.out.println("Usuário removido com sucesso!");
         } else {
             System.out.println("Usuário não encontrado.");
@@ -46,7 +46,7 @@ public class Administrador extends Usuario {
 
     public void adicionarBibliotecario(String cpf, String nome, String email, String senha) {
         if (!bibliotecarioJaCadastrado(cpf)) {
-            bibliotecarios.add(new Bibliotecario("bli" + (++contadorUsuario), ++contadorUsuario, cpf, nome, email, senha));
+            dados.Dados.getBibliotecarios().add(new Bibliotecario("bli" + (++contadorUsuario), ++contadorUsuario, cpf, nome, email, senha));
             System.out.println("Bibliotecário adicionado com sucesso.");
         } else {
             System.out.println("Bibliotecário com esse CPF já cadastrado.");
@@ -54,7 +54,7 @@ public class Administrador extends Usuario {
     }
 
     private boolean bibliotecarioJaCadastrado(String cpf) {
-        for (Bibliotecario bibliotecario : bibliotecarios) {
+        for (Bibliotecario bibliotecario : getBibliotecarios()) {
             if (bibliotecario.getCpf().equalsIgnoreCase(cpf)) {
                 return true;
             }

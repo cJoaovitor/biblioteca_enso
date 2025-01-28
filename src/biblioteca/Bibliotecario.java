@@ -1,7 +1,7 @@
 package biblioteca;
 
 import java.util.Scanner;
-
+import dados.Dados.*;
 public class Bibliotecario extends Usuario {
     private String codigoBibliotecario;
     public static int contadorEmprestimo = 0;
@@ -17,14 +17,14 @@ public class Bibliotecario extends Usuario {
 
     public void adicionarLivro(Scanner scanner) {
         Livro novoLivro = new Livro(scanner);
-        Biblioteca.livros.add(novoLivro);
+        dados.Dados.getLivros().add(novoLivro);
         System.out.println("Livro adicionado com sucesso: " + novoLivro.getTitulo());
     }
 
     public void removerLivro(int idLivro) {
-        for (int i = 0; i < Biblioteca.livros.size(); i++) {
-            if (Biblioteca.livros.get(i).getIdLivro() == idLivro) {
-                Biblioteca.livros.remove(i);
+        for (int i = 0; i < dados.Dados.getLivros().size(); i++) {
+            if (dados.Dados.getLivros().get(i).getIdLivro() == idLivro) {
+                dados.Dados.getLivros().remove(i);
                 System.out.println("Livro removido com sucesso!");
                 return;
             }
@@ -33,11 +33,11 @@ public class Bibliotecario extends Usuario {
     }
 
     public void visualizarLivros() {
-        if (Biblioteca.livros.isEmpty()) {
+        if (dados.Dados.getLivros().isEmpty()) {
             System.out.println("Nenhum livro cadastrado.");
         } else {
             System.out.println("=== Lista de Livros ===");
-            for (Livro livro : Biblioteca.livros) {
+            for (Livro livro : dados.Dados.getLivros()) {
                 livro.exibir();
                 System.out.println();
             }
@@ -45,13 +45,13 @@ public class Bibliotecario extends Usuario {
     }
 
     public void registrarEmprestimo(int idUsuario, int idLivro) {
-        if (idUsuario < 0 || idUsuario >= Biblioteca.usuarios.size()) {
+        if (idUsuario < 0 || idUsuario >= dados.Dados.getUsuarios().size()) {
             System.out.println("Usuário não encontrado.");
             return;
         }
 
-        Usuario usuario = Biblioteca.usuarios.get(idUsuario);
-        Livro livro = Biblioteca.livros.stream()
+        Usuario usuario = dados.Dados.getUsuarios().get(idUsuario);
+        Livro livro = dados.Dados.getLivros().stream()
                 .filter(l -> l.getIdLivro() == idLivro && l.isDisponivel())
                 .findFirst()
                 .orElse(null);
@@ -67,12 +67,12 @@ public class Bibliotecario extends Usuario {
     }
 
     public void visualizarHistoricoEmprestimos(int idUsuario) {
-        if (idUsuario < 0 || idUsuario >= Biblioteca.usuarios.size()) {
+        if (idUsuario < 0 || idUsuario >= dados.Dados.getUsuarios().size()) {
             System.out.println("Usuário não encontrado.");
             return;
         }
         System.out.println("=== Histórico de Empréstimos do Usuário " + idUsuario + " ===");
-        Biblioteca.usuarios.get(idUsuario).visualizarHistorico();
+        dados.Dados.getUsuarios().get(idUsuario).visualizarHistorico();
     }
 
     public void editarDados(String novoNome, String novoEmail, String novaSenha) {
