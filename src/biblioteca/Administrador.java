@@ -1,7 +1,7 @@
 package biblioteca;
 
 import static dados.Dados.*;
-import static biblioteca.Biblioteca.contadorUsuario;
+import static dados.Dados.*;
 import static biblioteca.Biblioteca.*;
 
 public class Administrador extends Usuario {

@@ -17,7 +17,6 @@ public class UsuarioSever {
             criarConta();
             return true; // Login automático após criar conta
         }
-
         System.out.println("Bem-vindo!");
         System.out.println("1. Login");
         System.out.println("2. Criar Conta");
@@ -94,12 +93,12 @@ public class UsuarioSever {
         switch (escolhaConta) {
             case 1: // Usuário
                 if (verficacoes.verficacoes.verificaCpfExistente(dados.Dados.getUsuarios(), testeCpf)) return;
-                Usuario u = new Usuario(dados.Dados.getContadorUsuarios(), testeCpf, nome, email, senha);
+                Usuario u = new Usuario(dados.Dados.getContadorUsuario(), testeCpf, nome, email, senha);
                 dados.Dados.getUsuarios().add(u);
                 System.out.println("Conta de usuário criada com sucesso.");
-                biblioteca.BibliotecatipoUsuario = "usuario";
-                posicaoUsuario = dados.Dados.getUsuarios().size() - 1; // Loga automaticamente
-                dados.Dados.setContadorUsuarios(dados.Dados.getContadorUsuarios()+1);
+                dados.Dados.setTipoUsuario("usuario");
+                dados.Dados.setPosicaoUsuario(dados.Dados.getUsuarios().size() - 1) ;// Loga automaticamente
+                dados.Dados.AumentarContardoUsuario();
                 break;
 
             case 2: // Bibliotecário
@@ -109,7 +108,7 @@ public class UsuarioSever {
                 System.out.println("Conta de bibliotecário criada com sucesso.");
                 tipoUsuario = "bibliotecario";
                 posicaoUsuario = dados.Dados.getBibliotecarios().size() - 1; // Loga automaticamente
-                menuBibliotecario(); // Volta para o menu do bibliotecário
+                biblioteca.menuBibliotecario(); // Volta para o menu do bibliotecário
                 break;
 
             case 3: // Administrador
@@ -189,6 +188,11 @@ public class UsuarioSever {
         }
         return false; // Retorna falso após 3 tentativas
     } 
-    
-  
+    static void visualizarHistoricoEmprestimos(int idUsuario) {
+        if (idUsuario < 0 || idUsuario >= dados.Dados.getUsuarios().size()) {
+            System.out.println("Usuário não encontrado.");
+            return;
+        }
+        dados.Dados.getUsuarios().get(idUsuario).visualizarHistorico();
+    }
 }

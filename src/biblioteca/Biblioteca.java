@@ -6,11 +6,7 @@ import dados.Dados.*;
 public class Biblioteca {
   
     static Scanner scanner = new Scanner(System.in);
-    static int contadorUsuario = 0;
-    static String tipoUsuario = "";
-    static int posicaoUsuario = -1;
-    static int contadorEmprestimo = 0; // Inicializa o contador de empréstimos
-    static int contadorLivros = 0; // Contador de livros para IDs
+    
     
     
     public static void main(String[] args) {
@@ -73,7 +69,7 @@ public class Biblioteca {
         }
     }
 
-    static void menuBibliotecario() {
+    public static void menuBibliotecario() {
         while (true) {
             System.out.println("===== MENU BIBLIOTECÁRIO =====");
             System.out.println("1. Adicionar Livro");
@@ -109,7 +105,7 @@ public class Biblioteca {
                     String novoEmail = scanner.nextLine();
                     System.out.println("Digite a nova senha:");
                     String novaSenha = scanner.nextLine();
-                    dados.Dados.getBibliotecarios().get(posicaoUsuario).editarDados(novoNome, novoEmail, novaSenha);
+                    dados.Dados.getBibliotecarios().get(dados.Dados.getPosicaoUsuario()).editarDados(novoNome, novoEmail, novaSenha);
                     break;
                 case 6:
                     return; // Volta para o menu inicial
@@ -140,12 +136,12 @@ public class Biblioteca {
                     String email = scanner.nextLine();
                     System.out.println("Digite a senha do bibliotecário:");
                     String senha = scanner.nextLine();
-                    dados.Dados.getAdministradores().get(posicaoUsuario).adicionarBibliotecario(cpf, nome, email, senha);
+                    dados.Dados.getAdministradores().get(dados.Dados.getPosicaoUsuario()).adicionarBibliotecario(cpf, nome, email, senha);
                     break;
                 case 2:
                     System.out.println("Digite a posição do usuário que deseja remover:");
                     int posicaoUsuarioRemover = scanner.nextInt();
-                    dados.Dados.getAdministradores().get(posicaoUsuario).removerUsuario(posicaoUsuarioRemover);
+                    dados.Dados.getAdministradores().get(dados.Dados.getPosicaoUsuario()).removerUsuario(posicaoUsuarioRemover);
                     break;
                 case 3:
                     for (Usuario usuario : dados.Dados.getUsuarios()) {
@@ -161,81 +157,6 @@ public class Biblioteca {
         }
     }
 
-    static void removerLivro(int idLivro) {
-        for (int i = 0; i < dados.Dados.getLivros().size(); i++) {
-            if (dados.Dados.getLivros().get(i).getIdLivro() == idLivro) {
-                dados.Dados.getLivros().remove(i);
-                System.out.println("Livro removido com sucesso!");
-                return;
-            }
-        }
-        System.out.println("Livro não encontrado.");
-    }
-
-    static void visualizarLivros() {
-        if (dados.Dados.getLivros().isEmpty()) {
-            System.out.println("Nenhum livro cadastrado.");
-        } else {
-            System.out.println("=== Lista de Livros ===");
-            for (Livro livro : dados.Dados.getLivros()) {
-                livro.exibir();
-                System.out.println();
-            }
-        }
-    }
-
-    static void emprestimo(int posicaoUsuario, int idLivro) {
-        if (idLivro < 0 || idLivro >= dados.Dados.getLivros().size()) {
-            System.out.println("ID de livro inválido.");
-            return;
-        }
-        
-        Livro livro = dados.Dados.getLivros().get(idLivro); // Supondo que 'livros' é uma lista de objetos Livro
-        if (livro.isDisponivel()) {
-            Emprestimo novoEmprestimo = new Emprestimo(
-                ++Biblioteca.contadorEmprestimo, // Incrementa e usa o contador
-                dados.Dados.getUsuarios().get(posicaoUsuario), // Passa o objeto Usuario
-                livro // Passa o objeto Livro
-            );
-            livro.setDisponivel(false); // Marca o livro como não disponível
-            dados.Dados.getUsuarios().get(posicaoUsuario).registrarEmprestimo(novoEmprestimo);
-            System.out.println("Empréstimo registrado com sucesso!");
-        } else {
-            System.out.println("Livro não disponível.");
-        }
-    }
-
-    static void visualizarHistoricoEmprestimos(int idUsuario) {
-        if (idUsuario < 0 || idUsuario >= dados.Dados.getUsuarios().size()) {
-            System.out.println("Usuário não encontrado.");
-            return;
-        }
-        dados.Dados.getUsuarios().get(idUsuario).visualizarHistorico();
-    }
-
-    static void adicionarLivro() {
-      Scanner scanner = new Scanner(System.in);
-
-      // Solicita os dados do livro
-      System.out.print("Digite o título do livro: ");
-      String titulo = scanner.nextLine();
-      System.out.print("Digite o autor do livro: ");
-      String autor = scanner.nextLine();
-      System.out.print("Digite o gênero do livro: ");
-      String genero = scanner.nextLine();
-      System.out.print("Digite a descrição do livro: ");
-      String descricao = scanner.nextLine();
-      System.out.print("Digite o ano de publicação: ");
-      String anoPublicacao = scanner.nextLine();
-      System.out.print("Digite a editora: ");
-      String editora = scanner.nextLine();
-
-      // Cria o novo livro com ID gerado automaticamente
-      Livro novoLivro = new Livro(++contadorLivros, titulo, autor, genero, descricao, anoPublicacao, editora);
-      dados.Dados.getLivros().add(novoLivro);
-
-      System.out.println("Livro adicionado com sucesso: " + titulo);
-  }
 
 
 static void criarLivros() {
@@ -303,57 +224,9 @@ static void criarLivros() {
         }
     }
 
-    static boolean validarCPF(String cpf) {
-        // Remove caracteres não numéricos
-        cpf = cpf.replaceAll("[^0-9]", "");
-        if (cpf.length() != 11) return false;
-
-        // Verifica se todos os dígitos são iguais
-        if (cpf.chars().distinct().count() == 1) return false;
-
-        int soma = 0, peso = 10;
-        for (int i = 0; i < 9; i++) {
-            soma += Character.getNumericValue(cpf.charAt(i)) * peso--;
-        }
-        int digito1 = 11 - (soma % 11);
-        digito1 = (digito1 >= 10) ? 0 : digito1;
-
-        soma = 0;
-        peso = 11;
-        for (int i = 0; i < 10; i++) {
-            soma += Character.getNumericValue(cpf.charAt(i)) * peso--;
-        }
-        int digito2 = 11 - (soma % 11);
-        digito2 = (digito2 >= 10) ? 0 : digito2;
-
-        return (digito1 == Character.getNumericValue(cpf.charAt(9))) && (digito2 == Character.getNumericValue(cpf.charAt(10)));
-    }
-
-    static void consultarDetalhesLivro(int id) {
-        for (Livro livro : dados.Dados.getLivros()) {
-            if (livro.getIdLivro() == id) {
-                System.out.println("===== DETALHES DO LIVRO =====");
-                System.out.println("Título: " + livro.getTitulo());
-                System.out.println("Autor: " + livro.getAutor());
-                System.out.println("Gênero: " + livro.getGenero());
-                System.out.println("Descrição: " + livro.getDescricao());
-                System.out.println("Ano de Publicação: " + livro.getAnoPublicacao());
-                System.out.println("Editora: " + livro.getEditora());
-                return;
-            }
-        }
-        System.out.println("Livro não encontrado.");
-    }
-
+   
     // Método para visualizar livros disponíveis
-    static void visualizarLivrosDisponiveis() {
-        System.out.println("===== LIVROS DISPONÍVEIS =====");
-        for (Livro livro : dados.Dados.getLivros()) {
-            if (livro.isDisponivel()) { 
-                System.out.println("ID: " + livro.getIdLivro() + " - Título: " + livro.getTitulo());
-            }
-        }
-    }
+   
 
         static void criarUsuarios() {
             // Criar 10 usuários simples
@@ -390,51 +263,4 @@ static void criarLivros() {
                 dados.Dados.getBibliotecarios().add(bibliotecario);
             }
         }
- 
-    static void criarContaBibliotecario(Usuario usuarioAtual) {
-        // Verifica se o usuário atual é um administrador
-        if (!(usuarioAtual instanceof Administrador)) {
-            System.out.println("Apenas administradores podem adicionar bibliotecários.");
-            return;
-        }
-
-        System.out.print("Código do Bibliotecário: ");
-        String codigoBibliotecario = scanner.nextLine(); // Adicionando o código do bibliotecário
-        System.out.print("CPF: ");
-        String cpf = scanner.nextLine();
-        System.out.print("Nome: ");
-        String nome = scanner.nextLine();
-        System.out.print("Email: ");
-        String email = scanner.nextLine();
-
-        // Verifica se o e-mail já está cadastrado
-        for (Bibliotecario bibliotecario : dados.Dados.getBibliotecarios()) {
-            if (bibliotecario.getEmail().equals(email)) {
-                System.out.println("E-mail já cadastrado. Tente novamente.");
-                return;
-            }
-        }
-
-        System.out.print("Senha: ");
-        String senha = scanner.nextLine();
-        System.out.print("Confirme a sua senha: ");
-        String confirmarSenha = scanner.nextLine();
-
-        if (!senha.equals(confirmarSenha)) {
-            System.out.println("As senhas não coincidem. Tente novamente.");
-            return;
-        }
-
-        // Cria a conta do bibliotecário
-        int idUsuario = ++contadorUsuario; // Lógica para gerar um novo ID de usuário
-        Bibliotecario novoBibliotecario = new Bibliotecario(codigoBibliotecario, idUsuario, cpf, nome, email, senha);
-        dados.Dados.getBibliotecarios().add(novoBibliotecario);
-
-        System.out.println("Conta de bibliotecário criada com sucesso.");
-    }
-
-    // Método para gerar um novo ID de usuário
-    static int gerarNovoIdUsuario() {
-        return ++contadorUsuario; // Incrementa o contador de usuários
-    }
 }
