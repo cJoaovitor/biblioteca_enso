@@ -25,7 +25,7 @@ public class Biblioteca {
                 menuUsuario(dados.Dados.getPosicaoUsuario());
             }if(dados.Dados.getTipoUsuario().equals("bibliotecario")){
                 menuBibliotecario();
-            }if(dados.Dados.getTipoUsuario().equals("bibliotecario")){
+            }if(dados.Dados.getTipoUsuario().equals("adm")){
                 menuAdm();
             }
             break;

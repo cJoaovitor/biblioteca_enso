@@ -18,22 +18,16 @@ public class UsuarioSever {
             return true; // Login automático após criar conta
         }
         System.out.println("Bem-vindo!");
-        System.out.println("1. Login");
-        System.out.println("2. Criar Conta");
-        System.out.println("3. Encerrar Sistema");
+
+        System.out.println("2. Encerrar Sistema");
         int escolha = scanner.nextInt();
         scanner.nextLine(); // Limpa o buffer
 
         if (escolha == 3) {
             System.out.println("Sistema encerrado. Até logo!");
             System.exit(0); // Encerra o sistema
-        }
 
-        if (escolha == 2) {
-            criarConta();
-            return true; // Login automático após criar conta
         }
-
         System.out.println("Nível de conta: 1 para usuário, 2 para bibliotecário, 3 para adm");
         int nivelConta = scanner.nextInt();
         scanner.nextLine(); // Limpa o buffer
