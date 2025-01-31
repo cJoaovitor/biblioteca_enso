@@ -6,7 +6,7 @@ import biblioteca.Emprestimo;
 import biblioteca.Livro;
 
 public class Empretimosever {
-     static void emprestimo(int posicaoUsuario, int idLivro) {
+     public static void emprestimo(int posicaoUsuario, int idLivro) {
         if (idLivro < 0 || idLivro >= dados.Dados.getLivros().size()) {
             System.out.println("ID de livro inválido.");
             return;
@@ -15,7 +15,7 @@ public class Empretimosever {
         Livro livro = dados.Dados.getLivros().get(idLivro); // Supondo que 'livros' é uma lista de objetos Livro
         if (livro.isDisponivel()) {
             Emprestimo novoEmprestimo = new Emprestimo(
-                ++Biblioteca.contadorEmprestimo, // Incrementa e usa o contador
+                dados.Dados.getContadorEmprestimo(), // Incrementa e usa o contador
                 dados.Dados.getUsuarios().get(posicaoUsuario), // Passa o objeto Usuario
                 livro // Passa o objeto Livro
             );

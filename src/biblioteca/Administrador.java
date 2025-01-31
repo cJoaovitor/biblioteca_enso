@@ -46,7 +46,7 @@ public class Administrador extends Usuario {
 
     public void adicionarBibliotecario(String cpf, String nome, String email, String senha) {
         if (!bibliotecarioJaCadastrado(cpf)) {
-            dados.Dados.getBibliotecarios().add(new Bibliotecario("bli" + (++contadorUsuario), ++contadorUsuario, cpf, nome, email, senha));
+            dados.Dados.getBibliotecarios().add(new Bibliotecario("bli" + (dados.Dados.getContadorUsuario()), dados.Dados.getContadorUsuario(), cpf, nome, email, senha));
             System.out.println("Bibliotecário adicionado com sucesso.");
         } else {
             System.out.println("Bibliotecário com esse CPF já cadastrado.");

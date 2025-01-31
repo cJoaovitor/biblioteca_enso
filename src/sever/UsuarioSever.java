@@ -11,7 +11,7 @@ import verficacoes.verficacoes.*;
 import biblioteca.Biblioteca;
 public class UsuarioSever {
      static Scanner scanner = new Scanner(System.in);
-     static boolean login() {
+    public static boolean login() {
         if (dados.Dados.getUsuarios().isEmpty() && dados.Dados.getBibliotecarios().isEmpty() && dados.Dados.getAdministradores().isEmpty()) {
             System.out.println("Nenhum usuário cadastrado. Por favor, crie uma conta primeiro.");
             criarConta();
@@ -60,7 +60,7 @@ public class UsuarioSever {
                 return false;
         }
     }
-     static void criarConta() {
+    public static void criarConta() {
         System.out.println("Bem-vindo! Primeiro, nos diga o nível da conta: 1 para usuário, 2 para bibliotecário, 3 para adm.");
         int escolhaConta = scanner.nextInt();
         scanner.nextLine(); // Limpa o buffer
@@ -97,28 +97,28 @@ public class UsuarioSever {
                 dados.Dados.getUsuarios().add(u);
                 System.out.println("Conta de usuário criada com sucesso.");
                 dados.Dados.setTipoUsuario("usuario");
-                dados.Dados.setPosicaoUsuario(dados.Dados.getUsuarios().size() - 1) ;// Loga automaticamente
+                dados.Dados.setPosicaoUsuario(dados.Dados.getUsuarios().size() - 1) ;
                 dados.Dados.AumentarContardoUsuario();
                 break;
 
             case 2: // Bibliotecário
                 if (verficacoes.verficacoes.verificaCpfExistente(dados.Dados.getBibliotecarios(), testeCpf)) return;
-                Bibliotecario b = new Bibliotecario("bli" + (++contadorUsuario), ++contadorUsuario, testeCpf, nome, email, senha);
+                Bibliotecario b = new Bibliotecario("bli" + (dados.Dados.getContadorUsuario()), dados.Dados.getContadorUsuario(), testeCpf, nome, email, senha);
+                dados.Dados.AumentarContardoUsuario();
                 dados.Dados.getBibliotecarios().add(b);
                 System.out.println("Conta de bibliotecário criada com sucesso.");
-                tipoUsuario = "bibliotecario";
-                posicaoUsuario = dados.Dados.getBibliotecarios().size() - 1; // Loga automaticamente
-                biblioteca.menuBibliotecario(); // Volta para o menu do bibliotecário
+                dados.Dados.setTipoUsuario("bibliotecario");
+                dados.Dados.setPosicaoUsuario(dados.Dados.getBibliotecarios().size() - 1); // Loga automaticamente
+                dados.Dados.AumentarContardoUsuario();
                 break;
 
             case 3: // Administrador
-                if (verificaCpfExistente(dados.Dados.getAdministradores(), testeCpf)) return;
-                Administrador a = new Administrador("ADM" + (++contadorUsuario), ++contadorUsuario, testeCpf, nome, email, senha);
+                if (verficacoes.verficacoes.verificaCpfExistente(dados.Dados.getAdministradores(), testeCpf)) return;
+                Administrador a = new Administrador("ADM" + (dados.Dados.getContadorUsuario()), dados.Dados.getContadorUsuario(), testeCpf, nome, email, senha);
                 dados.Dados.getAdministradores().add(a);
                 System.out.println("Conta de administrador criada com sucesso.");
-                tipoUsuario = "adm";
-                posicaoUsuario = dados.Dados.getAdministradores().size() - 1; // Loga automaticamente
-                menuAdm(); // Volta para o menu do administrador
+                dados.Dados.setTipoUsuario("adm");
+                dados.Dados.setPosicaoUsuario( dados.Dados.getAdministradores().size() - 1); // Loga automaticamente
                 break;
 
             default:
@@ -163,15 +163,15 @@ public class UsuarioSever {
             System.out.println("Senha:");
             pesSenha = scanner.nextLine();
             if (usuarioEncontrado.getSenha().equals(pesSenha)) {
-                posicaoUsuario = lista.indexOf(usuarioEncontrado);
-                tipoUsuario = tipo;
+                dados.Dados.setPosicaoUsuario(usuarioEncontrado.getIdusuario());
+                dados.Dados.setTipoUsuario(tipo);
                 System.out.println("Login feito com sucesso, " + usuarioEncontrado.getNome() + "!");
                 if (tipo.equals("usuario")) {
-                    menuUsuario(posicaoUsuario);
+                   
                 } else if (tipo.equals("bibliotecario")) {
-                    menuBibliotecario();
+                    
                 } else {
-                    menuAdm();
+                  
                 }
                 return true;
             } else {
@@ -188,11 +188,15 @@ public class UsuarioSever {
         }
         return false; // Retorna falso após 3 tentativas
     } 
-    static void visualizarHistoricoEmprestimos(int idUsuario) {
+   public static void visualizarHistoricoEmprestimos(int idUsuario) {
         if (idUsuario < 0 || idUsuario >= dados.Dados.getUsuarios().size()) {
             System.out.println("Usuário não encontrado.");
             return;
         }
         dados.Dados.getUsuarios().get(idUsuario).visualizarHistorico();
+    }
+    static void loginAutomatico(int posicao, String tipousuario){
+      dados.Dados.setPosicaoUsuario(posicao);
+      dados.Dados.setTipoUsuario(tipousuario);
     }
 }

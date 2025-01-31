@@ -109,4 +109,5 @@ public class Usuario {
         System.out.println("CPF: " + cpf);
         // Não exibir a senha por questões de segurança
     }
+    
 }

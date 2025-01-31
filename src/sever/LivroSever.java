@@ -6,7 +6,7 @@ import biblioteca.Emprestimo;
 import biblioteca.Livro;
 
 public class LivroSever {
-     static void consultarDetalhesLivro(int id) {
+     public static void consultarDetalhesLivro(int id) {
         for (Livro livro : dados.Dados.getLivros()) {
             if (livro.getIdLivro() == id) {
                 System.out.println("===== DETALHES DO LIVRO =====");
@@ -21,7 +21,7 @@ public class LivroSever {
         }
         System.out.println("Livro não encontrado.");
     }
- static void visualizarLivrosDisponiveis() {
+ public static void visualizarLivrosDisponiveis() {
         System.out.println("===== LIVROS DISPONÍVEIS =====");
         for (Livro livro : dados.Dados.getLivros()) {
             if (livro.isDisponivel()) { 

@@ -1,6 +1,6 @@
 package biblioteca;
 
-import static biblioteca.Biblioteca.contadorLivros;
+import static dados.Dados.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -17,7 +17,7 @@ public class Livro {
 
     // Construtor que solicita informações do livro ao usuário
     public Livro(Scanner scanner) {
-        this(contadorLivros, scanner);
+        this(dados.Dados.getContadorLivros(), scanner);
     }
 
     // Construtor que solicita informações do livro ao usuário

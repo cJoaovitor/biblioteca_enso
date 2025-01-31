@@ -39,7 +39,7 @@ public class verficacoes {
 
         return (digito1 == Character.getNumericValue(cpf.charAt(9))) && (digito2 == Character.getNumericValue(cpf.charAt(10)));
     }
-   static boolean validarCPF(String cpf) {
+   public static boolean validarCP (String cpf) {
         // Remove caracteres não numéricos
         cpf = cpf.replaceAll("[^0-9]", "");
         if (cpf.length() != 11) return false;
@@ -64,5 +64,5 @@ public class verficacoes {
 
         return (digito1 == Character.getNumericValue(cpf.charAt(9))) && (digito2 == Character.getNumericValue(cpf.charAt(10)));
     }
-
 }
+

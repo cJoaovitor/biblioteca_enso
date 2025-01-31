@@ -3,6 +3,7 @@ package biblioteca;
 import java.util.ArrayList;
 import java.util.Scanner;
 import dados.Dados.*;
+import sever.UsuarioSever.*;
 public class Biblioteca {
   
     static Scanner scanner = new Scanner(System.in);
@@ -15,7 +16,26 @@ public class Biblioteca {
         criarUsuarios(); // Cria 10 usuários
         criarBibliotecarios(); // Cria 2 bibliotecários
         while (true) {
-            login();
+            System.out.println(" o que deseja fazer 1 login 2 criar conta 3 sair  ");
+            int escolha = scanner.nextInt();
+            switch(escolha){
+                case 1:
+            sever.UsuarioSever.login();
+            if(dados.Dados.getTipoUsuario().equals("usuario")){
+                menuUsuario(dados.Dados.getPosicaoUsuario());
+            }if(dados.Dados.getTipoUsuario().equals("bibliotecario")){
+                menuBibliotecario();
+            }if(dados.Dados.getTipoUsuario().equals("bibliotecario")){
+                menuAdm();
+            }
+            break;
+                case 2 :
+                    sever.UsuarioSever.criarConta();
+                    break;
+                case 3:
+                    System.out.println("até mais");
+                    System.exit(0);
+            }
         }
     }
 
@@ -41,7 +61,7 @@ public class Biblioteca {
                 case 2:
                     System.out.println("Digite o ID do livro que deseja emprestar:");
                     int idLivro = scanner.nextInt();
-                    emprestimo(posicaoUsuario, idLivro);
+                    sever.Empretimosever.emprestimo(posicaoUsuario, idLivro);
                     break;
                 case 3:
                     System.out.println("Digite o novo nome:");
@@ -53,12 +73,12 @@ public class Biblioteca {
                     dados.Dados.getUsuarios().get(posicaoUsuario).editarDados(novoNome, novoEmail, novaSenha);
                     break;
                 case 4:
-                    visualizarLivrosDisponiveis();
+                    sever.LivroSever.visualizarLivrosDisponiveis();
                     break;
                 case 5:
                     System.out.println("Digite o ID do livro que deseja consultar:");
                     int idConsulta = scanner.nextInt();
-                    consultarDetalhesLivro(idConsulta);
+                    sever.LivroSever.consultarDetalhesLivro(idConsulta);
                     break;
                 case 6:
                     return; // Volta para o menu inicial
@@ -83,20 +103,20 @@ public class Biblioteca {
 
             switch (escolha) {
                 case 1:
-                    adicionarLivro();
+                    sever.BibliotecarioSever.adicionarLivro();
                     break;
                 case 2:
                     System.out.println("Digite o ID do livro que deseja remover:");
                     int idLivro = scanner.nextInt();
-                    removerLivro(idLivro);
+                    sever.BibliotecarioSever.removerLivro(idLivro);
                     break;
                 case 3:
-                    visualizarLivros();
+                    sever.BibliotecarioSever.visualizarLivros();
                     break;
                 case 4:
                     System.out.println("Digite o ID do usuário:");
                     int idUsuario = scanner.nextInt();
-                    visualizarHistoricoEmprestimos(idUsuario);
+                    sever.UsuarioSever.visualizarHistoricoEmprestimos(idUsuario);
                     break;
                 case 5:
                     System.out.println("Digite o novo nome:");
@@ -160,66 +180,37 @@ public class Biblioteca {
 
 
 static void criarLivros() {
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "Dom Casmurro", "Machado de Assis", "Romance", "Um dos clássicos da literatura brasileira.", "1899", "Editora A"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "O Alquimista", "Paulo Coelho", "Ficção", "Uma fábula sobre seguir seus sonhos.", "1988", "Editora B"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "1984", "George Orwell", "Ficção Científica", "Uma distopia sobre um governo totalitário.", "1949", "Editora C"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "A Moreninha", "Joaquim Manuel de Macedo", "Romance", "Uma história de amor e amizade.", "1844", "Editora D"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "O Pequeno Príncipe", "Antoine de Saint-Exupéry", "Ficção", "Uma história poética sobre a infância e a amizade.", "1943", "Editora E"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "Cem Anos de Solidão", "Gabriel García Márquez", "Realismo Mágico", "A história da família Buendía.", "1967", "Editora F"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "A Revolução dos Bichos", "George Orwell", "Ficção", "Uma sátira sobre a política.", "1945", "Editora G"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "O Senhor dos Anéis", "J.R.R. Tolkien", "Fantasia", "Uma épica jornada pela Terra Média.", "1954", "Editora H"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "A Cabana", "William P. Young", "Ficção", "Um encontro com Deus em uma cabana isolada.", "2007", "Editora I"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "Harry Potter e a Pedra Filosofal", "J.K. Rowling", "Fantasia", "A primeira aventura do jovem bruxo Harry Potter.", "1997", "Editora J"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "O Morro dos Ventos Uivantes", "Emily Brontë", "Romance", "Uma história de amor e vingança.", "1847", "Editora K"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "Orgulho e Preconceito", "Jane Austen", "Romance", "Uma crítica social através de uma história de amor.", "1813", "Editora L"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "Moby Dick", "Herman Melville", "Aventura", "A obsessão de um capitão por uma baleia.", "1851", "Editora M"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "O Grande Gatsby", "F. Scott Fitzgerald", "Ficção", "Uma crítica à sociedade americana dos anos 1920.", "1925", "Editora N"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "A Metamorfose", "Franz Kafka", "Ficção", "A transformação de um homem em inseto.", "1915", "Editora O"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "O Apanhador no Campo de Centeio", "J.D. Salinger", "Ficção", "A história de um jovem em busca de identidade.", "1951", "Editora P"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "Fahrenheit 451", "Ray Bradbury", "Ficção Científica", "Uma sociedade onde os livros são queimados.", "1953", "Editora Q"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "O Sol é Para Todos", "Harper Lee", "Ficção", "Uma reflexão sobre justiça e moralidade.", "1960", "Editora R"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "O Estrangeiro", "Albert Camus", "Ficção", "A busca de sentido em um mundo absurdo.", "1942", "Editora S"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "A Menina que Roubava Livros", "Markus Zusak", "Ficção", "Uma história sobre o poder das palavras.", "2005", "Editora T"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "O Senhor das Moscas", "William Golding", "Ficção", "Um grupo de meninos em uma ilha deserta.", "1954", "Editora U"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "O Código Da Vinci", "Dan Brown", "Ficção", "Um thriller que mistura arte e religião.", "2003", "Editora V"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "A Garota no Trem", "Paula Hawkins", "Ficção", "Um mistério psicológico sobre um desaparecimento.", "2015", "Editora W"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "A Sutil Arte de Ligar o F*da-se", "Mark Manson", "Autoajuda", "Um guia sobre como viver uma vida significativa.", "2016", "Editora X"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "O Homem Mais Rico da Babilônia", "George S. Clason", "Autoajuda", "Lições sobre finanças e riqueza.", "1926", "Editora Y"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "Como Fazer Amigos e Influenciar Pessoas", "Dale Carnegie", "Autoajuda", "Dicas sobre relacionamentos e influência.", "1936", "Editora Z"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "O Poder do Hábito", "Charles Duhigg", "Autoajuda", "Como os hábitos moldam nossas vidas.", "2012", "Editora AA"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "O Milagre da Manhã", "Hal Elrod", "Autoajuda", "Um guia para transformar suas manhãs e sua vida.", "2012", "Editora AB"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "A Arte da Guerra", "Sun Tzu", "Estratégia", "Um tratado sobre estratégia militar e liderança.", "5 a.C.", "Editora AC"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "O Livro dos Espíritos", "Allan Kardec", "Espiritualidade", "Fundamentos do Espiritismo.", "1857", "Editora AD"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "A Ciência e a Religião", "Albert Einstein", "Filosofia", "Reflexões sobre ciência e espiritualidade.", "1930", "Editora AE"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "O Pequeno Príncipe", "Antoine de Saint-Exupéry", "Ficção", "Uma história poética sobre a infância e a amizade.", "1943", "Editora AF"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "A Revolução dos Bichos", "George Orwell", "Ficção", "Uma sátira sobre a política.", "1945", "Editora AG"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "A Metamorfose", "Franz Kafka", "Ficção", "A transformação de um homem em inseto.", "1915", "Editora AH"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "O Morro dos Ventos Uivantes", "Emily Brontë", "Romance", "Uma história de amor e vingança.", "1847", "Editora AI"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "O Grande Gatsby", "F. Scott Fitzgerald", "Ficção", "Uma crítica à sociedade americana dos anos 1920.", "1925", "Editora AJ"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "Cem Anos de Solidão", "Gabriel García Márquez", "Realismo Mágico", "A história da família Buendía.", "1967", "Editora AK"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "Orgulho e Preconceito", "Jane Austen", "Romance", "Uma crítica social através de uma história de amor.", "1813", "Editora AL"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "Moby Dick", "Herman Melville", "Aventura", "A obsessão de um capitão por uma baleia.", "1851", "Editora AM"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "O Alquimista", "Paulo Coelho", "Ficção", "Uma fábula sobre seguir seus sonhos.", "1988", "Editora AN"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "A Menina que Roubava Livros", "Markus Zusak", "Ficção", "Uma história sobre o poder das palavras.", "2005", "Editora AO"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "O Senhor dos Anéis", "J.R.R. Tolkien", "Fantasia", "Uma épica jornada pela Terra Média.", "1954", "Editora AP"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "O Estrangeiro", "Albert Camus", "Ficção", "A busca de sentido em um mundo absurdo.", "1942", "Editora AQ"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "A Cabana", "William P. Young", "Ficção", "Um encontro com Deus em uma cabana isolada.", "2007", "Editora AR"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "O Código Da Vinci", "Dan Brown", "Ficção", "Um thriller que mistura arte e religião.", "2003", "Editora AS"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "Fahrenheit 451", "Ray Bradbury", "Ficção Científica", "Uma sociedade onde os livros são queimados.", "1953", "Editora AT"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "A Sutil Arte de Ligar o F*da-se", "Mark Manson", "Autoajuda", "Um guia sobre como viver uma vida significativa.", "2016", "Editora AU"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "O Homem Mais Rico da Babilônia", "George S. Clason", "Autoajuda", "Lições sobre finanças e riqueza.", "1926", "Editora AV"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "Como Fazer Amigos e Influenciar Pessoas", "Dale Carnegie", "Autoajuda", "Dicas sobre relacionamentos e influência.", "1936", "Editora AW"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "O Poder do Hábito", "Charles Duhigg", "Autoajuda", "Como os hábitos moldam nossas vidas.", "2012", "Editora AX"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "O Milagre da Manhã", "Hal Elrod", "Autoajuda", "Um guia para transformar suas manhãs e sua vida.", "2012", "Editora AY"));
-    dados.Dados.getLivros().add(new Livro(++contadorLivros, "A Arte da Guerra", "Sun Tzu", "Estratégia", "Um tratado sobre estratégia militar e liderança.", "5 a.C.", "Editora AZ"));
+    dados.Dados.getLivros().add(new Livro(dados.Dados.getContadorLivros(), "Dom Casmurro", "Machado de Assis", "Romance", "Um dos clássicos da literatura brasileira.", "1899", "Editora A"));
+    dados.Dados.getLivros().add(new Livro(dados.Dados.getContadorLivros(), "O Alquimista", "Paulo Coelho", "Ficção", "Uma fábula sobre seguir seus sonhos.", "1988", "Editora B"));
+    dados.Dados.getLivros().add(new Livro(dados.Dados.getContadorLivros(), "1984", "George Orwell", "Ficção Científica", "Uma distopia sobre um governo totalitário.", "1949", "Editora C"));
+    dados.Dados.getLivros().add(new Livro(dados.Dados.getContadorLivros(), "A Moreninha", "Joaquim Manuel de Macedo", "Romance", "Uma história de amor e amizade.", "1844", "Editora D"));
+    dados.Dados.getLivros().add(new Livro(dados.Dados.getContadorLivros(), "O Pequeno Príncipe", "Antoine de Saint-Exupéry", "Ficção", "Uma história poética sobre a infância e a amizade.", "1943", "Editora E"));
+    dados.Dados.getLivros().add(new Livro(dados.Dados.getContadorLivros(), "Cem Anos de Solidão", "Gabriel García Márquez", "Realismo Mágico", "A história da família Buendía.", "1967", "Editora F"));
+    dados.Dados.getLivros().add(new Livro(dados.Dados.getContadorLivros(), "A Revolução dos Bichos", "George Orwell", "Ficção", "Uma sátira sobre a política.", "1945", "Editora G"));
+    dados.Dados.getLivros().add(new Livro(dados.Dados.getContadorLivros(), "O Senhor dos Anéis", "J.R.R. Tolkien", "Fantasia", "Uma épica jornada pela Terra Média.", "1954", "Editora H"));
+    dados.Dados.getLivros().add(new Livro(dados.Dados.getContadorLivros(), "A Cabana", "William P. Young", "Ficção", "Um encontro com Deus em uma cabana isolada.", "2007", "Editora I"));
+    dados.Dados.getLivros().add(new Livro(dados.Dados.getContadorLivros(), "Harry Potter e a Pedra Filosofal", "J.K. Rowling", "Fantasia", "A primeira aventura do jovem bruxo Harry Potter.", "1997", "Editora J"));
+    dados.Dados.getLivros().add(new Livro(dados.Dados.getContadorLivros(), "O Morro dos Ventos Uivantes", "Emily Brontë", "Romance", "Uma história de amor e vingança.", "1847", "Editora K"));
+    dados.Dados.getLivros().add(new Livro(dados.Dados.getContadorLivros(), "Orgulho e Preconceito", "Jane Austen", "Romance", "Uma crítica social através de uma história de amor.", "1813", "Editora L"));
+    dados.Dados.getLivros().add(new Livro(dados.Dados.getContadorLivros(), "Moby Dick", "Herman Melville", "Aventura", "A obsessão de um capitão por uma baleia.", "1851", "Editora M"));
+    dados.Dados.getLivros().add(new Livro(dados.Dados.getContadorLivros(), "O Grande Gatsby", "F. Scott Fitzgerald", "Ficção", "Uma crítica à sociedade americana dos anos 1920.", "1925", "Editora N"));
+    dados.Dados.getLivros().add(new Livro(dados.Dados.getContadorLivros(), "A Metamorfose", "Franz Kafka", "Ficção", "A transformação de um homem em inseto.", "1915", "Editora O"));
+    dados.Dados.getLivros().add(new Livro(dados.Dados.getContadorLivros(), "O Apanhador no Campo de Centeio", "J.D. Salinger", "Ficção", "A história de um jovem em busca de identidade.", "1951", "Editora P"));
+    dados.Dados.getLivros().add(new Livro(dados.Dados.getContadorLivros(), "Fahrenheit 451", "Ray Bradbury", "Ficção Científica", "Uma sociedade onde os livros são queimados.", "1953", "Editora Q"));
+    dados.Dados.getLivros().add(new Livro(dados.Dados.getContadorLivros(), "O Sol é Para Todos", "Harper Lee", "Ficção", "Uma reflexão sobre justiça e moralidade.", "1960", "Editora R"));
+    dados.Dados.getLivros().add(new Livro(dados.Dados.getContadorLivros(), "O Estrangeiro", "Albert Camus", "Ficção", "A busca de sentido em um mundo absurdo.", "1942", "Editora S"));
+    dados.Dados.getLivros().add(new Livro(dados.Dados.getContadorLivros(), "A Menina que Roubava Livros", "Markus Zusak", "Ficção", "Uma história sobre o poder das palavras.", "2005", "Editora T"));
+    dados.Dados.getLivros().add(new Livro(dados.Dados.getContadorLivros(), "A Arte da Guerra", "Sun Tzu", "Estratégia", "Um tratado sobre estratégia militar e liderança.", "5 a.C.", "Editora AZ"));
 }
+
+
 
 
 
     static void criarAdministradorPadrao() {
         if (dados.Dados.getAdministradores().isEmpty()) {
             // Cria um administrador padrão
-            Administrador adminPadrao = new Administrador("ADM001", ++contadorUsuario, "000.000.000-00", "Admin Padrão", "admin@biblioteca.com", "senhaAdmin");
+            Administrador adminPadrao = new Administrador("ADM001", dados.Dados.getContadorUsuario(), "000.000.000-00", "Admin Padrão", "admin@biblioteca.com", "senhaAdmin");
             dados.Dados.getAdministradores().add(adminPadrao);
         }
     }

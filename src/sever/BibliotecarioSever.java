@@ -9,7 +9,8 @@ import java.util.Scanner;
 
 
 public class BibliotecarioSever {
-    static void removerLivro(int idLivro) {
+    static Scanner scanner = new Scanner(System.in);
+   public static void removerLivro(int idLivro) {
         for (int i = 0; i < dados.Dados.getLivros().size(); i++) {
             if (dados.Dados.getLivros().get(i).getIdLivro() == idLivro) {
                 dados.Dados.getLivros().remove(i);
@@ -19,7 +20,7 @@ public class BibliotecarioSever {
         }
         System.out.println("Livro não encontrado.");
     }
-  static void visualizarLivros() {
+  public static void visualizarLivros() {
         if (dados.Dados.getLivros().isEmpty()) {
             System.out.println("Nenhum livro cadastrado.");
         } else {
@@ -31,7 +32,7 @@ public class BibliotecarioSever {
         }
     }
   
-    static void adicionarLivro() {
+    public static void adicionarLivro() {
       Scanner scanner = new Scanner(System.in);
 
       // Solicita os dados do livro
@@ -49,12 +50,12 @@ public class BibliotecarioSever {
       String editora = scanner.nextLine();
 
       // Cria o novo livro com ID gerado automaticamente
-      Livro novoLivro = new Livro(++contadorLivros, titulo, autor, genero, descricao, anoPublicacao, editora);
+      Livro novoLivro = new Livro(dados.Dados.getContadorLivros(), titulo, autor, genero, descricao, anoPublicacao, editora);
       dados.Dados.getLivros().add(novoLivro);
 
      System.out.println("Livro adicionado com sucesso: " + titulo);
   }
-    static void criarContaBibliotecario(Usuario usuarioAtual) {
+   public static void criarContaBibliotecario(Usuario usuarioAtual) {
         // Verifica se o usuário atual é um administrador
         if (!(usuarioAtual instanceof Administrador)) {
             System.out.println("Apenas administradores podem adicionar bibliotecários.");
@@ -89,7 +90,7 @@ public class BibliotecarioSever {
         }
 
         // Cria a conta do bibliotecário
-        int idUsuario = ++contadorUsuario; // Lógica para gerar um novo ID de usuário
+        int idUsuario = dados.Dados.getContadorUsuario(); // Lógica para gerar um novo ID de usuário
         Bibliotecario novoBibliotecario = new Bibliotecario(codigoBibliotecario, idUsuario, cpf, nome, email, senha);
         dados.Dados.getBibliotecarios().add(novoBibliotecario);
 
