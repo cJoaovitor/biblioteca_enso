@@ -382,7 +382,7 @@ public class MenuInicial extends javax.swing.JFrame {
         });
 
         jLabel17.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel17.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\Downloads\\logo_bibliotecaCorija (1) (2).png")); // NOI18N
+        jLabel17.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\OneDrive\\Documentos\\NetBeansProjects\\Biblioteca1\\Imagens\\logo_bibliotecaCorija (1) (2).png")); // NOI18N
 
         jLabel18.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
         jLabel18.setText("BIBLIOTECA ");
