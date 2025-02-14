@@ -249,7 +249,6 @@ public class EfetuarLogin extends javax.swing.JFrame {
         jLabel21.setText("CORUJA");
 
         jLabel22.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel22.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\Downloads\\logo_bibliotecaCorija (1) (2).png")); // NOI18N
 
         jLabel23.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
         jLabel23.setText("BIBLIOTECA ");
@@ -258,7 +257,6 @@ public class EfetuarLogin extends javax.swing.JFrame {
         jLabel24.setText("CORUJA");
 
         jLabel25.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel25.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\Downloads\\logo_bibliotecaCorija (1) (2).png")); // NOI18N
 
         jLabel26.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
         jLabel26.setText("BIBLIOTECA ");
@@ -270,7 +268,6 @@ public class EfetuarLogin extends javax.swing.JFrame {
         jLabel27.setText("CORUJA");
 
         jLabel17.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel17.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\Downloads\\logo_bibliotecaCorija (1) (2) (1).png")); // NOI18N
 
         jLabel19.setFont(new java.awt.Font("Viner Hand ITC", 1, 14)); // NOI18N
         jLabel19.setText("CORUJA");
@@ -371,7 +368,6 @@ public class EfetuarLogin extends javax.swing.JFrame {
         jLabel16.setText("CORUJA");
 
         jLabel28.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel28.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\Downloads\\logo_bibliotecaCorija (1) (2).png")); // NOI18N
 
         jLabel29.setFont(new java.awt.Font("Tempus Sans ITC", 1, 8)); // NOI18N
         jLabel29.setText("ATENÇÃO: Insira o código apenas se sua conta for nível Bibliotecário ou Administrador, Usuário Simples não tem necessidade de código!");

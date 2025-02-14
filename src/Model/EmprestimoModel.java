@@ -6,20 +6,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EmprestimoModel {
-    private static int contadorEmprestimos = 1; // Contador para gerar IDs únicos
+    private static int contadorEmprestimos = 1; 
     private String idEmprestimo;
-    private UsuarioModel usuario;
-    private LivroModel livro;
+    private int  idusuario;
+    private  int idlivro;
     private LocalDate dataEmprestimo;
     private LocalDate dataDevolucao;
     private boolean devolvido;
     private List<UsuarioModel> reservas;
 
     // Construtor principal
-    public EmprestimoModel(UsuarioModel usuario, LivroModel livro) {
+    public EmprestimoModel(int  idusuario, int  idlivro) {
         this.idEmprestimo = gerarCodigoEmprestimo(contadorEmprestimos);
-        this.usuario = usuario;
-        this.livro = livro;
+        this.idusuario = idusuario;
+        this.idlivro = idlivro;
         this.dataEmprestimo = LocalDate.now();
         this.dataDevolucao = dataEmprestimo.plusDays(14);
         this.devolvido = false;
@@ -34,8 +34,8 @@ public class EmprestimoModel {
 
     // Métodos Getters
     public String getIdEmprestimo() { return idEmprestimo; }
-    public UsuarioModel getUsuario() { return usuario; }
-    public LivroModel getLivro() { return livro; }
+    public int getUsuario() { return idusuario; }
+    public int  getLivro() { return idlivro; }
     public LocalDate getDataEmprestimo() { return dataEmprestimo; }
     public LocalDate getDataDevolucao() { return dataDevolucao; }
     public boolean isDevolvido() { return devolvido; }
@@ -73,7 +73,7 @@ public class EmprestimoModel {
     public void exibirEmprestimo() {
         System.out.println("=== Informações do Empréstimo ===");
         System.out.println("ID do Empréstimo: " + idEmprestimo);
-        System.out.println("Usuário: " + usuario.getNome());
+        System.out.println("Usuário: " + Dados.Dados.getUsuario(idusuario).getNome());
         System.out.println("Título do Livro: " + livro.getTitulo());
         System.out.println("Data de Empréstimo: " + dataEmprestimo.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
         System.out.println("Data de Devolução: " + dataDevolucao.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));

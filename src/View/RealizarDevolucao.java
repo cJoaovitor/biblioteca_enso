@@ -2,7 +2,7 @@ package View;
 
 import Model.EmprestimoModel;
 import Model.LivroModel;
-import dados.Dados;
+import Dados.Dados;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
@@ -406,7 +406,6 @@ public class RealizarDevolucao extends javax.swing.JFrame {
         jLabel25.setText("DEVOLUÇÃO");
 
         jLabel26.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel26.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\Downloads\\logo_bibliotecaCorija (1) (2) (1).png")); // NOI18N
 
         jLabel27.setFont(new java.awt.Font("Tempus Sans ITC", 1, 10)); // NOI18N
         jLabel27.setText("BIBLIOTECA ");

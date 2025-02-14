@@ -4,7 +4,7 @@ import Model.AdministradorModel;
 import Model.BibliotecarioModel;
 import Model.LivroModel;
 import Model.UsuarioModel;
-import dados.Dados;
+import Dados.Dados;
 import java.util.Scanner;
 
 public class BibliotecarioService {

@@ -1,4 +1,4 @@
-package verificacoes;
+package Verificacoes;
 
 import Model.UsuarioModel;
 import java.util.ArrayList;

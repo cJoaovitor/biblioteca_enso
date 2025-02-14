@@ -2,11 +2,11 @@ package View;
 
 import Model.LivroModel;
 import Model.UsuarioModel;
-import dados.Dados;
+import Dados.Dados;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
-import model.ReservaModel;
+import Model.ReservaModel;
 
 public class RealizarEmprestimo extends javax.swing.JFrame {
 
@@ -364,7 +364,6 @@ public class RealizarEmprestimo extends javax.swing.JFrame {
         jLabel27.setText("REALIZAR");
 
         jLabel21.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel21.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\Downloads\\logo_bibliotecaCorija (1) (2) (1).png")); // NOI18N
 
         jLabel23.setFont(new java.awt.Font("Tempus Sans ITC", 1, 10)); // NOI18N
         jLabel23.setText("BIBLIOTECA ");

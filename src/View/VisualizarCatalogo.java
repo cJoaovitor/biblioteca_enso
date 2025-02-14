@@ -3,7 +3,7 @@ package View;
 import javax.swing.JOptionPane;
 import Model.LivroModel;
 import Model.LivroTableModel;
-import dados.Dados;
+import Dados.Dados;
 import java.util.ArrayList;
 
 public class VisualizarCatalogo extends javax.swing.JFrame {
@@ -490,7 +490,6 @@ public class VisualizarCatalogo extends javax.swing.JFrame {
         jLabel27.setText("VISUALIZAR");
 
         jLabel20.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel20.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\Downloads\\logo_bibliotecaCorija (1) (2) (1).png")); // NOI18N
 
         jLabel21.setFont(new java.awt.Font("Tempus Sans ITC", 1, 10)); // NOI18N
         jLabel21.setText("BIBLIOTECA ");

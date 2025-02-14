@@ -2,7 +2,7 @@ package View;
 
 import Model.LivroModel;
 import Model.UsuarioModel;
-import dados.Dados;
+import Dados.Dados;
 import javax.swing.JOptionPane;
 
 public class RenovarEmprestimo extends javax.swing.JFrame {
@@ -409,7 +409,6 @@ public class RenovarEmprestimo extends javax.swing.JFrame {
         jLabel24.setText("BIBLIOTECA ");
 
         jLabel25.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel25.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\Downloads\\logo_bibliotecaCorija (1) (2) (1).png")); // NOI18N
 
         jLabel26.setFont(new java.awt.Font("Viner Hand ITC", 1, 48)); // NOI18N
         jLabel26.setText("EMPRÉSTIMO");

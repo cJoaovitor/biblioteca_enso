@@ -104,7 +104,6 @@ public class EditarDados extends javax.swing.JFrame {
         }
 
         jLabel17.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel17.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\Downloads\\logo_bibliotecaCorija (1) (2) (1).png")); // NOI18N
 
         jLabel18.setFont(new java.awt.Font("Tempus Sans ITC", 1, 10)); // NOI18N
         jLabel18.setText("BIBLIOTECA ");
@@ -383,7 +382,6 @@ public class EditarDados extends javax.swing.JFrame {
         );
 
         jLabel20.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel20.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\Downloads\\logo_bibliotecaCorija (1) (2) (1).png")); // NOI18N
 
         jLabel21.setFont(new java.awt.Font("Tempus Sans ITC", 1, 10)); // NOI18N
         jLabel21.setText("BIBLIOTECA ");

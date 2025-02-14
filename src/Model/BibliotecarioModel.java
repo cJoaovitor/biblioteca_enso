@@ -1,6 +1,6 @@
 package Model;
 
-import dados.Dados;
+import Dados.Dados;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -71,7 +71,7 @@ public class BibliotecarioModel extends UsuarioModel {
         // Verifica se o livro foi encontrado e se está disponível
         if (livro != null) {
             livro.setDisponivel(false); // Marca o livro como não disponível
-            EmprestimoModel novoEmprestimo = new EmprestimoModel(usuario, livro); // Usa o construtor correto
+            EmprestimoModel novoEmprestimo = new EmprestimoModel(Dados.getPosicaoUsuario(), Dados.getLivro(idUsuario)); // Usa o construtor correto
             usuario.registrarEmprestimo(novoEmprestimo); // Registra o empréstimo para o usuário
             System.out.println("Empréstimo registrado com sucesso!");
         } else {

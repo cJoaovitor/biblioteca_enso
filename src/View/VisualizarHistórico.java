@@ -392,7 +392,6 @@ public class VisualizarHistórico extends javax.swing.JFrame {
         jLabel23.setText("BIBLIOTECA ");
 
         jLabel24.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel24.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\Downloads\\logo_bibliotecaCorija (1) (2) (1).png")); // NOI18N
 
         jLabel25.setFont(new java.awt.Font("Viner Hand ITC", 1, 48)); // NOI18N
         jLabel25.setText("CONTA");

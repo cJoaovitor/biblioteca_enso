@@ -1,7 +1,7 @@
 package View;
 
 import Model.UsuarioModel;
-import dados.Dados;
+import Dados.Dados;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -394,7 +394,6 @@ public class VisualizarUsuariosCadastrados extends javax.swing.JFrame {
         jLabel20.setText("CADASTRADOS");
 
         jLabel21.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel21.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\Downloads\\logo_bibliotecaCorija (1) (2) (1).png")); // NOI18N
 
         jLabel22.setFont(new java.awt.Font("Tempus Sans ITC", 1, 10)); // NOI18N
         jLabel22.setText("BIBLIOTECA ");

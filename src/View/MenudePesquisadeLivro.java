@@ -346,7 +346,6 @@ public class MenudePesquisadeLivro extends javax.swing.JFrame {
         });
 
         jLabel28.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel28.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\Downloads\\logo_bibliotecaCorija (1) (2).png")); // NOI18N
 
         jLabel29.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
         jLabel29.setText("BIBLIOTECA ");
@@ -442,7 +441,6 @@ public class MenudePesquisadeLivro extends javax.swing.JFrame {
         jLabel18.setText("BIBLIOTECA ");
 
         jLabel17.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel17.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\Downloads\\logo_bibliotecaCorija (1) (2) (1).png")); // NOI18N
 
         bntAutor.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         bntAutor.setText("Autor");

@@ -2,7 +2,7 @@ package Model;
 
 import View.ZPrincipal;
 import java.util.Scanner;
-import dados.Dados;
+import Dados.Dados;
 
 public class BibliotecaModel {
     static Scanner scanner = new Scanner(System.in);

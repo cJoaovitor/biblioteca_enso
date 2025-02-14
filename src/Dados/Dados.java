@@ -1,4 +1,4 @@
-package dados;
+package Dados;
 
 import Model.AdministradorModel;
 import Model.BibliotecarioModel;

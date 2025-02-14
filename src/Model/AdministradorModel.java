@@ -1,6 +1,6 @@
 package Model;
 
-import dados.Dados;
+import Dados.Dados;
 
 public class AdministradorModel extends UsuarioModel {
     private final String codigoAdministrador;

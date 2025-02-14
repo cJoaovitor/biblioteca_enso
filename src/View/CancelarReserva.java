@@ -3,7 +3,7 @@ package View;
 
 import java.time.LocalDate;
 import javax.swing.JOptionPane;
-import model.ReservaModel;
+import Model.ReservaModel;
 
 
 public class CancelarReserva extends javax.swing.JFrame {
@@ -362,7 +362,6 @@ public class CancelarReserva extends javax.swing.JFrame {
         jLabel23.setText("BIBLIOTECA ");
 
         jLabel24.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel24.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\Downloads\\logo_bibliotecaCorija (1) (2) (1).png")); // NOI18N
 
         jLabel25.setFont(new java.awt.Font("Viner Hand ITC", 1, 48)); // NOI18N
         jLabel25.setText("RESERVA");

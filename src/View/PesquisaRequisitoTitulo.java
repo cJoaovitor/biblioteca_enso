@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import Model.LivroModel;
 import Model.tblLivrosTitulo;
-import dados.Dados;
+import Dados.Dados;
 import javax.swing.table.AbstractTableModel;
 
 
@@ -385,7 +385,6 @@ public class PesquisaRequisitoTitulo extends javax.swing.JFrame {
         });
 
         jLabel28.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel28.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\Downloads\\logo_bibliotecaCorija (1) (2).png")); // NOI18N
 
         jLabel29.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
         jLabel29.setText("BIBLIOTECA ");
@@ -565,7 +564,6 @@ public class PesquisaRequisitoTitulo extends javax.swing.JFrame {
         jLabel18.setText("BIBLIOTECA ");
 
         jLabel17.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel17.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\Downloads\\logo_bibliotecaCorija (1) (2) (1).png")); // NOI18N
 
         jLabel20.setText("Título:");
 

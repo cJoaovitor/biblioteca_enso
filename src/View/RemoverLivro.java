@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import Model.EmprestimoModel;
 import Model.LivroModel;
-import dados.Dados;
+import Dados.Dados;
 
 public class RemoverLivro extends javax.swing.JFrame {
 
@@ -383,7 +383,6 @@ public class RemoverLivro extends javax.swing.JFrame {
         jLabel24.setText("BIBLIOTECA ");
 
         jLabel25.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel25.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\Downloads\\logo_bibliotecaCorija (1) (2) (1).png")); // NOI18N
 
         jLabel26.setFont(new java.awt.Font("Viner Hand ITC", 1, 48)); // NOI18N
         jLabel26.setText("LIVRO");

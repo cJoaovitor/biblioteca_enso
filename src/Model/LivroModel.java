@@ -1,6 +1,6 @@
 package Model;
 
-import dados.Dados;
+import Dados.Dados;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
