@@ -4,12 +4,13 @@ import java.util.ArrayList;
 
 public class HistoricoModel {
     private int idUsuario;
-    private ArrayList<EmprestimoModel> emprestimos;
+    private int idhistorico;
+    private int idempretimo;
 
     // Construtor com ID do usuário
-    public HistoricoModel(int idUsuario) {
+    public HistoricoModel(int idUsuario, int idempretimo) {
         this.idUsuario = idUsuario;
-        this.emprestimos = new ArrayList<>();
+        this.idempretimo = idempretimo;
     }
 
     HistoricoModel(String idusuario) {
@@ -27,6 +28,11 @@ public class HistoricoModel {
     }
 
     // Getters e Setters
+    
+    public int getIdhistorico() {
+        return idhistorico;
+    }
+
     public int getIdUsuario() {
         return idUsuario;
     }
@@ -35,12 +41,8 @@ public class HistoricoModel {
         this.idUsuario = idUsuario;
     }
 
-    public ArrayList<EmprestimoModel> getEmprestimos() {
-        return emprestimos;
-    }
-
-    public void setEmprestimos(ArrayList<EmprestimoModel> emprestimos) {
-        this.emprestimos = emprestimos;
+    public int getIdempretimo() {
+        return idempretimo;
     }
 
     // Método para contar o número de empréstimos

@@ -75,13 +75,13 @@ public class EfetuarLogin extends javax.swing.JFrame {
         btnLogin = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jAdministrador = new javax.swing.JRadioButton();
         jUsuarioSimples1 = new javax.swing.JRadioButton();
         jBibliotecario1 = new javax.swing.JRadioButton();
         jLabel31 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
 
         try {
             txtTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
@@ -249,6 +249,7 @@ public class EfetuarLogin extends javax.swing.JFrame {
         jLabel21.setText("CORUJA");
 
         jLabel22.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel22.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\Downloads\\logo_bibliotecaCorija (1) (2).png")); // NOI18N
 
         jLabel23.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
         jLabel23.setText("BIBLIOTECA ");
@@ -257,6 +258,7 @@ public class EfetuarLogin extends javax.swing.JFrame {
         jLabel24.setText("CORUJA");
 
         jLabel25.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel25.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\Downloads\\logo_bibliotecaCorija (1) (2).png")); // NOI18N
 
         jLabel26.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
         jLabel26.setText("BIBLIOTECA ");
@@ -268,6 +270,7 @@ public class EfetuarLogin extends javax.swing.JFrame {
         jLabel27.setText("CORUJA");
 
         jLabel17.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel17.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\Downloads\\logo_bibliotecaCorija (1) (2) (1).png")); // NOI18N
 
         jLabel19.setFont(new java.awt.Font("Viner Hand ITC", 1, 14)); // NOI18N
         jLabel19.setText("CORUJA");
@@ -367,8 +370,6 @@ public class EfetuarLogin extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Viner Hand ITC", 1, 48)); // NOI18N
         jLabel16.setText("CORUJA");
 
-        jLabel28.setBackground(new java.awt.Color(255, 255, 255));
-
         jLabel29.setFont(new java.awt.Font("Tempus Sans ITC", 1, 8)); // NOI18N
         jLabel29.setText("ATENÇÃO: Insira o código apenas se sua conta for nível Bibliotecário ou Administrador, Usuário Simples não tem necessidade de código!");
 
@@ -424,35 +425,37 @@ public class EfetuarLogin extends javax.swing.JFrame {
         jLabel31.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
         jLabel31.setText("BIBLIOTECA ");
 
+        jLabel28.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel28.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\OneDrive\\Documentos\\NetBeansProjects\\Biblioteca1\\Imagens\\logo_bibliotecaCorija (1) (2).png")); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jLabel28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel16)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(48, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel28)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel16)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(58, 58, 58)
-                                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(48, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel29)
-                .addGap(16, 16, 16))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel29)
+                        .addGap(16, 16, 16))))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(227, 227, 227)
@@ -462,19 +465,16 @@ public class EfetuarLogin extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(187, 187, 187)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(190, 190, 190)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(184, 184, 184)
-                            .addComponent(jLabel28))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(291, 291, 291)
-                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52))
+                    .addComponent(jLabel28))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel29)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)

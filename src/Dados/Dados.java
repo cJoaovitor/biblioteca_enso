@@ -4,6 +4,7 @@ import Model.AdministradorModel;
 import Model.BibliotecarioModel;
 import Model.EmprestimoModel;
 import Model.LivroModel;
+import Model.ReservaModel;
 import Model.UsuarioModel;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,7 @@ public class Dados {
     private static final ArrayList<AdministradorModel> administradores = new ArrayList<>();
     private static final ArrayList<LivroModel> livros = new ArrayList<>();
     private static final ArrayList<EmprestimoModel> emprestimos = new ArrayList<>();
+    private static final ArrayList<ReservaModel> reservar = new reservar();
     private static String tipoUsuario = "";
     private static int contadorUsuario = 0;
     private static int posicaoUsuario = -1;

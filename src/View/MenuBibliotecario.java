@@ -430,6 +430,7 @@ public class MenuBibliotecario extends javax.swing.JFrame {
         jLabel29.setText("BIBLIOTECA ");
 
         jLabel28.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel28.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\OneDrive\\Documentos\\NetBeansProjects\\Biblioteca1\\Imagens\\logo_bibliotecaCorija (1) (2).png")); // NOI18N
 
         bntRenovarEmprestimo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         bntRenovarEmprestimo.setText("Renovar Empréstimo");

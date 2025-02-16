@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import Model.LivroModel;
 import Model.tblLivrosTitulo;
-import Dados.Dados;
+import dados.Dados;
 import javax.swing.table.AbstractTableModel;
 
 
@@ -95,16 +95,20 @@ public class PesquisaRequisitoGenero extends javax.swing.JFrame {
         bntRegistrarReserva1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
         btnVoltar = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         txtGenero = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         tblLivrosAutor = new javax.swing.JTable();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
 
         try {
             txtTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
@@ -382,6 +386,7 @@ public class PesquisaRequisitoGenero extends javax.swing.JFrame {
         });
 
         jLabel28.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel28.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\Downloads\\logo_bibliotecaCorija (1) (2).png")); // NOI18N
 
         jLabel29.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
         jLabel29.setText("BIBLIOTECA ");
@@ -498,6 +503,18 @@ public class PesquisaRequisitoGenero extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        jLabel17.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel17.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\Downloads\\logo_bibliotecaCorija (1) (2) (1).png")); // NOI18N
+
+        jLabel18.setFont(new java.awt.Font("Tempus Sans ITC", 1, 10)); // NOI18N
+        jLabel18.setText("BIBLIOTECA ");
+
+        jLabel19.setFont(new java.awt.Font("Viner Hand ITC", 1, 14)); // NOI18N
+        jLabel19.setText("CORUJA");
+
+        jLabel31.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel31.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\Downloads\\logo_bibliotecaCorija (1) (2) (1).png")); // NOI18N
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnVoltar.setText("Voltar");
@@ -509,14 +526,6 @@ public class PesquisaRequisitoGenero extends javax.swing.JFrame {
 
         jLabel16.setFont(new java.awt.Font("Viner Hand ITC", 1, 36)); // NOI18N
         jLabel16.setText("PESQUISA - GÊNERO");
-
-        jLabel19.setFont(new java.awt.Font("Viner Hand ITC", 1, 14)); // NOI18N
-        jLabel19.setText("CORUJA");
-
-        jLabel18.setFont(new java.awt.Font("Tempus Sans ITC", 1, 10)); // NOI18N
-        jLabel18.setText("BIBLIOTECA ");
-
-        jLabel17.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel20.setText("Gênero:");
 
@@ -571,62 +580,70 @@ public class PesquisaRequisitoGenero extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(tblLivrosAutor);
 
+        jLabel32.setFont(new java.awt.Font("Viner Hand ITC", 1, 14)); // NOI18N
+        jLabel32.setText("CORUJA");
+
+        jLabel33.setFont(new java.awt.Font("Tempus Sans ITC", 1, 10)); // NOI18N
+        jLabel33.setText("BIBLIOTECA ");
+
+        jLabel34.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel34.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\OneDrive\\Documentos\\NetBeansProjects\\Biblioteca1\\Imagens\\logo_bibliotecaCorija (1) (2) (1).png")); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(394, 394, 394)
-                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(70, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 64, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel20)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(74, 74, 74))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(btnVoltar)
+                                .addGap(21, 21, 21))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel16)
-                                .addGap(154, 154, 154)
-                                .addComponent(jLabel17)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel18)
-                            .addComponent(jLabel19))
-                        .addContainerGap())
+                                .addGap(128, 128, 128)
+                                .addComponent(jLabel34)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel33)
+                                    .addComponent(jLabel32)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(324, 324, 324)
+                                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnVoltar)
-                        .addGap(21, 21, 21))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane4)
-                .addContainerGap())
+                        .addComponent(jScrollPane4)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel17)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(8, 8, 8)
-                        .addComponent(jLabel18)
+                        .addComponent(jLabel33)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel19))
+                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(31, 31, 31)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel34))
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel20))
                 .addGap(18, 18, 18)
                 .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnVoltar)
                 .addGap(14, 14, 14))
         );
@@ -765,6 +782,10 @@ public class PesquisaRequisitoGenero extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

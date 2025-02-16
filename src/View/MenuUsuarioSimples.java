@@ -364,6 +364,7 @@ public class MenuUsuarioSimples extends javax.swing.JFrame {
         });
 
         jLabel28.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel28.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\OneDrive\\Documentos\\NetBeansProjects\\Biblioteca1\\Imagens\\logo_bibliotecaCorija (1) (2).png")); // NOI18N
 
         jLabel29.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
         jLabel29.setText("BIBLIOTECA ");

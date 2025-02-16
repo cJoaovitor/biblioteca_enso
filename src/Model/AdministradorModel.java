@@ -5,12 +5,12 @@ import Dados.Dados;
 public class AdministradorModel extends UsuarioModel {
     private final String codigoAdministrador;
 
-    public AdministradorModel(String codigoAdministrador, String idUsuario, String cpf, String nome, String email, String senha, String logradouro, String numero, String complemento, String bairro, String uf, String cidade, String cep) {
+    public AdministradorModel(String codigoAdministrador, int idUsuario, String cpf, String nome, String email, String senha, String logradouro, String numero, String complemento, String bairro, String uf, String cidade, String cep) {
         super(idUsuario, cpf, nome, email, senha, logradouro, numero, complemento, bairro, uf, cidade, cep);
         this.codigoAdministrador = codigoAdministrador;
     }
 
-    public AdministradorModel(String codigoAdministrador, String idUsuario, String cpf, String nome, String email, String senha) {
+    public AdministradorModel(String codigoAdministrador, int idUsuario, String cpf, String nome, String email, String senha) {
         super(idUsuario, cpf, nome, email, senha, "", "", "", "", "", "", "");
         this.codigoAdministrador = codigoAdministrador;
     }

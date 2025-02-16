@@ -16,7 +16,7 @@ public class LivroModel {
     private String editora;
     private boolean disponivel;
     private boolean emprestado;
-    private List<String> status;
+    private String status;
 
     // Construtor com Scanner
     public LivroModel(Scanner scanner) {
@@ -42,11 +42,12 @@ public class LivroModel {
         this.editora = scanner.nextLine();
         this.disponivel = true;
         this.emprestado = false;
-        this.status = new ArrayList<>();
+        System.out.println("qual e o status do livro");
+        this.status =  scanner.nextLine();
     }
 
     // Construtor com parâmetros
-    public LivroModel(String codigo, String titulo, String autor, String genero, String descricao, String anoPublicacao, String editora) {
+    public LivroModel(String codigo, String titulo, String autor, String genero, String descricao, String anoPublicacao, String editora,String status) {
         this.id = String.valueOf(Dados.getContadorLivros()); // Converte o contador para String
         this.codigo = codigo;
         this.titulo = titulo;
@@ -57,7 +58,7 @@ public class LivroModel {
         this.editora = editora;
         this.disponivel = true;
         this.emprestado = false;
-        this.status = new ArrayList<>();
+        this.status = status;
     }
 
     // Métodos getters
@@ -93,15 +94,15 @@ public class LivroModel {
         return editora;
     }
 
-    public boolean isDisponivel() {
+    public boolean getDisponivel() {
         return disponivel;
     }
 
-    public boolean isEmprestado() {
+    public boolean getEmprestado() {
         return emprestado;
     }
 
-    public List<String> getStatus() {
+    public String getStatus() {
         return status;
     }
 

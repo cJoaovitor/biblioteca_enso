@@ -8,7 +8,7 @@ import Model.LivroTableModel;
 import Model.UsuarioModel;
 import Service.LivroService;
 import Service.UsuarioService;
-import Dados.Dados;
+import dados.Dados;
 import java.util.ArrayList;
 
 public class GerenciarDisponibilidade extends javax.swing.JFrame {
@@ -101,15 +101,18 @@ public class GerenciarDisponibilidade extends javax.swing.JFrame {
         btnExcluir = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JButton();
         btnCancelar1 = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         tblLivros = new javax.swing.JTable();
-        jLabel22 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
 
         try {
             txtTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
@@ -431,6 +434,15 @@ public class GerenciarDisponibilidade extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel15.setText("Gerenciar Disponibilidade");
 
+        jLabel20.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel20.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\Downloads\\logo_bibliotecaCorija (1) (2) (1).png")); // NOI18N
+
+        jLabel21.setFont(new java.awt.Font("Tempus Sans ITC", 1, 10)); // NOI18N
+        jLabel21.setText("BIBLIOTECA ");
+
+        jLabel22.setFont(new java.awt.Font("Viner Hand ITC", 1, 14)); // NOI18N
+        jLabel22.setText("CORUJA");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnCancelar.setText("Salvar Alterações");
@@ -491,19 +503,20 @@ public class GerenciarDisponibilidade extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(tblLivros);
 
-        jLabel22.setFont(new java.awt.Font("Viner Hand ITC", 1, 14)); // NOI18N
-        jLabel22.setText("CORUJA");
-
         jLabel26.setFont(new java.awt.Font("Viner Hand ITC", 1, 48)); // NOI18N
         jLabel26.setText("DISPONIBILIDADE");
 
         jLabel27.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
         jLabel27.setText("GERENCIAR");
 
-        jLabel20.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel28.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel28.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\OneDrive\\Documentos\\NetBeansProjects\\Biblioteca1\\Imagens\\logo_bibliotecaCorija (1) (2) (1).png")); // NOI18N
 
-        jLabel21.setFont(new java.awt.Font("Tempus Sans ITC", 1, 10)); // NOI18N
-        jLabel21.setText("BIBLIOTECA ");
+        jLabel29.setFont(new java.awt.Font("Viner Hand ITC", 1, 14)); // NOI18N
+        jLabel29.setText("CORUJA");
+
+        jLabel30.setFont(new java.awt.Font("Tempus Sans ITC", 1, 10)); // NOI18N
+        jLabel30.setText("BIBLIOTECA ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -511,43 +524,45 @@ public class GerenciarDisponibilidade extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 868, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 868, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnCancelar1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel27)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel26)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel20)
+                        .addComponent(jLabel28)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel21)
-                            .addComponent(jLabel22))))
+                            .addComponent(jLabel30)
+                            .addComponent(jLabel29))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(8, 8, 8)
-                            .addComponent(jLabel21)
-                            .addGap(3, 3, 3)
-                            .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.LEADING))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(5, 5, 5)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel27))))
+                            .addComponent(jLabel27)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel28)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addComponent(jLabel30)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 405, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
                 .addGap(70, 70, 70)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelar)
@@ -702,7 +717,10 @@ if (selectedRow != -1) {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

@@ -11,7 +11,7 @@ public class UsuarioModel {
     public static UsuarioModel buscarUsuarioPorCPF(String cpf) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    protected String idusuario;
+    protected int idusuario;
     protected String cpf;
     protected String dataNascimento;
     protected String sexo;
@@ -28,7 +28,7 @@ public class UsuarioModel {
     protected HistoricoModel historicoEmprestimos;
      String dataDevolucao;
 
-    public UsuarioModel(String idusuario, String cpf, String nome, String email, String senha, 
+    public UsuarioModel(int idusuario, String cpf, String nome, String email, String senha, 
                         String logradouro, String numero, String complemento, 
                         String bairro, String uf, String cidade, String cep) {
         this.idusuario = idusuario;
@@ -56,8 +56,8 @@ public class UsuarioModel {
     }
 
     // Getters e Setters
-    public String getIdusuario() { return idusuario; }
-    public void setIdusuario(String idusuario) { this.idusuario = idusuario; }
+    public int getIdusuario() { return idusuario; }
+    public void setIdusuario( int idusuario) { this.idusuario = idusuario; }
     public String getCpf() { return cpf; }
     public void setCpf(String cpf) { this.cpf = cpf; }
     public String getDataNascimento() { return dataNascimento; }
@@ -194,7 +194,7 @@ public class UsuarioModel {
     public List<LivroModel> getLivrosEmprestados() {
         List<LivroModel> livrosEmprestados = new ArrayList<>();
         for (EmprestimoModel emprestimo : historicoEmprestimos.getEmprestimos()) {
-            livrosEmprestados.add(emprestimo.getLivro());
+            livrosEmprestados.add(Dados.getLivro(EmprestimoModel.getLivro()));
         }
         return livrosEmprestados;
     }
