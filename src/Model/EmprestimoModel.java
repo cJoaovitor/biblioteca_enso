@@ -23,10 +23,13 @@ public class EmprestimoModel {
         this.dataDevolucao = dataEmprestimo.plusDays(14);
         this.devolvido = false;
          // Incrementa o contador
+<<<<<<< HEAD
     }
 
     EmprestimoModel(int idemprestimo, UsuarioModel aThis, int idlivro, String dataDevolucao, boolean devolvido) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+=======
+>>>>>>> 1bc9f95fd7609a92086d0c81cb7abfdc18f6face
     }
 
    

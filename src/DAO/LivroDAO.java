@@ -1,12 +1,26 @@
+<<<<<<< HEAD
 package DAO;
 
 import java.sql.*;
+=======
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package DAO;
+
+import java.sql.*;
+
+>>>>>>> 1bc9f95fd7609a92086d0c81cb7abfdc18f6face
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
+=======
+>>>>>>> 1bc9f95fd7609a92086d0c81cb7abfdc18f6face
 
 public class LivroDAO {
     Connection conexao;
@@ -57,6 +71,7 @@ public class LivroDAO {
     }
     
     
+<<<<<<< HEAD
     public List<Model.LivroModel> consultarTodosLivros() {
     List<Model.LivroModel> livros = new ArrayList<>();
     try {
@@ -86,4 +101,6 @@ public class LivroDAO {
 
     
     
+=======
+>>>>>>> 1bc9f95fd7609a92086d0c81cb7abfdc18f6face
 }

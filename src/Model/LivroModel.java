@@ -58,10 +58,13 @@ public class LivroModel {
         this.disponivel = true;
         this.emprestado = false;
         this.status = status;
+<<<<<<< HEAD
     }
 
     public LivroModel() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+=======
+>>>>>>> 1bc9f95fd7609a92086d0c81cb7abfdc18f6face
     }
 
     // Métodos getters
