@@ -4,8 +4,8 @@ import Model.UsuarioModel;
 import Service.UsuarioService;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
-
-public class EditarDados extends javax.swing.JFrame {
+import DAO.*;
+        public class EditarDados extends javax.swing.JFrame {
     private UsuarioModel usuario;
 
     public EditarDados(UsuarioModel usuario) {
@@ -477,84 +477,100 @@ public class EditarDados extends javax.swing.JFrame {
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         boolean alterouDados = false;
 
-        String nome = txtNome.getText();
-        if (!nome.equals(usuario.getNome())) {
-            usuario.setNome(nome);
-            alterouDados = true;
-        }
+        // Instância de UsuarioDAO
+DAO.usuarioDao usuarioDAO = new usuarioDao();
+        
+String nome = txtNome.getText();
+if (!nome.equals(usuario.getNome())) {
+    usuario.setNome(nome);
+    usuarioDAO.atualizarNome(nome); // Usa o método da classe UsuarioDAO
+    alterouDados = true;
+}
 
-        String cpf = txtCpf.getText();
-        if (!cpf.equals(usuario.getCpf())) {
-            usuario.setCpf(cpf);
-            alterouDados = true;
-        }
+String cpf = txtCpf.getText();
+if (!cpf.equals(usuario.getCpf())) {
+    usuario.setCpf(cpf);
+    usuarioDAO.atualizarCpf(cpf); // Usa o método da classe UsuarioDAO
+    alterouDados = true;
+}
 
-        String dataNascimento = txtDataNascimento.getText();
-        if (!dataNascimento.equals(usuario.getDataNascimento())) {
-            usuario.setDataNascimento(dataNascimento);
-            alterouDados = true;
-        }
+String dataNascimento = txtDataNascimento.getText();
+if (!dataNascimento.equals(usuario.getDataNascimento())) {
+    usuario.setDataNascimento(dataNascimento);
+    usuarioDAO.atualizarDataNascimento(dataNascimento); // Usa o método da classe UsuarioDAO
+    alterouDados = true;
+}
 
-        String sexo = (txtSexoM.isSelected()) ? "Masculino" : "Feminino";
-        if (!sexo.equals(usuario.getSexo())) {
-            usuario.setSexo(sexo);
-            alterouDados = true;
-        }
+String sexo = (txtSexoM.isSelected()) ? "Masculino" : "Feminino";
+if (!sexo.equals(usuario.getSexo())) {
+    usuario.setSexo(sexo);
+    usuarioDAO.atualizarSexo(sexo); // Usa o método da classe UsuarioDAO
+    alterouDados = true;
+}
 
-        String senha = new String(jPasswordField1.getPassword());
-        String confirmacaoSenha = new String(jPasswordField2.getPassword());
-        if (!senha.isEmpty() && !senha.equals(confirmacaoSenha)) {
-            JOptionPane.showMessageDialog(this, "As senhas não coincidem.");
-            return;
-        } else if (!senha.isEmpty()) {
-            usuario.setSenha(senha);
-            alterouDados = true;
-        }
+String senha = new String(jPasswordField1.getPassword());
+String confirmacaoSenha = new String(jPasswordField2.getPassword());
+if (!senha.isEmpty() && !senha.equals(confirmacaoSenha)) {
+    JOptionPane.showMessageDialog(this, "As senhas não coincidem.");
+    return;
+} else if (!senha.isEmpty()) {
+    usuario.setSenha(senha);
+    usuarioDAO.atualizarSenha(senha); // Usa o método da classe UsuarioDAO
+    alterouDados = true;
+}
 
-        String logradouro = txtLogradouro.getText();
-        if (!logradouro.equals(usuario.getLogradouro())) {
-            usuario.setLogradouro(logradouro);
-            alterouDados = true;
-        }
+String logradouro = txtLogradouro.getText();
+if (!logradouro.equals(usuario.getLogradouro())) {
+    usuario.setLogradouro(logradouro);
+    usuarioDAO.atualizarLogradouro(logradouro); // Usa o método da classe UsuarioDAO
+    alterouDados = true;
+}
 
-        String numero = txtNumero.getText();
-        if (!numero.equals(usuario.getNumero())) {
-            usuario.setNumero(numero);
-            alterouDados = true;
-        }
+String numero = txtNumero.getText();
+if (!numero.equals(usuario.getNumero())) {
+    usuario.setNumero(numero);
+    usuarioDAO.atualizarNumero(numero); // Usa o método da classe UsuarioDAO
+    alterouDados = true;
+}
 
-        String complemento = txtComplemento.getText();
-        if (!complemento.equals(usuario.getComplemento())) {
-            usuario.setComplemento(complemento);
-            alterouDados = true;
-        }
+String complemento = txtComplemento.getText();
+if (!complemento.equals(usuario.getComplemento())) {
+    usuario.setComplemento(complemento);
+    usuarioDAO.atualizarComplemento(complemento); // Usa o método da classe UsuarioDAO
+    alterouDados = true;
+}
 
-        String bairro = txtBairro.getText();
-        if (!bairro.equals(usuario.getBairro())) {
-            usuario.setBairro(bairro);
-            alterouDados = true;
-        }
+String bairro = txtBairro.getText();
+if (!bairro.equals(usuario.getBairro())) {
+    usuario.setBairro(bairro);
+    usuarioDAO.atualizarBairro(bairro); // Usa o método da classe UsuarioDAO
+    alterouDados = true;
+}
 
-        String cidade = txtCidade.getText();
-        if (!cidade.equals(usuario.getCidade())) {
-            usuario.setCidade(cidade);
-            alterouDados = true;
-        }
+String cidade = txtCidade.getText();
+if (!cidade.equals(usuario.getCidade())) {
+    usuario.setCidade(cidade);
+    usuarioDAO.atualizarCidade(cidade); // Usa o método da classe UsuarioDAO
+    alterouDados = true;
+}
 
-        String uf = (String) txtUf.getSelectedItem();
-        if (!uf.equals(usuario.getUf())) {
-            usuario.setUf(uf);
-            alterouDados = true;
-        }
+String uf = (String) txtUf.getSelectedItem();
+if (!uf.equals(usuario.getUf())) {
+    usuario.setUf(uf);
+    usuarioDAO.atualizarUf(uf); // Usa o método da classe UsuarioDAO
+    alterouDados = true;
+}
 
-        String cep = txtCep.getText();
-        if (!cep.equals(usuario.getCep())) {
-            usuario.setCep(cep);
-            alterouDados = true;
-        }
+String cep = txtCep.getText();
+if (!cep.equals(usuario.getCep())) {
+    usuario.setCep(cep);
+    usuarioDAO.atualizarCep(cep); // Usa o método da classe UsuarioDAO
+    alterouDados = true;
+}
+
 
         if (alterouDados) {
-            UsuarioService.atualizarUsuario(usuario);
+            
             JOptionPane.showMessageDialog(this, "Dados atualizados com sucesso!");
         } else {
             JOptionPane.showMessageDialog(this, "Nenhum dado foi alterado.");

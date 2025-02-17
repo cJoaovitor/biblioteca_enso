@@ -444,6 +444,7 @@ public class CriarLivro extends javax.swing.JFrame {
             // Criar um novo objeto Livro
           LivroModel livro = new LivroModel(idLivro, titulo, autor, genero, descricao, anoPublicacaoStr, editora, "novoS");
           DAO.LivroDAO l = new LivroDAO();
+          Dados.setContadorUsuario(Dados.getContadorUsuario()+1);
           l.inserirLivro(livro);
            
 
