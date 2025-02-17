@@ -1,8 +1,12 @@
 package View;
 
+import DAO.AdministradorDAO;
+import DAO.bibliotecarioDAO;
 import javax.swing.JOptionPane;
 import Service.UsuarioService;
 import java.util.Random;
+import Dados.Dados;
+import Model.BibliotecarioModel;
 
 public class AdicionarBibliotecario extends javax.swing.JFrame {
     public AdicionarBibliotecario() {
@@ -464,13 +468,15 @@ public class AdicionarBibliotecario extends javax.swing.JFrame {
     }
 
     // Gerar o código do bibliotecário
-    String codigoBibliotecario = gerarCodigoBibliotecario();
+    
 
     // Criar a conta do usuário
-    UsuarioService.criarContaBibliotecario(cpf, nome, email, senha, logradouro, numero, complemento, bairro, uf, cidade, cep, codigoBibliotecario);
-
+    Model.BibliotecarioModel b = new BibliotecarioModel(Dados.getContadorUsuario(), cpf, nome, email, senha, logradouro, numero, complemento, bairro, uf, cidade, cep);
+    DAO.bibliotecarioDAO bd = new bibliotecarioDAO();
+    bd.inserirBliotecario(b);
+    Dados.setContadorUsuario(Dados.getContadorUsuario()+1);
     // Exibir mensagem de sucesso
-    JOptionPane.showMessageDialog(this, "Conta criada com sucesso! Código do bibliotecário: " + codigoBibliotecario);
+    JOptionPane.showMessageDialog(this, "Conta criada com sucesso! Código do bibliotecário: " + b.getCodigoBibliotecario());
 
     // Limpar os campos
     limparCampos();

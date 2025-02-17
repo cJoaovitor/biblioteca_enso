@@ -9,10 +9,12 @@ public class BibliotecarioModel extends UsuarioModel {
     private String codigoBibliotecario;
     public static int contadorEmprestimo = 0;
 
-    public BibliotecarioModel(String codigoBibliotecario, String idUsuario, String cpf, String nome, String email, String senha) {
-        super(idUsuario, cpf, nome, email, senha, "Rua Exemplo", "789", "", "Centro", "SP", "São Paulo", "00000-000");
-        this.codigoBibliotecario = codigoBibliotecario;
+    public BibliotecarioModel( int idusuario, String cpf, String nome, String email, String senha, String logradouro, String numero, String complemento, String bairro, String uf, String cidade, String cep) {
+        super(idusuario, cpf, nome, email, senha, logradouro, numero, complemento, bairro, uf, cidade, cep);
+        this.codigoBibliotecario = idusuario+"bli";
     }
+
+    
 
     public static String gerarCodigoBibliotecario() {
         Random random = new Random();
@@ -20,18 +22,13 @@ public class BibliotecarioModel extends UsuarioModel {
         return String.format("%04d", codigo);
     }
 
-    public void adicionarLivro(Scanner scanner) {
-        LivroModel novoLivro = new LivroModel(scanner);
-        Dados.getLivros().add(novoLivro);
-        System.out.println("Livro adicionado com sucesso: " + novoLivro.getTitulo());
-    }
 
-    public void removerLivro(String idLivro) {
+    public void removerLivro(int idLivro) {
         List<LivroModel> livros = Dados.getLivros(); // Obtém a lista de livros
         if (livros != null) {
             for (int i = 0; i < livros.size(); i++) {
                 // Verifica se o ID do livro atual é igual ao ID do livro a ser removido
-                if (livros.get(i).getIdLivro().equals(idLivro)) {
+                if (livros.get(i).getIdLivro()==idLivro) {
                     livros.remove(i); // Remove o livro
                     System.out.println("Livro removido com sucesso!");
                     return; // Sai do método após a remoção
@@ -54,7 +51,7 @@ public class BibliotecarioModel extends UsuarioModel {
         }
     }
     
-    public void registrarEmprestimo(int idUsuario, String idLivro) {
+    public void registrarEmprestimo(int idUsuario, int idLivro) {
         // Verifica se o ID do usuário é válido
         if (idUsuario < 0 || idUsuario >= Dados.getUsuarios().size()) {
             System.out.println("Usuário não encontrado.");
@@ -64,14 +61,14 @@ public class BibliotecarioModel extends UsuarioModel {
         UsuarioModel usuario = Dados.getUsuarios().get(idUsuario);
         // Filtra os livros para encontrar um livro disponível com o ID correspondente
         LivroModel livro = Dados.getLivros().stream()
-                .filter(l -> l.getIdLivro().equals(idLivro) && l.isDisponivel())
+                .filter(l -> l.getIdLivro()==idLivro && l.getDisponivel())
                 .findFirst()
                 .orElse(null);
 
         // Verifica se o livro foi encontrado e se está disponível
         if (livro != null) {
             livro.setDisponivel(false); // Marca o livro como não disponível
-            EmprestimoModel novoEmprestimo = new EmprestimoModel(Dados.getPosicaoUsuario(), Dados.getLivro(idUsuario)); // Usa o construtor correto
+            EmprestimoModel novoEmprestimo = new EmprestimoModel(Dados.getPosicaoUsuario(), idLivro); // Usa o construtor correto
             usuario.registrarEmprestimo(novoEmprestimo); // Registra o empréstimo para o usuário
             System.out.println("Empréstimo registrado com sucesso!");
         } else {
@@ -81,27 +78,7 @@ public class BibliotecarioModel extends UsuarioModel {
 
 
 
-    public void visualizarHistoricoEmprestimos(int idUsuario) {
-        if (idUsuario < 0 || idUsuario >= Dados.getUsuarios().size()) {
-            System.out.println("Usuário não encontrado.");
-            return;
-        }
-        System.out.println("=== Histórico de Empréstimos do Usuário " + idUsuario + " ===");
-        Dados.getUsuarios().get(idUsuario).visualizarHistorico();
-    }
-
-    public void editarDados(String novoNome, String novoEmail, String novaSenha) {
-        if (novoNome != null && !novoNome.trim().isEmpty()) {
-                        this.nome = novoNome;
-        }
-        if (novoEmail != null && !novoEmail.trim().isEmpty()) {
-            this.email = novoEmail;
-        }
-        if (novaSenha != null && !novaSenha.trim().isEmpty()) {
-            this.senha = novaSenha;
-        }
-        System.out.println("Dados do bibliotecário atualizados com sucesso!");
-    }
+    // aqui vai a função de exbir pelo banco
 
     @Override
     public void exibirDados() {

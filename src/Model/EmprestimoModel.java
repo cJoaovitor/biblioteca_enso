@@ -38,7 +38,6 @@ public class EmprestimoModel {
     public void devolverEmprestimo() {
         this.devolvido = true;
         System.out.println("Empréstimo devolvido com sucesso!");
-        notificarReservas();
     }
 
     // Método para renovar o empréstimo
@@ -78,21 +77,13 @@ public class EmprestimoModel {
         if (devolvido) {
             System.out.println("O livro já está disponível para empréstimo.");
         } else {
-            Model.ReservaModel
-            System.out.println("Usuário " + usuarioReserva.getNome() + " reservado o livro " + Dados.Dados.getLivro(idlivro).getTitulo() + " com sucesso.");
+            
+            System.out.println("Usuário "+usuarioReserva.getNome()+" reservado o livro "+Dados.Dados.getLivro(idlivro).getTitulo()+" com sucesso.");
         }
     }
 
     // Método para notificar reservas
-    private void notificarReservas() {
-        if (!reservas.isEmpty()) {
-            for (UsuarioModel usuarioReserva : reservas) {
-                System.out.println("Notificação: O livro " + livro.getTitulo() + " foi devolvido e está disponível para empréstimo.");
-            }
-            reservas.clear();
-        }
-    }
-
+ 
     // Método para definir nova data de devolução
     public void setDataDevolucao(LocalDate novaDevolucao) {
         this.dataDevolucao = novaDevolucao;

@@ -14,7 +14,7 @@ public class bibliotecarioDAO {
     
        
     //inserir os dados de uma pessoa no mysql
-    public void inserirPessoa(Model.BibliotecarioModel b){
+    public void inserirBliotecario(Model.BibliotecarioModel b){
         try{
             String sql = "insert into usuario (idusuario, cpf, dataNascimento, sexo, nome, email, senha, logradouro, numero, complemento, bairro, uf, cidade, cep,codigoBibliotecario) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?);";
             PreparedStatement ps = conexao.prepareStatement(sql);

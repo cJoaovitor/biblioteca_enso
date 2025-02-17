@@ -41,7 +41,7 @@ public class LivroTableModel extends AbstractTableModel {
             case 4:
                 return livro.getEditora(); // Editora
             case 5:
-                return livro.isDisponivel(); // Disponibilidade
+                return livro.getDisponivel(); // Disponibilidade
             default:
                 return null; // Caso inválido
         }

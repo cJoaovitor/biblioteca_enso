@@ -4,7 +4,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import Model.LivroModel;
-import dados.Dados;
+import Dados.Dados;
 
 
 public class PesquisaRequisitoAutor extends javax.swing.JFrame {

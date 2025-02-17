@@ -19,11 +19,12 @@ public class LivroDAO {
     
        
     //inserir os dados de uma pessoa no mysql
-    public void inserirPessoa(Model.LivroModel l){
+    public void inserirLivro(Model.LivroModel l){
         try{
-           String sql = "INSERT INTO livro (codigo, titulo, autor, genero, descricao, anoPublicacao, editora, disponivel, emprestado, livro_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+           String sql = "INSERT INTO livro (id,codigo, titulo, autor, genero, descricao, anoPublicacao, editora, disponivel, emprestado, livro_status) VALUES (?<?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = conexao.prepareStatement(sql);
-            ps.setString(1, l.getCodigo());
+            ps.setInt(1, l.getIdLivro());
+            ps.setString(2, l.getCodigo());
             ps.setString(3, l.getAutor());
             ps.setString(4, l.getGenero());
             ps.setString(5, l.getDescricao());

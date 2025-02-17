@@ -19,7 +19,7 @@ public class ReservaDAO {
     
        
     //inserir os dados de uma pessoa no mysql
-    public void inserirPessoa(Model.ReservaModel r){
+    public void inserirReserva(Model.ReservaModel r){
         try{
            String sql = "INSERT INTO reserva (tituloLivro, nomeUsuario, datadevolucao, idlivrosfk, idusuariofk) VALUES (?, ?, ?, ?, ?)";
         PreparedStatement ps = conexao.prepareStatement(sql);

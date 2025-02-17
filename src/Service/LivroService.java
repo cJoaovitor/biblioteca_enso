@@ -20,17 +20,17 @@ public class LivroService {
         return null;
     }
 
-    public static LivroModel obterLivroPorId(String id) {
+    public static LivroModel obterLivroPorId(int id) {
         for (LivroModel livro : Dados.getLivros()) {
-            if (livro.getIdLivro().equals(id)) {
+            if (livro.getIdLivro() == id) {
                 return livro;
             }
         }
         return null;
     }
-
+    /* funçoes de banco 
     public static void emprestar(LivroModel livro, UsuarioModel usuario) {
-        if (livro.isDisponivel()) {
+        if (livro.getDisponivel()) {
             livro.setDisponivel(false);
             usuario.adicionarLivroEmprestado(livro);
             System.out.println("Livro emprestado com sucesso!");
@@ -76,7 +76,7 @@ public class LivroService {
 
     public static void visualizarLivrosDisponiveis() {
         List<LivroModel> livrosDisponiveis = Dados.getLivros().stream()
-            .filter(LivroModel::isDisponivel)
+            .filter(LivroModel::getDisponivel)
             .toList(); // Usando stream para filtrar os livros disponíveis
         
         if (livrosDisponiveis.isEmpty()) {
@@ -129,4 +129,5 @@ public class LivroService {
     public static LivroModel buscarLivroPorId(int livroId) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+*/
 }

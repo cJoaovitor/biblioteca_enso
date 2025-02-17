@@ -1,12 +1,13 @@
 package Model;
 
+import DAO.LivroDAO;
 import Dados.Dados;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class LivroModel {
-    private String id;
+    private int id;
     private String codigo;
     private String titulo;
     private String autor;
@@ -19,12 +20,10 @@ public class LivroModel {
     private String status;
 
     // Construtor com Scanner
-    public LivroModel(Scanner scanner) {
-        this(String.valueOf(Dados.getContadorLivros()), scanner);
-    }
+   
 
     // Construtor com id e Scanner
-    public LivroModel(String id, Scanner scanner) {
+    public LivroModel(int id, Scanner scanner) {
         this.id = id;
         System.out.print("Digite o código do livro: ");
         this.codigo = scanner.nextLine();
@@ -47,9 +46,9 @@ public class LivroModel {
     }
 
     // Construtor com parâmetros
-    public LivroModel(String codigo, String titulo, String autor, String genero, String descricao, String anoPublicacao, String editora,String status) {
-        this.id = String.valueOf(Dados.getContadorLivros()); // Converte o contador para String
-        this.codigo = codigo;
+    public LivroModel(int id , String titulo, String autor, String genero, String descricao, String anoPublicacao, String editora,String status) {
+        this.id = id;
+        this.codigo = id+"livro";
         this.titulo = titulo;
         this.autor = autor;
         this.genero = genero;
@@ -62,7 +61,7 @@ public class LivroModel {
     }
 
     // Métodos getters
-    public String getIdLivro() {
+    public int getIdLivro() {
         return id;
     }
 
@@ -106,7 +105,7 @@ public class LivroModel {
         return status;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -147,8 +146,8 @@ public class LivroModel {
     }
 
     public void adicionarStatus(String novoStatus) {
-        this.status.add(novoStatus);
-    }
+        this.status =novoStatus;
+              }
 
     public void atualizarDisponibilidade() {
         this.disponivel = !this.disponivel;
@@ -165,15 +164,13 @@ public class LivroModel {
         System.out.println("ID: " + id);
         System.out.println("Disponível: " + (disponivel ? "Sim" : "Não"));
         System.out.println("Emprestado: " + (emprestado ? "Sim" : "Não"));
-        System.out.println("Status:");
-        for (String s : status) {
-            System.out.println("- " + s);
-        }
+        System.out.println("Status:"+status);
+        
     }
 
-    public static LivroModel buscarLivro(List<LivroModel> livros, String id) {
+    public static LivroModel buscarLivro(List<LivroModel> livros, int id) {
     for (LivroModel livro : livros) {
-        if (livro.getIdLivro().equals(id)) {
+        if (livro.getIdLivro() == id ) {
             return livro;
         }
     }
@@ -196,7 +193,7 @@ public class LivroModel {
 
     LivroModel livro = buscarLivroPorCodigo(livros, codigoLivro);
     if (livro != null) {
-        if (livro.isDisponivel() && !livro.isEmprestado()) {
+        if (livro.getDisponivel() && !livro.getEmprestado()) {
             livro.setEmprestado(true);
             livro.setDisponivel(false); // Atualiza a disponibilidade
             livro.adicionarStatus("Emprestado");
@@ -216,7 +213,7 @@ public class LivroModel {
 
     LivroModel livro = buscarLivroPorCodigo(livros, codigoLivro);
     if (livro != null) {
-        if (livro.isEmprestado()) {
+        if (livro.getEmprestado()) {
             livro.setEmprestado(false);
             livro.setDisponivel(true); // Atualiza a disponibilidade
             livro.adicionarStatus("Devolvido");
@@ -376,13 +373,13 @@ public class LivroModel {
 
         for (int i = 0; i < titulos.length; i++) {
             String codigo = gerarCodigoLivro(codigoAtual);
-            LivroModel livro = new LivroModel(
+            
+            LivroModel livro = new LivroModel(Dados.getContadorLivros(),
                 codigo, titulos[i], autores[i], generos[i],
                 descricoes[i], anos[i], editoras[i]
             );
-            livros.add(livro);
-            livro.adicionarStatus("Novo");
-            codigoAtual++;
+            DAO.LivroDAO l = new LivroDAO();
+            l.inserirLivro(livro);
         }
     }
 

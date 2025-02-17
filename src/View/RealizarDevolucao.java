@@ -2,7 +2,7 @@ package View;
 
 import Model.EmprestimoModel;
 import Model.LivroModel;
-import dados.Dados;
+import Dados.Dados;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
@@ -27,7 +27,7 @@ public class RealizarDevolucao extends javax.swing.JFrame {
         
         private EmprestimoModel buscarEmprestimoPorLivro(LivroModel livro) {
             for (EmprestimoModel emprestimo : Dados.getEmprestimos()) {
-                if (emprestimo.getLivro().equals(livro) && !emprestimo.isDevolvido()) {
+                if (emprestimo.getLivro() == livro.getIdLivro() && !emprestimo.getDevolvido()) {
                     return emprestimo;
                 }
             }
@@ -595,11 +595,11 @@ public class RealizarDevolucao extends javax.swing.JFrame {
         txtTituloLivro.setText(livro.getTitulo());
         EmprestimoModel emprestimo = buscarEmprestimoPorLivro(livro);
         if (emprestimo != null) {
-            txtNomeUsuario.setText(emprestimo.getUsuario().getNome());
+            txtNomeUsuario.setText(Dados.getUsuario(Dados.getPosicaoUsuario()).getNome());
             txtNomeUsuario1.setText(emprestimo.getDataEmprestimo().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
             txtNomeUsuario3.setText(emprestimo.getDataDevolucao().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-            atrazadoSIM1.setSelected(!emprestimo.isDevolvido() && emprestimo.getDataDevolucao().isBefore(LocalDate.now()));
-            atrazadoNAO.setSelected(emprestimo.isDevolvido() || !emprestimo.getDataDevolucao().isBefore(LocalDate.now()));
+            atrazadoSIM1.setSelected(!emprestimo.getDevolvido() && emprestimo.getDataDevolucao().isBefore(LocalDate.now()));
+            atrazadoNAO.setSelected(emprestimo.getDevolvido() || !emprestimo.getDataDevolucao().isBefore(LocalDate.now()));
             btnDevolver.setEnabled(true);
         } else {
             JOptionPane.showMessageDialog(this, "Não há empréstimo ativo para este livro.");

@@ -22,7 +22,7 @@ public class EmprestimoDAO {
     
        
     //inserir os dados de uma pessoa no mysql
-    public void inserirPessoa(Model.EmprestimoModel E){
+    public void inserirEmprestimo(Model.EmprestimoModel E){
         try{
             String sql = "INSERT INTO emprestimo ( idEmprestimo, dataDevolucao, devolvido, fk_idusuario, fk_idlivro, ) VALUES ( , ?, ?, ?, ?, ?)";
             PreparedStatement ps = conexao.prepareStatement(sql);

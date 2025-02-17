@@ -1,10 +1,11 @@
 package View;
 
+import DAO.LivroDAO;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import Model.LivroModel;
 import Service.LivroService;
-import dados.Dados;
+import Dados.Dados;
 
 public class CriarLivro extends javax.swing.JFrame {
     public CriarLivro() {
@@ -438,24 +439,15 @@ public class CriarLivro extends javax.swing.JFrame {
         }
 
             // Gerar ID automaticamente
-          String idLivro = gerarCodigoLivro(Dados.getContadorLivros() + 1);
+          int idLivro = Dados.getContadorLivros();
 
             // Criar um novo objeto Livro
-          LivroModel livro = new LivroModel(idLivro, titulo, autor, genero, descricao, anoPublicacaoStr, editora);
+          LivroModel livro = new LivroModel(idLivro, titulo, autor, genero, descricao, anoPublicacaoStr, editora, "novoS");
+          DAO.LivroDAO l = new LivroDAO();
+          l.inserirLivro(livro);
+           
 
-            try {
-                // Salvar o livro usando o LivroService
-                LivroService.salvarLivro(livro);
-                JOptionPane.showMessageDialog(this, "Livro criado com sucesso!");
-                this.dispose(); // Fecha a janela atual
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(this, "Erro ao salvar o livro: " + e.getMessage());
-            }
-        }
-
-        private String gerarCodigoLivro(int codigo) {
-            return String.format("C%03d", codigo);
-
+       
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     

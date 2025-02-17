@@ -14,7 +14,7 @@ public class AdministradorDAO {
     
        
     //inserir os dados de uma pessoa no mysql
-    public void inserirPessoa(Model.AdministradorModel a){
+    public void inserirAdm(Model.AdministradorModel a){
         try{
             String sql = "insert into usuario (idusuario, cpf, dataNascimento, sexo, nome, email, senha, logradouro, numero, complemento, bairro, uf, cidade, cep,codigoAdministrador) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?);";
             PreparedStatement ps = conexao.prepareStatement(sql);
@@ -60,5 +60,6 @@ public class AdministradorDAO {
         }
     }
     
+    }
     
-}
+

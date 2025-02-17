@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import Model.LivroModel;
 import Model.tblLivrosTitulo;
-import dados.Dados;
+import Dados.Dados;
 import javax.swing.table.AbstractTableModel;
 
 

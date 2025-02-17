@@ -13,7 +13,7 @@ public class usuarioDao {
     
        
     //inserir os dados de uma pessoa no mysql
-    public void inserirPessoa(Model.UsuarioModel u){
+    public void inserirUsuario(Model.UsuarioModel u){
         try{
             String sql = "insert into usuario (idusuario, cpf, dataNascimento, sexo, nome, email, senha, logradouro, numero, complemento, bairro, uf, cidade, cep) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
             PreparedStatement ps = conexao.prepareStatement(sql);

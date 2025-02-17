@@ -23,7 +23,7 @@ public class VisualizarHistórico extends javax.swing.JFrame {
         // Preencher a lista de histórico
         DefaultListModel<String> model = new DefaultListModel<>();
         for (EmprestimoModel emprestimo : emprestimos) {
-            String item = "Livro: " + emprestimo.getLivro().getTitulo() + " | Data de Devolução: " + emprestimo.getDataDevolucao().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+            String item = "Livro: " + Dados.Dados.getLivro(emprestimo.getLivro()).getTitulo() + " | Data de Devolução: " + emprestimo.getDataDevolucao().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
             model.addElement(item);
         }
         jList1.setModel(model);

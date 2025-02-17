@@ -1,5 +1,8 @@
 package View;
 
+import DAO.usuarioDao;
+import Dados.Dados;
+import Model.UsuarioModel;
 import javax.swing.JOptionPane;
 import Service.UsuarioService;
 
@@ -453,8 +456,10 @@ public class CriarUsuarioSimples extends javax.swing.JFrame {
         }
 
         // Criar a conta do usuário
-        UsuarioService.criarContaUsuarioSimples(cpf, nome, email, senha, logradouro, numero, complemento, bairro, uf, cidade, cep);
-
+        Model.UsuarioModel u = new UsuarioModel(Dados.getContadorUsuario(),cpf, nome, email, senha, logradouro, numero, complemento, bairro, uf, cidade, cep);
+        DAO.usuarioDao ud = new usuarioDao();
+        ud.inserirUsuario(u);
+        Dados.setContadorUsuario(Dados.getContadorUsuario()+1);
         // Exibir mensagem de sucesso
         JOptionPane.showMessageDialog(this, "Conta criada com sucesso!");
 

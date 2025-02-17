@@ -1,7 +1,7 @@
 package View;
 
 import Model.UsuarioModel;
-import dados.Dados;
+import Dados.Dados;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;

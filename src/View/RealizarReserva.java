@@ -1,9 +1,10 @@
 package View;
 
 
+import DAO.ReservaDAO;
 import java.time.LocalDate;
 import javax.swing.JOptionPane;
-import model.ReservaModel;
+import Model.ReservaModel;
 
 
 public class RealizarReserva extends javax.swing.JFrame {
@@ -539,7 +540,8 @@ public class RealizarReserva extends javax.swing.JFrame {
 
         // Criar uma nova instância de Reserva
         ReservaModel reserva = new ReservaModel(codLivro, codUsuario, tituloLivro, nomeUsuario, dataDevolucao);
-
+        DAO.ReservaDAO r = new ReservaDAO();
+        r.inserirReserva(reserva);
         // Aqui você pode implementar a lógica de reserva no sistema
         // utilizando as informações da reserva
 

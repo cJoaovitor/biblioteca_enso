@@ -23,17 +23,7 @@ public class UsuarioService {
         return Dados.getUsuario(codigo);
     }
 
-    public static void criarContaUsuarioSimples(String cpf, String nome, String email, String senha, String logradouro, String numero, String complemento, String bairro, String uf, String cidade, String cep) {
-        if (verificaCpfExistente(Dados.getUsuarios(), cpf)) {
-            System.out.println("CPF já cadastrado.");
-            return;
-        }
-
-        String idUsuario = Dados.gerarIdUsuario(); // Obter um ID único
-        UsuarioModel u = new UsuarioModel(idUsuario, cpf, nome, email, senha, logradouro, numero, complemento, bairro, uf, cidade, cep);
-        Dados.adicionarUsuario(u);
-        System.out.println("Conta de usuário criada com sucesso.");
-    }
+    
 
     public static void excluirUsuario(UsuarioModel usuario) {
         Dados.removerUsuario(usuario);
@@ -76,7 +66,7 @@ public class UsuarioService {
     private static boolean verificaCpfExistente(List<UsuarioModel> usuarios, String cpf) {
         return usuarios.stream().anyMatch(usuario -> usuario.getCpf().equals(cpf));
     }
-
+   /*
     public static void visualizarHistorico(String codigoUsuario) {
         UsuarioModel usuario = obterUsuarioPorCodigo(codigoUsuario);
         if (usuario != null) {
@@ -167,4 +157,5 @@ public class UsuarioService {
     public static void criarContaBibliotecario(String cpf, String nome, String email, String senha, String logradouro, String numero, String complemento, String bairro, String uf, String cidade, String cep, String codigoBibliotecario) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+ */
 }

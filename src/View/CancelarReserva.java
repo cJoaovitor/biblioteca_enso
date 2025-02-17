@@ -3,7 +3,7 @@ package View;
 
 import java.time.LocalDate;
 import javax.swing.JOptionPane;
-import model.ReservaModel;
+import Model.ReservaModel;
 
 
 public class CancelarReserva extends javax.swing.JFrame {

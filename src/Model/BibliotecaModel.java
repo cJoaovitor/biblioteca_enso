@@ -68,7 +68,7 @@ public class BibliotecaModel {
                     usuario.exibirDados();
                     break;
                 case 2:
-                    usuario.visualizarHistorico();
+                    
                     break;
                 case 3:
                     System.out.println("Saindo do menu do usuário...");

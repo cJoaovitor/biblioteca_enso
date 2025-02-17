@@ -8,7 +8,7 @@ import Model.LivroTableModel;
 import Model.UsuarioModel;
 import Service.LivroService;
 import Service.UsuarioService;
-import dados.Dados;
+import Dados.Dados;
 import java.util.ArrayList;
 
 public class GerenciarDisponibilidade extends javax.swing.JFrame {
@@ -634,7 +634,7 @@ public class GerenciarDisponibilidade extends javax.swing.JFrame {
                 return;
             }
 
-            if (!livro.isDisponivel()) {
+            if (!livro.getDisponivel()) {
                 // Livro já está indisponível, então marcar como disponível
                 livro.setDisponivel(true);
                 LivroService.atualizarLivro(livro);

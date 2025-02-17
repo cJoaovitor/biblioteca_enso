@@ -2,7 +2,7 @@ package View;
 
 import Model.LivroModel;
 import Model.UsuarioModel;
-import dados.Dados;
+import Dados.Dados;
 import javax.swing.JOptionPane;
 
 public class RenovarEmprestimo extends javax.swing.JFrame {

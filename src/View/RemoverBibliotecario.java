@@ -2,7 +2,7 @@ package View;
 
 import Model.BibliotecarioModel;
 import Model.UsuarioModel;
-import dados.Dados;
+import Dados.Dados;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;

@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import Model.EmprestimoModel;
 import Model.LivroModel;
-import dados.Dados;
+import Dados.Dados;
 
 public class RemoverLivro extends javax.swing.JFrame {
 
@@ -16,7 +16,7 @@ public class RemoverLivro extends javax.swing.JFrame {
 
     private EmprestimoModel buscarEmprestimoPorLivro(LivroModel livro) {
         for (EmprestimoModel emprestimo : Dados.getEmprestimos()) {
-            if (emprestimo.getLivro().equals(livro) && !emprestimo.isDevolvido()) {
+            if (emprestimo.getLivro() == livro.getIdLivro() && !emprestimo.getDevolvido()) {
                 return emprestimo;
             }
         }

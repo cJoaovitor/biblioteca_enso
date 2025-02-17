@@ -15,15 +15,19 @@ public class Dados {
     private static final ArrayList<AdministradorModel> administradores = new ArrayList<>();
     private static final ArrayList<LivroModel> livros = new ArrayList<>();
     private static final ArrayList<EmprestimoModel> emprestimos = new ArrayList<>();
-    private static final ArrayList<ReservaModel> reservar = new reservar();
+    private static final ArrayList<ReservaModel> reservar = new ArrayList<>();
     private static String tipoUsuario = "";
     private static int contadorUsuario = 0;
     private static int posicaoUsuario = -1;
     private static int contadorEmprestimo = 0; // Contador de empréstimos
     private static int contadorLivros = 0; // Contador de livros para IDs
     private static int contadorBibliotecario = 0; // Contador de bibliotecários
-      
 
+    public static ArrayList<ReservaModel> getReservar() {
+        return reservar;
+    }
+      
+   
     public static String gerarIdUsuario() {
         return "USR" + contadorUsuario++; // Gera um ID único para usuário
     }
@@ -215,16 +219,13 @@ public static void removerBibliotecario(BibliotecarioModel bibliotecario) {
     }
 
     public static UsuarioModel getUsuario(String codigoUsuario) {
-        if (codigoUsuario == null) {
-            System.out.println("Código do usuário não pode ser nulo.");
-            return null;
+        for( int i = 0 ; i<usuarios.size() ; i++){
+        if (usuarios.get(i).getCodigo().equals(codigoUsuario)) {
+            return usuarios.get(i);
         }
-        
-        return usuarios.stream()
-                .filter(usuario -> usuario.getIdusuario() != null && usuario.getIdusuario().equals(codigoUsuario))
-                .findFirst()
-                .orElse(null);
-    }
+        }
+        return null;
+     }
 
     public static BibliotecarioModel buscarBibliotecarioPorCpf(String cpf) {
         return bibliotecarios.stream()
@@ -248,12 +249,12 @@ public static void removerBibliotecario(BibliotecarioModel bibliotecario) {
     }
 
     public static LivroModel getLivro(String codigoLivro) {
-        return livros.stream()
-                .filter(livro -> livro.getIdLivro().equals(codigoLivro))
-                .findFirst()
-                .orElse(null);
+       for(int i = 0 ; i<livros.size(); i++){
+           if (livros.get(i).getCodigo().equals(codigoLivro))
+               return livros.get(i);
+       }
+       return null;
     }
-
     public static void atualizarUsuario(UsuarioModel usuarioSelecionado) {
         int index = usuarios.indexOf(usuarioSelecionado);
         if (index != -1) {

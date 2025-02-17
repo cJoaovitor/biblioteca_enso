@@ -19,7 +19,7 @@ public class HistoricoDAO {
     
        
     //inserir os dados de uma pessoa no mysql
-    public void inserirPessoa(Model.HistoricoModel h){
+    public void inseririsHtorico(Model.HistoricoModel h){
         try{
            String sql = "INSERT INTO historico ( idusuariofk, idemprestimosfk) VALUES ( ?, ?)";
             PreparedStatement ps = conexao.prepareStatement(sql);

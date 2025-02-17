@@ -2,11 +2,11 @@ package View;
 
 import Model.LivroModel;
 import Model.UsuarioModel;
-import dados.Dados;
+import Dados.Dados;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
-import model.ReservaModel;
+import Model.ReservaModel;
 
 public class RealizarEmprestimo extends javax.swing.JFrame {
 

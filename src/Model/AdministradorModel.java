@@ -29,7 +29,7 @@ public class AdministradorModel extends UsuarioModel {
     }
 
     public void adicionarBibliotecario(String cpf, String nome, String email, String senha) {
-        String idUsuario = String.valueOf(Dados.getUsuarios().size() + 1); // Gera um ID único
+        int idUsuario = Dados.getUsuarios().size() + 1; // Gera um ID único
         BibliotecarioModel novoBibliotecario = new BibliotecarioModel(BibliotecarioModel.gerarCodigoBibliotecario(), idUsuario, cpf, nome, email, senha);
         Dados.getUsuarios().add(novoBibliotecario);
         System.out.println("Bibliotecário adicionado com sucesso!");

@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class BibliotecarioService {
     private static final Scanner scanner = new Scanner(System.in);
-
+  /* vai vira função de banco
     public static void removerLivro(String idLivro) {
         LivroModel livroRemovido = null;
         for (LivroModel livro : Dados.getLivros()) {
@@ -119,4 +119,5 @@ public class BibliotecarioService {
     public static void fecharScanner() {
         scanner.close();
     }
+   */
 }

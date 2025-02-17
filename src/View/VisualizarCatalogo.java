@@ -3,7 +3,7 @@ package View;
 import javax.swing.JOptionPane;
 import Model.LivroModel;
 import Model.LivroTableModel;
-import dados.Dados;
+import Dados.Dados;
 import java.util.ArrayList;
 
 public class VisualizarCatalogo extends javax.swing.JFrame {

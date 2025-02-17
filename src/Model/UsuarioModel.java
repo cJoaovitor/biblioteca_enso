@@ -87,17 +87,7 @@ public class UsuarioModel {
     public HistoricoModel getHistoricoEmprestimos() { return historicoEmprestimos; }
     public void setHistoricoEmprestimos(HistoricoModel historicoEmprestimos) { this.historicoEmprestimos = historicoEmprestimos; }
 
-    public void visualizarHistorico() {
-        List<EmprestimoModel> emprestimos = historicoEmprestimos.getEmprestimos();
-        if (emprestimos.isEmpty()) {
-            System.out.println("Nenhum histórico de empréstimos encontrado.");
-        } else {
-            System.out.println("=== Histórico de Empréstimos ===");
-            for (EmprestimoModel emprestimo : emprestimos) {
-                emprestimo.exibirEmprestimo();
-            }
-        }
-    }
+    // vou colacar as funçoes de exblir pelo banco
 
     public void editarDadosUsuario(int posicaoUsuario) {
         try {
@@ -186,11 +176,11 @@ public class UsuarioModel {
         System.out.println("Cidade: " + cidade);
         System.out.println("CEP: " + cep);
     }
-
+  /* outa função que ser feita pelo banco 
     public List<EmprestimoModel> getEmprestimos() {
         return historicoEmprestimos.getEmprestimos();
     }
-
+ 
     public List<LivroModel> getLivrosEmprestados() {
         List<LivroModel> livrosEmprestados = new ArrayList<>();
         for (EmprestimoModel emprestimo : historicoEmprestimos.getEmprestimos()) {
@@ -244,5 +234,6 @@ public class UsuarioModel {
         }
     }
 
-   
+   */
+    
 }
