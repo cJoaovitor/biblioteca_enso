@@ -1,5 +1,7 @@
 package Service;
 
+import DAO.AdministradorDAO;
+import DAO.bibliotecarioDAO;
 import Model.AdministradorModel;
 import Model.BibliotecarioModel;
 import Model.LivroModel;
@@ -66,27 +68,8 @@ public class UsuarioService {
     private static boolean verificaCpfExistente(List<UsuarioModel> usuarios, String cpf) {
         return usuarios.stream().anyMatch(usuario -> usuario.getCpf().equals(cpf));
     }
-   /*
-    public static void visualizarHistorico(String codigoUsuario) {
-        UsuarioModel usuario = obterUsuarioPorCodigo(codigoUsuario);
-        if (usuario != null) {
-            System.out.println("===== HISTÓRICO DO USUÁRIO =====");
-            List<LivroModel> livrosEmprestados = usuario.getLivrosEmprestados();
-            if (!livrosEmprestados.isEmpty()) {
-                for (LivroModel livro : livrosEmprestados) {
-                    System.out.println("Título: " + livro.getTitulo());
-                }
-            } else {
-                System.out.println("O usuário não possui livros emprestados.");
-            }
-        } else {
-            System.out.println("Usuário não encontrado.");
-        }
-    }
-
-    public static void atualizarUsuario(UsuarioModel usuario) {
-        Dados.atualizarUsuario(usuario);
-    }
+  
+   
 
     public static UsuarioModel buscarUsuarioPorNome(String nomeUsuario) {
         return Dados.getUsuarios().stream()
@@ -95,19 +78,7 @@ public class UsuarioService {
                 .orElse(null);
     }
 
-    public static void criarContaBibliotecario(String cpf, String nome, String email, String senha, String logradouro, String numero, String complemento, String bairro, String uf, String cidade, String cep) {
-        if (verificaCpfExistente(Dados.getBibliotecarios(), cpf)) {
-            System.out.println("CPF já cadastrado.");
-            return;
-        }
-
-        String idUsuario = Dados.gerarIdUsuario();
-        String codigoBibliotecario = Dados.gerarCodigoBibliotecario();
-
-        BibliotecarioModel bibliotecario = new BibliotecarioModel(codigoBibliotecario, idUsuario, cpf, nome, email, senha);
-        Dados.adicionarBibliotecario(bibliotecario);
-        System.out.println("Conta de bibliotecário criada com sucesso.");
-    }
+    
 
     public static boolean verificaCpfExistente(ArrayList<BibliotecarioModel> bibliotecarios, String cpf) {
         return bibliotecarios.stream()
@@ -128,26 +99,24 @@ public class UsuarioService {
     }
 
     public static boolean verificarCodigoBibliotecario(String cpf, String codigo) {
-        return Dados.getBibliotecarios().stream()
-                .anyMatch(bibliotecario -> bibliotecario.getCodigoBibliotecario().equals(codigo) && bibliotecario.getCpf().equals(cpf));
+        DAO.bibliotecarioDAO b = new bibliotecarioDAO();
+        if (b.buscarIdUsuarioPorCpf(cpf)>1){
+            Dados.setPosicaoUsuario(b.buscarIdUsuarioPorCpf(cpf));
+            return true;
+        }
+        return false;
     }
 
     public static boolean verificarCodigoAdministrador(String cpf, String codigo) {
-        return Dados.getAdministradores().stream()
-                .anyMatch(administrador -> administrador.getCodigoAdministrador().equals(codigo) && administrador.getCpf().equals(cpf));
-    }
-
-    public static void criarContaAdministrador(String cpf, String nome, String email, String senha, String logradouro, String numero, String complemento, String bairro, String uf, String cidade, String cep, String codigoAdministrador) {
-        if (verificaCpfExistente1(Dados.getAdministradores(), cpf)) {
-            System.out.println("CPF já cadastrado.");
-            return;
+        DAO.AdministradorDAO a = new AdministradorDAO();
+        if (a.buscarIdUsuarioPorCpf(cpf)>1){
+            Dados.setPosicaoUsuario(a.buscarIdUsuarioPorCpf(cpf));
+            return true;
         }
-
-        String idUsuario = Dados.gerarIdUsuario();
-        AdministradorModel administrador = new AdministradorModel(codigoAdministrador, idUsuario, cpf, nome, email, senha);
-        Dados.adicionarAdministrador(administrador);
-        System.out.println("Conta de administrador criada com sucesso.");
+        return false;
     }
+    
+    
 
     private static boolean verificaCpfExistente1(ArrayList<AdministradorModel> administradores, String cpf) {
         return administradores.stream()
@@ -157,5 +126,5 @@ public class UsuarioService {
     public static void criarContaBibliotecario(String cpf, String nome, String email, String senha, String logradouro, String numero, String complemento, String bairro, String uf, String cidade, String cep, String codigoBibliotecario) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
- */
+ 
 }

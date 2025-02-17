@@ -44,21 +44,27 @@ public class bibliotecarioDAO {
         }
     }
     
-    public void consultarTudo(){
-        
-        try {
-            String sql="select * from pessoa;";
-            PreparedStatement sttmt=conexao.prepareStatement(sql);
-            ResultSet rst=sttmt.executeQuery();
-            while(rst.next()){
-                String n = rst.getString("nome");
-                int i = rst.getInt("id");
-                System.out.println("Dados do banco: "+n+" "+i);
-            }
-        } catch (SQLException ex) {
-            System.out.println("Erro na consulta de pessoa: "+ex);
+    public int buscarIdUsuarioPorCpf(String cpf) {
+    int idUsuario = -1; // Valor padrão caso não encontre
+
+    try {
+        String sql = "SELECT idusuario FROM usuario WHERE cpf = ?";
+        PreparedStatement ps = conexao.prepareStatement(sql);
+        ps.setString(1, cpf);
+
+        ResultSet rs = ps.executeQuery();
+
+        if (rs.next()) {
+            idUsuario = rs.getInt("idusuario");
         }
+        
+    } catch (SQLException e) {
+        System.out.println("Erro na consulta: " + e);
     }
+
+    return idUsuario;
+}
+
     
     
 }
