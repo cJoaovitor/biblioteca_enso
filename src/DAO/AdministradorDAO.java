@@ -66,7 +66,27 @@ public class AdministradorDAO {
             System.out.println("Erro na consulta de pessoa: "+ex);
         }
     }
-    
+    public int buscarIdUsuarioPorCpf(String cpf) {
+    int idUsuario = -1; // Valor padrão caso não encontre
+
+    try {
+        String sql = "SELECT idusuario FROM usuario WHERE cpf = ?";
+        PreparedStatement ps = conexao.prepareStatement(sql);
+        ps.setString(1, cpf);
+
+        ResultSet rs = ps.executeQuery();
+
+        if (rs.next()) {
+            idUsuario = rs.getInt("idusuario");
+        }
+
+    } catch (SQLException e) {
+        System.out.println("Erro na consulta: " + e);
+    }
+
+    return idUsuario;
+}
+
     }
     
 

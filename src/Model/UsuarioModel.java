@@ -295,69 +295,8 @@ public class UsuarioModel {
 
     // vou colacar as funçoes de exblir pelo banco
 
-    public void editarDadosUsuario(int posicaoUsuario) {
-        try {
-            UsuarioModel usuario = Dados.getUsuarios().get(posicaoUsuario);
-            if (usuario == null) {
-                System.out.println("Usuário não encontrado.");
-                return;
-            }
-            
-            Scanner scanner = new Scanner(System.in);
-            System.out.print("Digite o novo nome (deixe em branco para não alterar): ");
-            String novoNome = scanner.nextLine();
-            System.out.print("Digite o novo email (deixe em branco para não alterar): ");
-            String novoEmail = scanner.nextLine();
-            System.out.print("Digite a nova senha (deixe em branco para não alterar): ");
-            String novaSenha = scanner.nextLine();
-            System.out.print("Digite o novo logradouro (deixe em branco para não alterar): ");
-            String novoLogradouro = scanner.nextLine();
-            System.out.print("Digite o novo número (deixe em branco para não alterar): ");
-            String novoNumero = scanner.nextLine();
-            System.out.print("Digite o novo complemento (deixe em branco para não alterar): ");
-            String novoComplemento = scanner.nextLine();
-            System.out.print("Digite o novo bairro (deixe em branco para não alterar): ");
-            String novoBairro = scanner.nextLine();
-            System.out.print("Digite a nova UF (deixe em branco para não alterar): ");
-            String novoUf = scanner.nextLine();
-            System.out.print("Digite a nova cidade (deixe em branco para não alterar): ");
-            String novaCidade = scanner.nextLine();
-            System.out.print("Digite o novo CEP (deixe em branco para não alterar): ");
-            String novoCep = scanner.nextLine();
 
-            usuario.editarDados(
-                novoNome.isEmpty() ? null : novoNome,
-                novoEmail.isEmpty() ? null : novoEmail,
-                novaSenha.isEmpty() ? null : novaSenha,
-                novoLogradouro.isEmpty() ? null : novoLogradouro,
-                novoNumero.isEmpty() ? null : novoNumero,
-                novoComplemento.isEmpty() ? null : novoComplemento,
-                novoBairro.isEmpty() ? null : novoBairro,
-                novoUf.isEmpty() ? null : novoUf,
-                novaCidade.isEmpty() ? null : novaCidade,
-                novoCep.isEmpty() ? null : novoCep
-            );
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println("Erro: Posição do usuário inválida.");
-        } catch (Exception e) {
-            System.out.println("Erro ao editar dados: " + e.getMessage());
-        }
-    }
-
-    public void editarDados(String novoNome, String novoEmail, String novaSenha, String novoLogradouro, 
-                            String novoNumero, String novoComplemento, String novoBairro, 
-                            String novoUf, String novaCidade, String novoCep) {
-        if (novoNome != null) this.nome = novoNome;
-        if (novoEmail != null) this.email = novoEmail;
-        if (novaSenha != null) this.senha = novaSenha;
-        if (novoLogradouro != null) this.logradouro = novoLogradouro;
-        if (novoNumero != null) this.numero = novoNumero;
-        if (novoComplemento != null) this.complemento = novoComplemento;
-        if (novoBairro != null) this.bairro = novoBairro;
-        if (novoUf != null) this.uf = novoUf;
-        if (novaCidade != null) this.cidade = novaCidade;
-        if (novoCep != null) this.cep = novoCep;
-    }
+   
 
     public void registrarEmprestimo(EmprestimoModel novoEmprestimo) {
         if (novoEmprestimo != null) {

@@ -19,7 +19,7 @@ public class AdministradorModel extends UsuarioModel {
         this.codigoUsuario = String.valueOf(codigoUsuario);
 =======
 
-    public AdministradorModel(String codigoAdministrador, int idUsuario, String cpf, String nome, String email, String senha, String logradouro, String numero, String complemento, String bairro, String uf, String cidade, String cep) {
+    public AdministradorModel( int idUsuario, String cpf, String nome, String email, String senha, String logradouro, String numero, String complemento, String bairro, String uf, String cidade, String cep) {
         super(idUsuario, cpf, nome, email, senha, logradouro, numero, complemento, bairro, uf, cidade, cep);
         this.codigoAdministrador = codigoAdministrador;
     }

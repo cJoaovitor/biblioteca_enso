@@ -521,6 +521,7 @@ public class EfetuarLogin extends javax.swing.JFrame {
                 // Abrir a tela do Menu Bibliotecário
                 MenuBibliotecario tela = new MenuBibliotecario();
                 tela.setVisible(true);
+                
             } else {
                 JOptionPane.showMessageDialog(this, "Código inválido.");
             }

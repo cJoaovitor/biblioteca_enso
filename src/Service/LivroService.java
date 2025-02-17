@@ -28,7 +28,7 @@ public class LivroService {
         }
         return null;
     }
-    /* funçoes de banco 
+     
     public static void emprestar(LivroModel livro, UsuarioModel usuario) {
         if (livro.getDisponivel()) {
             livro.setDisponivel(false);
@@ -129,5 +129,5 @@ public class LivroService {
     public static LivroModel buscarLivroPorId(int livroId) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-*/
+
 }
