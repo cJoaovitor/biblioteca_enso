@@ -1,5 +1,6 @@
 package View;
 
+import DAO.bibliotecarioDAO;
 import Model.BibliotecarioModel;
 import Model.UsuarioModel;
 import Dados.Dados;
@@ -542,10 +543,10 @@ public class RemoverBibliotecario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverActionPerformed
-                                                                              
+        DAO.bibliotecarioDAO b = new bibliotecarioDAO();
        int opcao = JOptionPane.showConfirmDialog(this, "Tem certeza que deseja remover o bibliotecário " + bibliotecario.getNome() + "?", "Confirmação", JOptionPane.YES_NO_OPTION);
         if (opcao == JOptionPane.YES_OPTION) {
-            Dados.removerBibliotecario((BibliotecarioModel) bibliotecario);
+            b.removerBibliotecarioPorId(bibliotecario.getIdusuario());
             JOptionPane.showMessageDialog(this, "Bibliotecário removido com sucesso.", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
             this.dispose();
         }                                       

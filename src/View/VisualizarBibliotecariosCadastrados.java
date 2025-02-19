@@ -1,5 +1,6 @@
 package View;
 
+import DAO.bibliotecarioDAO;
 import Model.BibliotecarioModel;
 import Dados.Dados;
 import java.util.ArrayList;
@@ -7,23 +8,22 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 public class VisualizarBibliotecariosCadastrados extends javax.swing.JFrame {
-    private List<BibliotecarioModel> bibliotecarios;
+    private List<BibliotecarioModel> bibliotecarios = new ArrayList<>();
+    DAO.bibliotecarioDAO b = new bibliotecarioDAO();
+        
 
         public VisualizarBibliotecariosCadastrados() {
-            this(new ArrayList<>());
-        }
-
-        public VisualizarBibliotecariosCadastrados(List<BibliotecarioModel> bibliotecarios) {
-            this.bibliotecarios = bibliotecarios;
+            this.bibliotecarios = b.consutartudo();
             initComponents();
             preencherTabelaBibliotecarios();
         }
     
  
     private void preencherTabelaBibliotecarios() {
+        DAO.bibliotecarioDAO b = new bibliotecarioDAO();
         DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
         model.setRowCount(0); // Limpa a tabela antes de preencher
-
+        
         for (BibliotecarioModel bibliotecario : this.bibliotecarios) {
             Object[] rowData = {
                 bibliotecario.getCodigoBibliotecario(),
@@ -388,7 +388,6 @@ public class VisualizarBibliotecariosCadastrados extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jList1);
 
         jLabel21.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel21.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\Downloads\\logo_bibliotecaCorija (1) (2) (1).png")); // NOI18N
 
         jLabel22.setFont(new java.awt.Font("Tempus Sans ITC", 1, 10)); // NOI18N
         jLabel22.setText("BIBLIOTECA ");
@@ -446,7 +445,6 @@ public class VisualizarBibliotecariosCadastrados extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jTable2);
 
         jLabel31.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel31.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\OneDrive\\Documentos\\NetBeansProjects\\Biblioteca1\\Imagens\\logo_bibliotecaCorija (1) (2) (1).png")); // NOI18N
 
         jLabel33.setFont(new java.awt.Font("Tempus Sans ITC", 1, 10)); // NOI18N
         jLabel33.setText("BIBLIOTECA ");
@@ -467,7 +465,7 @@ public class VisualizarBibliotecariosCadastrados extends javax.swing.JFrame {
                 .addComponent(jLabel24)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel20)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
                 .addComponent(jLabel31)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -476,8 +474,8 @@ public class VisualizarBibliotecariosCadastrados extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 758, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 756, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

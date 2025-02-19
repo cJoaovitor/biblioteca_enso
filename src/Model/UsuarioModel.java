@@ -12,6 +12,7 @@ public class UsuarioModel {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     protected int idusuario;
+    protected String codigo;
     protected String cpf;
     protected String dataNascimento;
     protected String sexo;
@@ -43,6 +44,7 @@ public class UsuarioModel {
         this.uf = uf;
         this.cidade = cidade;
         this.cep = cep;
+        this.codigo = "USR"+idusuario;
         this.historicoEmprestimos = new HistoricoModel(idusuario);
     }
     
@@ -86,8 +88,12 @@ public class UsuarioModel {
     public void setCep(String cep) { this.cep = cep; }
     public HistoricoModel getHistoricoEmprestimos() { return historicoEmprestimos; }
     public void setHistoricoEmprestimos(HistoricoModel historicoEmprestimos) { this.historicoEmprestimos = historicoEmprestimos; }
-
+   
     // vou colacar as funçoes de exblir pelo banco
+
+    public String getCodigo() {
+        return codigo;
+    }
 
 
    

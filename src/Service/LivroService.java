@@ -1,5 +1,6 @@
 package Service;
 
+import DAO.LivroDAO;
 import Model.LivroModel;
 import Model.UsuarioModel;
 import Dados.Dados;
@@ -28,7 +29,8 @@ public class LivroService {
         }
         return null;
     }
-     
+         
+
     public static void emprestar(LivroModel livro, UsuarioModel usuario) {
         if (livro.getDisponivel()) {
             livro.setDisponivel(false);
@@ -110,7 +112,8 @@ public class LivroService {
     }
 
     public static LivroModel buscarLivroPorCodigo(String codigoLivro) {
-        return obterLivroPorCodigo(codigoLivro); // Usa o método já implementado
+        DAO.LivroDAO l = new LivroDAO();
+        return l.buscarLivroPorCodigo(codigoLivro); // Usa o método já implementado
     }
 
     public static LivroModel buscarLivroPorId(String livroId) {

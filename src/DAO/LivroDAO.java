@@ -58,6 +58,35 @@ public class LivroDAO {
             System.out.println("Erro na consulta de pessoa: "+ex);
         }
     }
-    
+        public Model.LivroModel buscarLivroPorCodigo(String codigo) {
+    Model.LivroModel livro = null;
+
+    try {
+        String sql = "SELECT * FROM livro WHERE codigo = ?";
+        PreparedStatement ps = conexao.prepareStatement(sql);
+        ps.setString(1, codigo);
+
+        ResultSet rs = ps.executeQuery();
+
+        if (rs.next()) {
+            livro = new Model.LivroModel(
+                rs.getInt("idlivro"),
+                rs.getString("titulo"),
+                rs.getString("autor"),
+                rs.getString("genero"),
+                rs.getString("descricao"),
+                rs.getString("anoPublicacao"),
+                rs.getString("editora"),
+                rs.getString("livro_status")
+            );
+        }
+
+    } catch (SQLException e) {
+        System.out.println("Erro na consulta do livro: " + e);
+    }
+
+    return livro;
+}
+
     
 }

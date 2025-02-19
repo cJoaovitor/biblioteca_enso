@@ -1,5 +1,6 @@
 package View;
 
+import DAO.usuarioDao;
 import Model.UsuarioModel;
 import Dados.Dados;
 import java.util.ArrayList;
@@ -8,13 +9,12 @@ import javax.swing.table.DefaultTableModel;
 
 public class VisualizarUsuariosCadastrados extends javax.swing.JFrame {
     private List<UsuarioModel> usuarios;
+    DAO.usuarioDao u = new usuarioDao();
+
+  
 
     public VisualizarUsuariosCadastrados() {
-        this(Dados.getUsuarios());
-    }
-
-    public VisualizarUsuariosCadastrados(List<UsuarioModel> usuarios) {
-        this.usuarios = usuarios;
+        this.usuarios = u.consutartudo();
         initComponents();
         preencherTabelaUsuarios();
     }

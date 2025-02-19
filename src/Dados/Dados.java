@@ -4,7 +4,7 @@ import Model.AdministradorModel;
 import Model.BibliotecarioModel;
 import Model.EmprestimoModel;
 import Model.LivroModel;
-import Model.ReservaModel;
+
 import Model.UsuarioModel;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,26 +15,22 @@ public class Dados {
     private static final ArrayList<AdministradorModel> administradores = new ArrayList<>();
     private static final ArrayList<LivroModel> livros = new ArrayList<>();
     private static final ArrayList<EmprestimoModel> emprestimos = new ArrayList<>();
-    private static final ArrayList<ReservaModel> reservar = new ArrayList<>();
+   
     private static String tipoUsuario = "";
-    private static int contadorUsuario = 0;
+    private static int contadorUsuario = 204;
     private static int posicaoUsuario = -1;
     private static int contadorEmprestimo = 0; // Contador de empréstimos
     private static int contadorLivros = 0; // Contador de livros para IDs
-    private static int contadorBibliotecario = 0; // Contador de bibliotecários
+    
 
-    public static ArrayList<ReservaModel> getReservar() {
-        return reservar;
-    }
+  
       
    
     public static String gerarIdUsuario() {
         return "USR" + contadorUsuario++; // Gera um ID único para usuário
     }
 
-    public static String gerarCodigoBibliotecario() {
-        return "BIB" + contadorBibliotecario++; // Gera um ID único para bibliotecário
-    }
+    
 
     public static int getContadorUsuario() {
         return contadorUsuario; // Retorna o contador atual
@@ -82,18 +78,13 @@ public class Dados {
 
  
     
-    public static int getContadorBibliotecario() {
-        return contadorBibliotecario;
-    }
+    
 
     public static void setContadorUsuario(int novoValor) {
         contadorUsuario = novoValor;
     }
 
-    public static void setContadorBibliotecario(int contador) {
-        contadorBibliotecario = contador;
-    }
-
+   
     // Métodos para adicionar e remover
     public static void adicionarLivro(LivroModel livro) {
         livros.add(livro);
@@ -125,20 +116,7 @@ public static void removerUsuario(UsuarioModel usuario) {
     }
 }
 
-public static void adicionarBibliotecario(BibliotecarioModel bibliotecario) {
-    bibliotecarios.add(bibliotecario);
-    contadorBibliotecario++;
-    System.out.println("Bibliotecário adicionado com sucesso! Total de bibliotecários: " + contadorBibliotecario);
-}
 
-public static void removerBibliotecario(BibliotecarioModel bibliotecario) {
-    if (bibliotecarios.remove(bibliotecario)) {
-        contadorBibliotecario--;
-        System.out.println("Bibliotecário removido com sucesso! Total de bibliotecários: " + contadorBibliotecario);
-    } else {
-        System.out.println("Bibliotecário não encontrado!");
-    }
-}
 
 
     public static void adicionarAdministrador(AdministradorModel administrador) {
@@ -183,12 +161,7 @@ public static void removerBibliotecario(BibliotecarioModel bibliotecario) {
         contadorUsuario = Dados.usuarios.size(); // Atualiza o contador com o tamanho da lista
     }
 
-    public static void setBibliotecarios(ArrayList<BibliotecarioModel> bibliotecarios) {
-        Dados.bibliotecarios.clear();
-        Dados.bibliotecarios.addAll(bibliotecarios);
-        contadorBibliotecario = Dados.bibliotecarios.size(); // Atualiza o contador com o tamanho da lista
-    }
-
+   
     public static void setAdministradores(ArrayList<AdministradorModel> administradores) {
         Dados.administradores.clear();
         Dados.administradores.addAll(administradores);
