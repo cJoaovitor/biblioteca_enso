@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class LivroDAO {
     Connection conexao;
@@ -87,6 +88,36 @@ public class LivroDAO {
 
     return livro;
 }
+public ArrayList<Model.LivroModel> buscarLivros() {
+    Model.LivroModel livro = null;
+    ArrayList<Model.LivroModel> livros =new ArrayList<>();
 
+    try {
+        String sql = "SELECT * FROM livro ";
+        PreparedStatement ps = conexao.prepareStatement(sql);
+       
+
+        ResultSet rs = ps.executeQuery();
+
+        while (rs.next()) {
+            livro = new Model.LivroModel(
+                rs.getInt("idlivro"),
+                rs.getString("titulo"),
+                rs.getString("autor"),
+                rs.getString("genero"),
+                rs.getString("descricao"),
+                rs.getString("anoPublicacao"),
+                rs.getString("editora"),
+                rs.getString("livro_status")
+            );
+            livros.add(livro);
+        }
+
+    } catch (SQLException e) {
+        System.out.println("Erro na consulta do livro: " + e);
+    }
+
+    return livros;
+}
     
 }

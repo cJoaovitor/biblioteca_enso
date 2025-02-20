@@ -1,5 +1,8 @@
 package View;
 
+import DAO.EmprestimoDAO;
+import DAO.LivroDAO;
+import DAO.usuarioDao;
 import Model.LivroModel;
 import Model.UsuarioModel;
 import Dados.Dados;
@@ -16,12 +19,14 @@ public class RenovarEmprestimo extends javax.swing.JFrame {
     
     
      private void buscarLivroEUsuario() {
+         DAO.LivroDAO l = new LivroDAO();
+         DAO.usuarioDao u = new usuarioDao();
         try {
-            int codigoLivro = Integer.parseInt(txtCodLivro.getText());
-            int codigoUsuario = Integer.parseInt(txtCodUsuario.getText());
+            String codigoLivro = txtCodLivro.getText();
+            String codigoUsuario = txtCodUsuario.getText();
 
-            livroSelecionado = Dados.getLivro(codigoLivro);
-            usuarioSelecionado = Dados.getUsuario(codigoUsuario);
+            livroSelecionado = l.buscarLivroPorCodigo(codigoLivro);
+            usuarioSelecionado = u.buscarUsuarioPorCodigo(codigoUsuario);
 
             if (livroSelecionado != null && usuarioSelecionado != null) {
                 txtTituloLivro.setText(livroSelecionado.getTitulo());
@@ -37,14 +42,18 @@ public class RenovarEmprestimo extends javax.swing.JFrame {
     }
      
       private void renovarEmprestimo() {
+          DAO.EmprestimoDAO ed = new EmprestimoDAO();
+          Model.EmprestimoModel empretimo = ed.buscarEmprestimo(usuarioSelecionado.getIdusuario(), livroSelecionado.getIdLivro());
+          if(empretimo.getQuantderenovar()==3){
         try {
-            String novaDevolucao = txtNomeUsuario2.getText();
-            usuarioSelecionado.setDataDevolucao(novaDevolucao);
-            Dados.atualizarUsuario(usuarioSelecionado);
+             ed.atualizarDataDevolucao(usuarioSelecionado.getIdusuario(),livroSelecionado.getIdLivro() );
             JOptionPane.showMessageDialog(this, "Empréstimo renovado com sucesso!");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Erro ao renovar empréstimo: " + e.getMessage());
         }
+          }else{
+          JOptionPane.showMessageDialog(this, " O empréstimo tem mais de três renovações " );
+          }
     }
  
     

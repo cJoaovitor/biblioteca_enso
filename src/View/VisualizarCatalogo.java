@@ -1,5 +1,6 @@
 package View;
 
+import DAO.LivroDAO;
 import javax.swing.JOptionPane;
 import Model.LivroModel;
 import Model.LivroTableModel;
@@ -17,7 +18,8 @@ public class VisualizarCatalogo extends javax.swing.JFrame {
     private void carregarLivros() {
         try {
             // Buscar todos os livros da classe Dados
-            livros = Dados.getLivros();
+            DAO.LivroDAO l = new LivroDAO();
+            livros = l.buscarLivros();
 
             // Criar um modelo de tabela personalizado para exibir os dados dos livros
             LivroTableModel tableModel = new LivroTableModel(livros);

@@ -1,5 +1,6 @@
 package Model;
 
+import DAO.HistoricoDAO;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -10,6 +11,7 @@ public class EmprestimoModel {
     private int idEmprestimo;
     private int  idusuario;
     private  int idlivro;
+    private int quantderenovar;
     private LocalDate dataEmprestimo;
     private LocalDate dataDevolucao;
     private boolean devolvido;
@@ -22,12 +24,28 @@ public class EmprestimoModel {
         this.dataEmprestimo = LocalDate.now();
         this.dataDevolucao = dataEmprestimo.plusDays(14);
         this.devolvido = false;
+        this.quantderenovar =0;
          // Incrementa o contador
+    }
+
+    public EmprestimoModel(int idEmprestimo, int idusuario, int idlivro,  LocalDate dataEmprestimo, LocalDate dataDevolucao,int quantderenovar, boolean devolvido) {
+        this.idEmprestimo = idEmprestimo;
+        this.idusuario = idusuario;
+        this.idlivro = idlivro;
+        this.quantderenovar = quantderenovar;
+        this.dataEmprestimo = dataEmprestimo;
+        this.dataDevolucao = dataDevolucao;
+        this.devolvido = devolvido;
     }
 
    
     // Métodos Getters
-    public int getIdEmprestimo() { return idEmprestimo; }
+    
+    public int getQuantderenovar() { return quantderenovar; }
+
+    public int getIdEmprestimo() {
+        return idEmprestimo;
+    }
     public int getIdUsuario() { return idusuario; }
     public int  getLivro() { return idlivro; }
     public LocalDate getDataEmprestimo() { return dataEmprestimo; }

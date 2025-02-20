@@ -55,7 +55,6 @@ public class MenuBibliotecario extends javax.swing.JFrame {
         bntConsultarHistoricoDeUsuario = new javax.swing.JButton();
         bntAdiconarLivro = new javax.swing.JButton();
         bntRegistrarEmprestimo = new javax.swing.JButton();
-        bntGerenciarReservas = new javax.swing.JButton();
         bntEditarDisponibilidadeDeLivro = new javax.swing.JButton();
         bntVisualizarCatalogo = new javax.swing.JButton();
         bntEditarDadosDeUsuário = new javax.swing.JButton();
@@ -375,14 +374,6 @@ public class MenuBibliotecario extends javax.swing.JFrame {
             }
         });
 
-        bntGerenciarReservas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        bntGerenciarReservas.setText("Gerenciar Reservas");
-        bntGerenciarReservas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bntGerenciarReservasActionPerformed(evt);
-            }
-        });
-
         bntEditarDisponibilidadeDeLivro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         bntEditarDisponibilidadeDeLivro.setText("Editar Disponibilidade");
         bntEditarDisponibilidadeDeLivro.addActionListener(new java.awt.event.ActionListener() {
@@ -462,10 +453,10 @@ public class MenuBibliotecario extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bntGerenciarReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bntEditarDadosDeUsuário, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bntRealizarDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bntRegistrarEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bntRegistrarEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bntRemoverLivro1, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(123, 123, 123)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(bntVisualizarCatalogo, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -480,9 +471,6 @@ public class MenuBibliotecario extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(bntAdiconarLivro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(bntRemoverLivro1, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap())
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(bntConsultarHistoricoDeUsuario)
                                 .addContainerGap())))))
@@ -510,22 +498,25 @@ public class MenuBibliotecario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(bntConsultarHistoricoDeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bntRegistrarEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(bntRegistrarEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(bntRealizarDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bntRemoverLivro1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(bntRealizarDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(49, 49, 49)
-                        .addComponent(bntEditarDisponibilidadeDeLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bntVisualizarCatalogo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bntGerenciarReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bntPesquisarLivroDisponiveisParaEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(bntEditarDisponibilidadeDeLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bntConsultarHistoricoDeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(bntVisualizarCatalogo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bntRemoverLivro1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                        .addComponent(bntPesquisarLivroDisponiveisParaEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(65, 65, 65)))
                 .addComponent(btnCancelar)
                 .addGap(29, 29, 29))
         );
@@ -580,13 +571,8 @@ public class MenuBibliotecario extends javax.swing.JFrame {
         tela.setVisible(true);
     }//GEN-LAST:event_bntRegistrarEmprestimoActionPerformed
 
-    private void bntGerenciarReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntGerenciarReservasActionPerformed
-        MenudeReserva tela = new MenudeReserva();
-        tela.setVisible(true);
-    }//GEN-LAST:event_bntGerenciarReservasActionPerformed
-
     private void bntEditarDisponibilidadeDeLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntEditarDisponibilidadeDeLivroActionPerformed
-           
+      
     }//GEN-LAST:event_bntEditarDisponibilidadeDeLivroActionPerformed
 
     private void bntVisualizarCatalogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntVisualizarCatalogoActionPerformed
@@ -626,7 +612,6 @@ public class MenuBibliotecario extends javax.swing.JFrame {
     private javax.swing.JButton bntConsultarHistoricoDeUsuario;
     private javax.swing.JButton bntEditarDadosDeUsuário;
     private javax.swing.JButton bntEditarDisponibilidadeDeLivro;
-    private javax.swing.JButton bntGerenciarReservas;
     private javax.swing.JButton bntPesquisarLivroDisponiveisParaEmprestimo;
     private javax.swing.JButton bntRealizarDevolucao;
     private javax.swing.JButton bntRegistrarEmprestimo;
