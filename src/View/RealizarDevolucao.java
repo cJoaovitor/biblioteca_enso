@@ -347,7 +347,6 @@ public class RealizarDevolucao extends javax.swing.JFrame {
         jLabel15.setText("Devolução");
 
         jLabel26.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel26.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\Downloads\\logo_bibliotecaCorija (1) (2) (1).png")); // NOI18N
 
         jLabel27.setFont(new java.awt.Font("Tempus Sans ITC", 1, 10)); // NOI18N
         jLabel27.setText("BIBLIOTECA ");
@@ -364,7 +363,7 @@ public class RealizarDevolucao extends javax.swing.JFrame {
             }
         });
 
-        jLabel16.setText("Cod. Livro:");
+        jLabel16.setText("Cod. emprestimo");
 
         txtCodLivro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -418,7 +417,6 @@ public class RealizarDevolucao extends javax.swing.JFrame {
         jLabel25.setText("DEVOLUÇÃO");
 
         jLabel31.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel31.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\OneDrive\\Documentos\\NetBeansProjects\\Biblioteca1\\Imagens\\logo_bibliotecaCorija (1) (2) (1).png")); // NOI18N
 
         jLabel32.setFont(new java.awt.Font("Viner Hand ITC", 1, 14)); // NOI18N
         jLabel32.setText("CORUJA");
@@ -501,8 +499,7 @@ public class RealizarDevolucao extends javax.swing.JFrame {
                         .addContainerGap(38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel24)
-                            .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -512,6 +509,7 @@ public class RealizarDevolucao extends javax.swing.JFrame {
                                 .addComponent(jLabel33)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(82, 82, 82)
@@ -589,7 +587,7 @@ public class RealizarDevolucao extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCodLivroActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-             String codLivro = txtCodLivro.getText();
+    String codLivro = txtCodLivro.getText();
     LivroModel livro = Dados.buscarLivroPorCodigo(codLivro);
     if (livro != null) {
         txtTituloLivro.setText(livro.getTitulo());

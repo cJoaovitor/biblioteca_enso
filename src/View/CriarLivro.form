@@ -495,7 +495,7 @@
         <Component class="javax.swing.JComboBox" name="txtGenero">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="20">
+              <StringArray count="81">
                 <StringItem index="0" value="Fic&#xe7;&#xe3;o"/>
                 <StringItem index="1" value="Romance"/>
                 <StringItem index="2" value="Fic&#xe7;&#xe3;o cient&#xed;fica"/>
@@ -506,16 +506,77 @@
                 <StringItem index="7" value="Literatura contempor&#xe2;nea"/>
                 <StringItem index="8" value="Literatura cl&#xe1;ssica"/>
                 <StringItem index="9" value="Literatura juvenil"/>
-                <StringItem index="10" value="Biografia"/>
-                <StringItem index="11" value="Autobiografia"/>
-                <StringItem index="12" value="Mem&#xf3;rias"/>
-                <StringItem index="13" value="Ensaios"/>
-                <StringItem index="14" value="Poesia"/>
-                <StringItem index="15" value="Drama"/>
-                <StringItem index="16" value="Teatro"/>
-                <StringItem index="17" value="Graphic Novels e Quadrinhos"/>
-                <StringItem index="18" value="Literatura Er&#xf3;tica"/>
-                <StringItem index="19" value="Literatura de aventura"/>
+                <StringItem index="10" value="Romance juvenil"/>
+                <StringItem index="11" value="Fic&#xe7;&#xe3;o hist&#xf3;rica"/>
+                <StringItem index="12" value="N&#xe3;o-fic&#xe7;&#xe3;o"/>
+                <StringItem index="13" value="Biografia"/>
+                <StringItem index="14" value="Autobiografia"/>
+                <StringItem index="15" value="Mem&#xf3;rias"/>
+                <StringItem index="16" value="Ensaios"/>
+                <StringItem index="17" value="Hist&#xf3;ria"/>
+                <StringItem index="18" value="Ci&#xea;ncia"/>
+                <StringItem index="19" value="Autoajuda"/>
+                <StringItem index="20" value="Viagem"/>
+                <StringItem index="21" value="Poesia"/>
+                <StringItem index="22" value="L&#xed;rica"/>
+                <StringItem index="23" value="&#xc9;pica"/>
+                <StringItem index="24" value="Dram&#xe1;tica"/>
+                <StringItem index="25" value="Haikai"/>
+                <StringItem index="26" value="Drama"/>
+                <StringItem index="27" value="Trag&#xe9;dia"/>
+                <StringItem index="28" value="Com&#xe9;dia"/>
+                <StringItem index="29" value="Teatro"/>
+                <StringItem index="30" value="Literatura Infantil"/>
+                <StringItem index="31" value="Contos de fadas"/>
+                <StringItem index="32" value="F&#xe1;bulas"/>
+                <StringItem index="33" value="Livros ilustrados"/>
+                <StringItem index="34" value="Literatura Jovem Adulto (YA)"/>
+                <StringItem index="35" value="Romance YA"/>
+                <StringItem index="36" value="Fantasia YA"/>
+                <StringItem index="37" value="Fic&#xe7;&#xe3;o cient&#xed;fica YA"/>
+                <StringItem index="38" value="Graphic Novels e Quadrinhos"/>
+                <StringItem index="39" value="Super-her&#xf3;is"/>
+                <StringItem index="40" value="Mang&#xe1;s"/>
+                <StringItem index="41" value="Webcomics"/>
+                <StringItem index="42" value="Literatura Er&#xf3;tica"/>
+                <StringItem index="43" value="Literatura de Aventura"/>
+                <StringItem index="44" value="Literatura Hist&#xf3;rica"/>
+                <StringItem index="45" value="Romance policial"/>
+                <StringItem index="46" value="Literatura de suspense"/>
+                <StringItem index="47" value="Literatura de terror"/>
+                <StringItem index="48" value="Literatura de fic&#xe7;&#xe3;o especulativa"/>
+                <StringItem index="49" value="Literatura de realismo m&#xe1;gico"/>
+                <StringItem index="50" value="Literatura de mitologia"/>
+                <StringItem index="51" value="Literatura de par&#xf3;dia"/>
+                <StringItem index="52" value="Literatura de s&#xe1;tira"/>
+                <StringItem index="53" value="Literatura de contos"/>
+                <StringItem index="54" value="Literatura de ensaio"/>
+                <StringItem index="55" value="Literatura de cr&#xed;tica social"/>
+                <StringItem index="56" value="Literatura de filosofia"/>
+                <StringItem index="57" value="Literatura de religi&#xe3;o e espiritualidade"/>
+                <StringItem index="58" value="Literatura de autoajuda"/>
+                <StringItem index="59" value="Literatura de desenvolvimento pessoal"/>
+                <StringItem index="60" value="Literatura de neg&#xf3;cios"/>
+                <StringItem index="61" value="Literatura de culin&#xe1;ria"/>
+                <StringItem index="62" value="Literatura de moda"/>
+                <StringItem index="63" value="Literatura de esportes"/>
+                <StringItem index="64" value="Literatura de ci&#xea;ncia pol&#xed;tica"/>
+                <StringItem index="65" value="Literatura de tecnologia"/>
+                <StringItem index="66" value="Literatura de mem&#xf3;rias gr&#xe1;ficas"/>
+                <StringItem index="67" value="Literatura de poesia visual"/>
+                <StringItem index="68" value="Literatura de romance contempor&#xe2;neo"/>
+                <StringItem index="69" value="Literatura de fic&#xe7;&#xe3;o rom&#xe2;ntica"/>
+                <StringItem index="70" value="Literatura de fantasia &#xe9;pica"/>
+                <StringItem index="71" value="Literatura de fantasia urbana"/>
+                <StringItem index="72" value="Literatura de fic&#xe7;&#xe3;o dist&#xf3;pica"/>
+                <StringItem index="73" value="Literatura de fic&#xe7;&#xe3;o ut&#xf3;pica"/>
+                <StringItem index="74" value="Literatura de horror g&#xf3;tico"/>
+                <StringItem index="75" value="Literatura de horror psicol&#xf3;gico"/>
+                <StringItem index="76" value="Literatura de horror c&#xf3;smico"/>
+                <StringItem index="77" value="Literatura de fic&#xe7;&#xe3;o policial"/>
+                <StringItem index="78" value="Literatura de fic&#xe7;&#xe3;o de espionagem"/>
+                <StringItem index="79" value="Literatura de fic&#xe7;&#xe3;o de aventura"/>
+                <StringItem index="80" value="Literatura de fic&#xe7;&#xe3;o de guerra"/>
               </StringArray>
             </Property>
           </Properties>

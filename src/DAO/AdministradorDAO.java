@@ -1,9 +1,7 @@
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
->>>>>>> 1bc9f95fd7609a92086d0c81cb7abfdc18f6face
 package DAO;
 
 import java.sql.*;
@@ -14,18 +12,13 @@ public class AdministradorDAO {
         conexao = new Conexao().getConexao();        
     }    
     
-
-    //inserir os dados de um administrador no mysql
        
-    //inserir os dados de uma pessoa no mys
+    //inserir os dados de uma pessoa no mysql
     public void inserirAdm(Model.AdministradorModel a){
         try{
             String sql = "insert into usuario (idusuario, cpf, dataNascimento, sexo, nome, email, senha, logradouro, numero, complemento, bairro, uf, cidade, cep,codigoAdministrador) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?);";
             PreparedStatement ps = conexao.prepareStatement(sql);
            
-
-            ps.setInt(1, a.getCodigoUsuario());            
-
             ps.setInt(1, a.getIdusuario());            
             ps.setString(2, a.getCpf());
             ps.setString(3, a.getDataNascimento());

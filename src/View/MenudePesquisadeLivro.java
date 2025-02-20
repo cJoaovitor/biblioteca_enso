@@ -67,7 +67,6 @@ public class MenudePesquisadeLivro extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         bntAutor = new javax.swing.JButton();
         jLabel30 = new javax.swing.JLabel();
-        bntDisponibilidade = new javax.swing.JButton();
         bntGenero = new javax.swing.JButton();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
@@ -458,14 +457,6 @@ public class MenudePesquisadeLivro extends javax.swing.JFrame {
         jLabel30.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
         jLabel30.setText("Por qual critério gostaria de Pesquisar?");
 
-        bntDisponibilidade.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        bntDisponibilidade.setText("Disponibilidade");
-        bntDisponibilidade.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bntDisponibilidadeActionPerformed(evt);
-            }
-        });
-
         bntGenero.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         bntGenero.setText("Gênero");
         bntGenero.addActionListener(new java.awt.event.ActionListener() {
@@ -487,60 +478,59 @@ public class MenudePesquisadeLivro extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(315, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(437, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnCancelar)
-                        .addGap(33, 33, 33))
+                        .addComponent(bntTítulo, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(168, 168, 168)
+                        .addComponent(bntAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(478, 478, 478))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel30)
-                        .addGap(290, 290, 290))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel16)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(493, 493, 493)
                         .addComponent(jLabel31)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel33)
-                            .addComponent(jLabel32)))))
+                            .addComponent(jLabel32)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnCancelar)
+                        .addGap(51, 51, 51))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(127, 127, 127)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bntTítulo, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bntGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bntAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bntDisponibilidade, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(155, 155, 155))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(590, 590, 590)
+                        .addComponent(jLabel30))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(631, 631, 631)
+                        .addComponent(bntGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel31)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addComponent(jLabel33)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(43, 43, 43)
+                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(82, 82, 82)
                 .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(50, 50, 50)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(bntTítulo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bntAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(59, 59, 59)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bntDisponibilidade, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bntGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
+                .addGap(105, 105, 105)
+                .addComponent(bntGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 279, Short.MAX_VALUE)
                 .addComponent(btnCancelar)
-                .addGap(29, 29, 29))
+                .addGap(62, 62, 62))
         );
 
         pack();
@@ -624,11 +614,6 @@ public class MenudePesquisadeLivro extends javax.swing.JFrame {
             tela.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_bntAutorActionPerformed
 
-    private void bntDisponibilidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntDisponibilidadeActionPerformed
-        VisualizarLivrosDisponiveis tela = new VisualizarLivrosDisponiveis();
-        tela.setVisible(true);        // TODO add your handling code here:
-    }//GEN-LAST:event_bntDisponibilidadeActionPerformed
-
     private void bntGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntGeneroActionPerformed
             PesquisaRequisitoGenero tela = new PesquisaRequisitoGenero();
             tela.setVisible(true);// TODO add your handling code here:
@@ -639,7 +624,6 @@ public class MenudePesquisadeLivro extends javax.swing.JFrame {
     private javax.swing.JButton bntAdiconarLivro;
     private javax.swing.JButton bntAutor;
     private javax.swing.JButton bntConsultarHistoricoDeUsuario;
-    private javax.swing.JButton bntDisponibilidade;
     private javax.swing.JButton bntEditarDadosDeUsuário;
     private javax.swing.JButton bntEditarDisponibilidadeDeLivro;
     private javax.swing.JButton bntGenero;

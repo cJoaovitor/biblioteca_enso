@@ -2,6 +2,7 @@ package Service;
 
 import DAO.AdministradorDAO;
 import DAO.bibliotecarioDAO;
+import DAO.usuarioDao;
 import Model.AdministradorModel;
 import Model.BibliotecarioModel;
 import Model.LivroModel;
@@ -71,13 +72,10 @@ public class UsuarioService {
   
    
 
-    public static UsuarioModel buscarUsuarioPorNome(String nomeUsuario) {
-        return Dados.getUsuarios().stream()
-                .filter(usuario -> usuario.getNome().equalsIgnoreCase(nomeUsuario))
-                .findFirst()
-                .orElse(null);
+      public static UsuarioModel buscarusuariopelocodigo(String codigoUsuario) {
+        DAO.usuarioDao u = new usuarioDao();
+        return u.buscarUsuarioPorCodigo(codigoUsuario); // Usa o método já implementado
     }
-
     
 
     public static boolean verificaCpfExistente(ArrayList<BibliotecarioModel> bibliotecarios, String cpf) {

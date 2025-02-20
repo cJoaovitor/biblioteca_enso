@@ -4,7 +4,11 @@
  */
 package DAO;
 
+import Model.BibliotecaModel;
+import Model.BibliotecarioModel;
+import com.sun.source.util.Plugin;
 import java.sql.*;
+import java.util.ArrayList;
 
 public class bibliotecarioDAO {
     Connection conexao;
@@ -64,7 +68,62 @@ public class bibliotecarioDAO {
 
     return idUsuario;
 }
+    public  ArrayList <Model.BibliotecarioModel> consutartudo(){
+    ArrayList<BibliotecarioModel> araybibliotecario = new ArrayList<>();    
+    Model.BibliotecarioModel bibliotecario = null;
 
-    
-    
+    try {
+        String sql = "SELECT * FROM bibliotecario ";
+        PreparedStatement ps = conexao.prepareStatement(sql);
+
+        ResultSet rs = ps.executeQuery();
+        
+        while (rs.next()) {
+            int idusuario = rs.getInt("id_usuario");
+            String cpf = rs.getString("cpf");
+            String nome = rs.getString("nome");
+            String email = rs.getString("email");
+            String senha = rs.getString("senha");
+            String logradouro = rs.getString("logradouro");
+            String numero = rs.getString("numero");
+            String complemento = rs.getString("complemento");
+            String bairro = rs.getString("bairro");
+            String uf = rs.getString("uf");
+            String cidade = rs.getString("cidade");
+            String cep = rs.getString("cep");
+
+            
+            Model.BibliotecarioModel bi = new BibliotecarioModel(idusuario, cpf, nome, email, senha, logradouro, numero, complemento, bairro, uf, cidade, cep);
+                                              
+            araybibliotecario.add(bi);
+        }
+
+    } catch (SQLException e) {
+        System.out.println("Erro na consulta do bibliotecário: " + e);
+    }
+
+    return araybibliotecario ;
 }
+  public void removerBibliotecarioPorId(int idBibliotecario) {
+    try {
+        String sql = "DELETE FROM bibliotecario WHERE id_bibliotecario = ?";
+        PreparedStatement ps = conexao.prepareStatement(sql);
+        ps.setInt(1, idBibliotecario);
+
+        int linhasAfetadas = ps.executeUpdate();
+
+        if (linhasAfetadas > 0) {
+            System.out.println("Bibliotecário removido com sucesso.");
+        } else {
+            System.out.println("Nenhum bibliotecário encontrado com esse ID.");
+        }
+
+    } catch (SQLException e) {
+        System.out.println("Erro ao remover bibliotecário: " + e.getMessage());
+    }
+}
+
+    }
+    
+    
+

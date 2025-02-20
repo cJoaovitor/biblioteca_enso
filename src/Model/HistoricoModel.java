@@ -1,13 +1,7 @@
 package Model;
 
 import DAO.EmprestimoDAO;
-<<<<<<< HEAD
-import java.sql.Connection;
 import java.util.ArrayList;
-import java.util.List;
-=======
-import java.util.ArrayList;
->>>>>>> 1bc9f95fd7609a92086d0c81cb7abfdc18f6face
 
 public class HistoricoModel {
     private int idUsuario;
@@ -20,13 +14,6 @@ public class HistoricoModel {
         this.idempretimo = idempretimo;
     }
 
-<<<<<<< HEAD
-    HistoricoModel(String codigoUsuario, Connection connection) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-=======
->>>>>>> 1bc9f95fd7609a92086d0c81cb7abfdc18f6face
    
 
     // Método para registrar um empréstimo
@@ -58,11 +45,4 @@ public class HistoricoModel {
         return idempretimo;
     }
 
-<<<<<<< HEAD
-    List<EmprestimoModel> getEmprestimos() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-=======
->>>>>>> 1bc9f95fd7609a92086d0c81cb7abfdc18f6face
 }

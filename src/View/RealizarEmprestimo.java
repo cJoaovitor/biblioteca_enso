@@ -1,12 +1,16 @@
 package View;
 
+import DAO.EmprestimoDAO;
+import DAO.HistoricoDAO;
+import DAO.LivroDAO;
+import DAO.usuarioDao;
 import Model.LivroModel;
 import Model.UsuarioModel;
 import Dados.Dados;
+import Model.EmprestimoModel;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
-import Model.ReservaModel;
 
 public class RealizarEmprestimo extends javax.swing.JFrame {
 
@@ -521,12 +525,13 @@ public class RealizarEmprestimo extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCodLivroActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        int codLivro = Integer.parseInt(txtCodLivro.getText());
-        int codUsuario = Integer.parseInt(txtCodUsuario.getText());
+        String codLivro = txtCodLivro.getText();
+        String codUsuario = txtCodUsuario.getText();
 
-        // Buscar o livro e o usuário
-        LivroModel livro = Dados.getLivro(codLivro);
-        UsuarioModel usuario = Dados.getUsuario(codUsuario);
+        DAO.LivroDAO l = new LivroDAO();
+        DAO.usuarioDao u = new usuarioDao();
+        LivroModel livro = l.buscarLivroPorCodigo(codLivro);
+        UsuarioModel usuario = u.buscarUsuarioPorCodigo(codLivro);
 
         if (livro != null && usuario != null) {
             // Exibir as informações do livro e usuário
@@ -542,20 +547,26 @@ public class RealizarEmprestimo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnEmprestarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmprestarActionPerformed
-          int codLivro = Integer.parseInt(txtCodLivro.getText());
-    int codUsuario = Integer.parseInt(txtCodUsuario.getText());
-    String tituloLivro = txtTituloLivro.getText();
-    String nomeUsuario = txtNomeUsuario.getText();
-    LocalDate dataDevolucao = LocalDate.now().plusDays(14); // Data de devolução em 14 dias
+        String codLivro = txtCodLivro.getText();
+        String codUsuario = txtCodUsuario.getText();
+        String tituloLivro = txtTituloLivro.getText();
+        String nomeUsuario = txtNomeUsuario.getText();
+        LocalDate dataDevolucao = LocalDate.now().plusDays(14); // Data de devolução em 14 dias
+        DAO.usuarioDao ud = new usuarioDao();
+        DAO.LivroDAO ld = new LivroDAO();
+        Model.UsuarioModel u = ud.buscarUsuarioPorCodigo(codUsuario);
+        Model.LivroModel l = ld.buscarLivroPorCodigo(codLivro);
+        // Criar uma nova reservu
+        Model.EmprestimoModel e = new EmprestimoModel(u.hashCode(), l.getIdLivro());
+        DAO.EmprestimoDAO ed = new EmprestimoDAO();
+        ed.inserirEmprestimo(e);
+        Model.HistoricoModel h = u.getHistoricoEmprestimos();
+        DAO.HistoricoDAO hd = new HistoricoDAO();
+        hd.inseririsHtorico(h);
+        txtNomeUsuario1.setText(dataDevolucao.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
 
-    // Criar uma nova reserva
-    ReservaModel reserva = new ReservaModel(codLivro, codUsuario, tituloLivro, nomeUsuario, dataDevolucao);
-
-    // Exibir a data de devolução
-    txtNomeUsuario1.setText(dataDevolucao.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-
-    // Desabilitar o botão de empréstimo
-    btnEmprestar.setEnabled(false);
+        // Desabilitar o botão de empréstimo
+        btnEmprestar.setEnabled(false);
     }//GEN-LAST:event_btnEmprestarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -469,103 +469,101 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="btnCancelar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+          </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="249" max="-2" attributes="0"/>
+                      <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="bntGerenciarReservas" min="-2" pref="224" max="-2" attributes="0"/>
-                          <Component id="bntRegistrarEmprestimo" min="-2" pref="224" max="-2" attributes="0"/>
-                          <Component id="bntEditarDadosDeUsuário" min="-2" pref="224" max="-2" attributes="0"/>
-                          <Component id="bntRealizarDevolucao" min="-2" pref="224" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="218" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="bntRealizarDevolucao" alignment="1" min="-2" pref="224" max="-2" attributes="0"/>
+                              <Component id="bntRegistrarEmprestimo" alignment="1" min="-2" pref="224" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="bntRemoverLivro1" alignment="0" min="-2" pref="224" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="211" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="bntEditarDisponibilidadeDeLivro" alignment="0" min="-2" pref="224" max="-2" attributes="0"/>
-                          <Component id="bntVisualizarCatalogo" alignment="0" min="-2" pref="224" max="-2" attributes="0"/>
-                          <Component id="bntConsultarHistoricoDeUsuario" min="-2" max="-2" attributes="0"/>
                           <Component id="bntRenovarEmprestimo" alignment="0" min="-2" pref="224" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace min="-2" pref="222" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
-                              <Component id="bntPesquisarLivroDisponiveisParaEmprestimo" min="-2" pref="224" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                              <Component id="bntConsultarHistoricoDeUsuario" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="bntAdiconarLivro" alignment="1" min="-2" pref="224" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="bntAdiconarLivro" alignment="1" min="-2" pref="224" max="-2" attributes="0"/>
-                                  <Component id="bntRemoverLivro" alignment="1" min="-2" pref="224" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <Component id="bntVisualizarCatalogo" alignment="0" min="-2" pref="224" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="249" max="-2" attributes="0"/>
-                      <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="585" max="-2" attributes="0"/>
+                      <Component id="jLabel17" min="-2" pref="213" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="94" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="btnCancelar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <EmptySpace pref="320" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                       <Component id="jLabel29" min="-2" pref="48" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel16" min="-2" pref="77" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="bntRenovarEmprestimo" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                  <Component id="bntEditarDadosDeUsuário" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                  <Component id="bntAdiconarLivro" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-              </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="bntConsultarHistoricoDeUsuario" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                          <Component id="bntRegistrarEmprestimo" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="bntEditarDisponibilidadeDeLivro" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                          <Component id="bntRealizarDevolucao" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                      <Component id="bntRemoverLivro" min="-2" pref="44" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
+              <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
+              <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="bntVisualizarCatalogo" alignment="0" min="-2" pref="44" max="-2" attributes="0"/>
-                  <Component id="bntPesquisarLivroDisponiveisParaEmprestimo" alignment="0" min="-2" pref="44" max="-2" attributes="0"/>
-                  <Component id="bntGerenciarReservas" min="-2" pref="44" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                      <Component id="bntRegistrarEmprestimo" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                      <Component id="bntAdiconarLivro" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="bntConsultarHistoricoDeUsuario" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                                  <Component id="bntRealizarDevolucao" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                              <Component id="bntRenovarEmprestimo" min="-2" pref="44" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                              <Component id="bntEditarDisponibilidadeDeLivro" min="-2" pref="44" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="bntVisualizarCatalogo" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                          <Component id="bntRemoverLivro1" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
-              <EmptySpace pref="49" max="32767" attributes="0"/>
+              <EmptySpace pref="177" max="32767" attributes="0"/>
               <Component id="btnCancelar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -590,17 +588,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bntConsultarHistoricoDeUsuarioActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="bntRemoverLivro">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Remover Livros"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bntRemoverLivroActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="bntAdiconarLivro">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -621,17 +608,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bntRegistrarEmprestimoActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="bntGerenciarReservas">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Gerenciar Reservas"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bntGerenciarReservasActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="bntEditarDisponibilidadeDeLivro">
@@ -656,28 +632,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bntVisualizarCatalogoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="bntEditarDadosDeUsu&#xe1;rio">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Editar Dados de Usu&#xe1;rio"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bntEditarDadosDeUsu&#xe1;rioActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="bntPesquisarLivroDisponiveisParaEmprestimo">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Pesquisar Livros Dispon&#xed;veis"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bntPesquisarLivroDisponiveisParaEmprestimoActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel16">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -698,9 +652,6 @@
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
-        </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\laris\OneDrive\Documentos\NetBeansProjects\Biblioteca1\Imagens\logo_bibliotecaCorija (1) (2).png"/>
         </Property>
       </Properties>
     </Component>
@@ -725,6 +676,25 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bntRealizarDevolucaoActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="bntRemoverLivro1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Remover Livros"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bntRemoverLivro1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel17">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="2" name="C:\Users\laris\OneDrive\Documentos\NetBeansProjects\Biblioteca1\Imagens\logo_bibliotecaCorija (1) (2).png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="jLabel17"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

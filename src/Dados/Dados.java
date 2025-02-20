@@ -1,24 +1,10 @@
 package Dados;
 
-<<<<<<< HEAD
-public class Dados {
-    private static int contadorUsuario = 0;
-    private static int contadorEmprestimo = 0;
-    private static int contadorLivros = 0;
-    private static int contadorBibliotecario = 0;
-    private static int contadorAdministrador = 0;
-    private static int contadorReserva = 0;
-    private static int contadorHistorico = 0;
-    private static int contadorNotificacoes = 0;
-    private static int posicaoUsuario = -1;
-
-    public static String gerarCodigoUsuario() {
-=======
 import Model.AdministradorModel;
 import Model.BibliotecarioModel;
 import Model.EmprestimoModel;
 import Model.LivroModel;
-import Model.ReservaModel;
+
 import Model.UsuarioModel;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,52 +15,23 @@ public class Dados {
     private static final ArrayList<AdministradorModel> administradores = new ArrayList<>();
     private static final ArrayList<LivroModel> livros = new ArrayList<>();
     private static final ArrayList<EmprestimoModel> emprestimos = new ArrayList<>();
-    private static final ArrayList<ReservaModel> reservar = new ArrayList<>();
+   
     private static String tipoUsuario = "";
-    private static int contadorUsuario = 0;
+    private static int contadorUsuario = 204;
     private static int posicaoUsuario = -1;
     private static int contadorEmprestimo = 0; // Contador de empréstimos
     private static int contadorLivros = 0; // Contador de livros para IDs
-    private static int contadorBibliotecario = 0; // Contador de bibliotecários
+    
 
-    public static ArrayList<ReservaModel> getReservar() {
-        return reservar;
-    }
+  
       
    
     public static String gerarIdUsuario() {
->>>>>>> 1bc9f95fd7609a92086d0c81cb7abfdc18f6face
         return "USR" + contadorUsuario++; // Gera um ID único para usuário
     }
 
-    public static String gerarCodigoBibliotecario() {
-        return "BIB" + contadorBibliotecario++; // Gera um ID único para bibliotecário
-    }
-
-<<<<<<< HEAD
-    public static String gerarCodigoAdministrador() {
-        return "ADM" + contadorAdministrador++; // Gera um ID único para administrador
-    }
-
-    public static String gerarCodigoHistorico() {
-        return "HIS" + contadorHistorico++; // Gera um ID único para Histórico
-    }
-
-    public static String gerarCodigoNotificacao() {
-        return "NOT" + contadorNotificacoes++; // Gera um ID único para Notificações
-    }
-
-    public static String gerarCodigoReserva() {
-        return "RES" + contadorReserva++; // Gera um ID único para Reserva
-    }
-
     
-    
-    public static int getContadorUsuario() {
-        return contadorUsuario;
-    }
 
-=======
     public static int getContadorUsuario() {
         return contadorUsuario; // Retorna o contador atual
     }
@@ -111,7 +68,6 @@ public class Dados {
     
  
 
->>>>>>> 1bc9f95fd7609a92086d0c81cb7abfdc18f6face
     public static int getContadorEmprestimo() {
         return contadorEmprestimo;
     }
@@ -120,107 +76,15 @@ public class Dados {
         return contadorLivros;
     }
 
-<<<<<<< HEAD
-=======
  
     
->>>>>>> 1bc9f95fd7609a92086d0c81cb7abfdc18f6face
-    public static int getContadorBibliotecario() {
-        return contadorBibliotecario;
-    }
-
-<<<<<<< HEAD
-    public static int getContadorAdministrador() {
-        return contadorAdministrador;
-    }
-
-    public static int getContadorReserva() {
-        return contadorReserva;
-    }
-
-    public static int getContadorHistorico() {
-        return contadorHistorico;
-    }
-
-    public static int getContadorNotificacoes() {
-        return contadorNotificacoes;
-    }
-
-    public static int getPosicaoUsuario() {
-        return posicaoUsuario;
-    }
-    
-    
     
 
-    public static void setPosicaoUsuario(int posicao) {
-        posicaoUsuario = posicao;
-    }
-
-=======
->>>>>>> 1bc9f95fd7609a92086d0c81cb7abfdc18f6face
     public static void setContadorUsuario(int novoValor) {
         contadorUsuario = novoValor;
     }
 
-    public static void setContadorBibliotecario(int contador) {
-        contadorBibliotecario = contador;
-    }
-
-<<<<<<< HEAD
-    public static void setContadorAdministrador(int contador) {
-        contadorAdministrador = contador;
-    }
-
-    
-    
-    
-    
-    public static void incrementarContadorLivros() {
-        contadorLivros++;
-    }
-
-    public static void decrementarContadorLivros() {
-        contadorLivros--;
-    }
-
-    public static void incrementarContadorEmprestimos() {
-        contadorEmprestimo++;
-    }
-
-    public static void decrementarContadorEmprestimos() {
-        contadorEmprestimo--;
-    }
-
-    public static void incrementarContadorReservas() {
-        contadorReserva++;
-    }
-
-    public static void decrementarContadorReservas() {
-        contadorReserva--;
-    }
-
-    public static void incrementarContadorHistorico() {
-        contadorHistorico++;
-    }
-
-    public static void decrementarContadorHistorico() {
-        contadorHistorico--;
-    }
-
-    public static void incrementarContadorNotificacoes() {
-        contadorNotificacoes++;
-    }
-
-    public static void decrementarContadorNotificacoes() {
-        contadorNotificacoes--;
-    }
-
-    public static Object getUsuarios() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-}
-=======
+   
     // Métodos para adicionar e remover
     public static void adicionarLivro(LivroModel livro) {
         livros.add(livro);
@@ -252,20 +116,7 @@ public static void removerUsuario(UsuarioModel usuario) {
     }
 }
 
-public static void adicionarBibliotecario(BibliotecarioModel bibliotecario) {
-    bibliotecarios.add(bibliotecario);
-    contadorBibliotecario++;
-    System.out.println("Bibliotecário adicionado com sucesso! Total de bibliotecários: " + contadorBibliotecario);
-}
 
-public static void removerBibliotecario(BibliotecarioModel bibliotecario) {
-    if (bibliotecarios.remove(bibliotecario)) {
-        contadorBibliotecario--;
-        System.out.println("Bibliotecário removido com sucesso! Total de bibliotecários: " + contadorBibliotecario);
-    } else {
-        System.out.println("Bibliotecário não encontrado!");
-    }
-}
 
 
     public static void adicionarAdministrador(AdministradorModel administrador) {
@@ -310,12 +161,7 @@ public static void removerBibliotecario(BibliotecarioModel bibliotecario) {
         contadorUsuario = Dados.usuarios.size(); // Atualiza o contador com o tamanho da lista
     }
 
-    public static void setBibliotecarios(ArrayList<BibliotecarioModel> bibliotecarios) {
-        Dados.bibliotecarios.clear();
-        Dados.bibliotecarios.addAll(bibliotecarios);
-        contadorBibliotecario = Dados.bibliotecarios.size(); // Atualiza o contador com o tamanho da lista
-    }
-
+   
     public static void setAdministradores(ArrayList<AdministradorModel> administradores) {
         Dados.administradores.clear();
         Dados.administradores.addAll(administradores);
@@ -434,4 +280,3 @@ public static void removerBibliotecario(BibliotecarioModel bibliotecario) {
 
     
 }
->>>>>>> 1bc9f95fd7609a92086d0c81cb7abfdc18f6face

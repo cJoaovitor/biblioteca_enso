@@ -2,7 +2,7 @@ package Model;
 
 import java.util.Date;
 
-class Notificacao {
+class NotificacaoModel {
     private static int contador = 0; // Contador estático para gerar um ID único para cada notificação
     private int idNotificacao; // Identificador único da notificação
     private int idUsuario; // ID do usuário associado à notificação
@@ -12,7 +12,7 @@ class Notificacao {
     private String emailDestinatario; // Endereço de e-mail do destinatário
 
     // Construtor
-    public Notificacao(int idUsuario, String tipo, String emailDestinatario) {
+    public NotificacaoModel(int idUsuario, String tipo, String emailDestinatario) {
         this.idNotificacao = ++contador; // Incrementa o contador para gerar um novo ID
         this.idUsuario = idUsuario; // Atribui o ID do usuário
         this.dataEnvio = new Date(); // Define a data de envio como a data atual

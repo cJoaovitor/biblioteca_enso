@@ -1,26 +1,12 @@
-<<<<<<< HEAD
-package DAO;
-
-import java.sql.*;
-=======
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package DAO;
 
 import java.sql.*;
 
->>>>>>> 1bc9f95fd7609a92086d0c81cb7abfdc18f6face
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-<<<<<<< HEAD
 import java.util.ArrayList;
-import java.util.List;
-=======
->>>>>>> 1bc9f95fd7609a92086d0c81cb7abfdc18f6face
 
 public class LivroDAO {
     Connection conexao;
@@ -46,7 +32,7 @@ public class LivroDAO {
             ps.setString(10, l.getStatus());
             ps.executeUpdate();
 
-            System.out.println("\n Pessoa inserida com sucesso");
+            System.out.println("\n Livro inserido com sucesso");
                            
         }catch(Exception e){
           System.out.println("Erro: "+e);
@@ -55,52 +41,83 @@ public class LivroDAO {
     }
     
     public void consultarTudo(){
-        
-        try {
-            String sql="select * from pessoa;";
-            PreparedStatement sttmt=conexao.prepareStatement(sql);
-            ResultSet rst=sttmt.executeQuery();
-            while(rst.next()){
-                String n = rst.getString("nome");
-                int i = rst.getInt("id");
-                System.out.println("Dados do banco: "+n+" "+i);
+            try {
+                String sql="select * from pessoa;";
+                PreparedStatement sttmt=conexao.prepareStatement(sql);
+                ResultSet rst=sttmt.executeQuery();
+                while(rst.next()){
+                    String n = rst.getString("nome");
+                    int i = rst.getInt("id");
+                    System.out.println("Dados do banco: "+n+" "+i);
+                }
+            } catch (SQLException ex) {
+                System.out.println("Erro na consulta de pessoa: "+ex);
             }
-        } catch (SQLException ex) {
-            System.out.println("Erro na consulta de pessoa: "+ex);
         }
-    }
-    
-    
-<<<<<<< HEAD
-    public List<Model.LivroModel> consultarTodosLivros() {
-    List<Model.LivroModel> livros = new ArrayList<>();
-    try {
-        String sql = "SELECT * FROM biblioteca.livro;";
-        PreparedStatement ps = conexao.prepareStatement(sql);
-        ResultSet rs = ps.executeQuery();
-        while (rs.next()) {
-            Model.LivroModel livro = new Model.LivroModel();
-            livro.setIdLivro(rs.getInt("id"));
-            livro.setCodigo(rs.getString("codigo"));
-            livro.setTitulo(rs.getString("titulo"));
-            livro.setAutor(rs.getString("autor"));
-            livro.setGenero(rs.getString("genero"));
-            livro.setDescricao(rs.getString("descricao"));
-            livro.setAnoPublicacao(rs.getString("anoPublicacao"));
-            livro.setEditora(rs.getString("editora"));
-            livro.setDisponivel(rs.getBoolean("disponivel"));
-            livro.setEmprestado(rs.getBoolean("emprestado"));
-            livro.setStatus(rs.getString("livro_status"));
-            livros.add(livro);
+            public Model.LivroModel buscarLivroPorCodigo(String codigo) {
+        Model.LivroModel livro = null;
+
+        try {
+            String sql = "SELECT * FROM livro WHERE codigo = ?";
+            PreparedStatement ps = conexao.prepareStatement(sql);
+            ps.setString(1, codigo);
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                livro = new Model.LivroModel(
+                    rs.getInt("idlivro"),
+                    rs.getString("titulo"),
+                    rs.getString("autor"),
+                    rs.getString("genero"),
+                    rs.getString("descricao"),
+                    rs.getString("anoPublicacao"),
+                    rs.getString("editora"),
+                    rs.getString("livro_status")
+                );
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Erro na consulta do livro: " + e);
         }
-    } catch (SQLException e) {
-        System.out.println("Erro ao consultar livros: " + e.getMessage());
+
+        return livro;
     }
+            
+            
+    public ArrayList<Model.LivroModel> buscarLivros() {
+        Model.LivroModel livro = null;
+        ArrayList<Model.LivroModel> livros =new ArrayList<>();
+
+        try {
+            String sql = "SELECT * FROM livro ";
+            PreparedStatement ps = conexao.prepareStatement(sql);
+
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                livro = new Model.LivroModel(
+                    rs.getInt("idlivro"),
+                    rs.getString("titulo"),
+                    rs.getString("autor"),
+                    rs.getString("genero"),
+                    rs.getString("descricao"),
+                    rs.getString("anoPublicacao"),
+                    rs.getString("editora"),
+                    rs.getString("livro_status")
+                );
+                livros.add(livro);
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Erro na consulta do livro: " + e);
+        }
+
     return livros;
 }
+    
+
 
     
-    
-=======
->>>>>>> 1bc9f95fd7609a92086d0c81cb7abfdc18f6face
 }

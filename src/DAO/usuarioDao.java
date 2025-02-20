@@ -4,7 +4,9 @@
  */
 package DAO;
 import Dados.Dados;
+import Model.UsuarioModel;
 import java.sql.*;
+import java.util.ArrayList;
 
 public class usuarioDao {
     Connection conexao;
@@ -20,7 +22,7 @@ public class usuarioDao {
             PreparedStatement ps = conexao.prepareStatement(sql);
            
             ps.setInt(1, u.getIdusuario());   
-            ps.setString(2, sql);
+            ps.setString(2, u.getCodigo());
             ps.setString(3, u.getCpf());
             ps.setString(4, u.getDataNascimento());
             ps.setString(5, u.getSexo());
@@ -224,7 +226,96 @@ public void atualizarCep(String novoCep) {
         System.out.println("Erro ao atualizar CEP: " + ex);
     }
 }
+public Model.UsuarioModel buscarUsuarioPorCodigo(String codigo) {
+    Model.UsuarioModel usuario = null;
 
-    
+    try {
+        // Consulta SQL buscando pelo código
+        String sql = "SELECT * FROM usuario WHERE codigo = ?";
+        PreparedStatement ps = conexao.prepareStatement(sql);
+        ps.setString(1, codigo);  // Define o código como parâmetro da consulta
+
+        ResultSet rs = ps.executeQuery();
+
+        if (rs.next()) {
+            // Preenche o objeto UsuarioModel com os dados do banco
+            usuario = new Model.UsuarioModel(
+                rs.getInt("idusuario"),
+                rs.getString("cpf"),
+                rs.getString("nome"),
+                rs.getString("email"),
+                rs.getString("senha"),
+                rs.getString("logradouro"),
+                rs.getString("numero"),
+                rs.getString("complemento"),
+                rs.getString("bairro"),
+                rs.getString("uf"),
+                rs.getString("cidade"),
+                rs.getString("cep")
+            );
+        }
+
+    } catch (SQLException e) {
+        System.out.println("Erro na consulta do usuário: " + e);
+    }
+
+    return usuario;  // Retorna o usuário encontrado ou null
+}
+public  ArrayList <Model.UsuarioModel> consutartudo(){
+    ArrayList<UsuarioModel> arayusuario = new ArrayList<>();    
+   
+
+    try {
+        String sql = "SELECT * FROM usuario ";
+        PreparedStatement ps = conexao.prepareStatement(sql);
+
+        ResultSet rs = ps.executeQuery();
+        
+        while (rs.next()) {
+            int idusuario = rs.getInt("id_usuario");
+            String cpf = rs.getString("cpf");
+            String nome = rs.getString("nome");
+            String email = rs.getString("email");
+            String senha = rs.getString("senha");
+            String logradouro = rs.getString("logradouro");
+            String numero = rs.getString("numero");
+            String complemento = rs.getString("complemento");
+            String bairro = rs.getString("bairro");
+            String uf = rs.getString("uf");
+            String cidade = rs.getString("cidade");
+            String cep = rs.getString("cep");
+
+            
+            Model.UsuarioModel u = new UsuarioModel(idusuario, cpf, nome, email, senha, logradouro, numero, complemento, bairro, uf, cidade, cep);
+            
+                                              
+            arayusuario.add(u);
+        }
+
+    } catch (SQLException e) {
+        System.out.println("Erro na consulta do bibliotecário: " + e);
+    }
+
+    return arayusuario ;
+}
+   public void removerUsuario(int idUsuario) {
+    try {
+        String sql = "DELETE FROM usuario WHERE idusuario = ?";
+        PreparedStatement ps = conexao.prepareStatement(sql);
+        ps.setInt(1, idUsuario);
+
+        int linhasAfetadas = ps.executeUpdate();
+
+        if (linhasAfetadas > 0) {
+            System.out.println("Usuário removido com sucesso.");
+        } else {
+            System.out.println("Nenhum usuário encontrado com esse ID.");
+        }
+
+    } catch (SQLException e) {
+        System.out.println("Erro ao remover usuário: " + e.getMessage());
+    }
+}
+ 
 }
 

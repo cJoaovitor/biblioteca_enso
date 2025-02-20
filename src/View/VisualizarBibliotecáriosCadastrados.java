@@ -1,46 +1,38 @@
 package View;
 
-import java.util.List;
+import DAO.LivroDAO;
+import DAO.NotificacaoDAO;
+import DAO.bibliotecarioDAO;
+import DAO.usuarioDao;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 import Model.LivroModel;
 import Model.LivroTableModel;
-import Model.UsuarioModel;
-import Service.LivroService;
-import Service.UsuarioService;
 import Dados.Dados;
+import Model.BibliotecarioModel;
+import Model.UsuarioModel;
 import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JTextField;
 
-public class GerenciarDisponibilidade extends javax.swing.JFrame {
-   
+public class VisualizarBibliotecáriosCadastrados extends javax.swing.JFrame {
 
-    public GerenciarDisponibilidade() {
+    public VisualizarBibliotecáriosCadastrados() {
         initComponents();
-        carregarLivros();
+         exibirTodos();
+        
     }
 
     
-    private void carregarLivros() {
-        try {
-            // Buscar todos os livros da classe Dados
-            ArrayList<LivroModel> livros = Dados.getLivros();
-
-            // Criar um modelo de tabela personalizado para exibir os dados dos livros
-            LivroTableModel tableModel = new LivroTableModel(livros);
-            tblLivros.setModel(tableModel);
-
-            // Ajustar o tamanho das colunas da tabela
-            tblLivros.getColumnModel().getColumn(0).setPreferredWidth(50); // ID
-            tblLivros.getColumnModel().getColumn(1).setPreferredWidth(200); // Título
-            tblLivros.getColumnModel().getColumn(2).setPreferredWidth(150); // Autor
-            tblLivros.getColumnModel().getColumn(3).setPreferredWidth(100); // Ano de Publicação
-            tblLivros.getColumnModel().getColumn(4).setPreferredWidth(150); // Editora
-            tblLivros.getColumnModel().getColumn(5).setPreferredWidth(100); // Disponível
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Erro ao carregar os livros: " + e.getMessage());
-        }
+public void exibirTodosBibliotecarios() {
+    List<BibliotecarioModel> bibliotecarios = bibliotecarioDAO.buscarBibliotecarios();
+    for (BibliotecarioModel bibliotecario : bibliotecarios) {
+        bibliotecario.exibir();
+        System.out.println();
     }
+}
 
+    
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -101,18 +93,19 @@ public class GerenciarDisponibilidade extends javax.swing.JFrame {
         btnExcluir = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JButton();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
         btnCancelar1 = new javax.swing.JButton();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        tblLivros = new javax.swing.JTable();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
 
         try {
             txtTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
@@ -434,23 +427,22 @@ public class GerenciarDisponibilidade extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel15.setText("Gerenciar Disponibilidade");
 
-        jLabel20.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel20.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\Downloads\\logo_bibliotecaCorija (1) (2) (1).png")); // NOI18N
-
-        jLabel21.setFont(new java.awt.Font("Tempus Sans ITC", 1, 10)); // NOI18N
-        jLabel21.setText("BIBLIOTECA ");
-
-        jLabel22.setFont(new java.awt.Font("Viner Hand ITC", 1, 14)); // NOI18N
-        jLabel22.setText("CORUJA");
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         btnCancelar.setText("Salvar Alterações");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
             }
         });
+
+        jLabel20.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel22.setFont(new java.awt.Font("Viner Hand ITC", 1, 14)); // NOI18N
+        jLabel22.setText("CORUJA");
+
+        jLabel21.setFont(new java.awt.Font("Tempus Sans ITC", 1, 10)); // NOI18N
+        jLabel21.setText("BIBLIOTECA ");
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnCancelar1.setText("Voltar");
         btnCancelar1.addActionListener(new java.awt.event.ActionListener() {
@@ -459,38 +451,39 @@ public class GerenciarDisponibilidade extends javax.swing.JFrame {
             }
         });
 
-        tblLivros.setModel(new javax.swing.table.DefaultTableModel(
+        jLabel31.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel33.setFont(new java.awt.Font("Tempus Sans ITC", 1, 10)); // NOI18N
+        jLabel33.setText("BIBLIOTECA ");
+
+        jLabel32.setFont(new java.awt.Font("Viner Hand ITC", 1, 14)); // NOI18N
+        jLabel32.setText("CORUJA");
+
+        jLabel23.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\OneDrive\\Documentos\\NetBeansProjects\\Biblioteca1\\Imagens\\logo_bibliotecaCorija (1) (2) (1).png")); // NOI18N
+        jLabel23.setText("jLabel23");
+
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "ID", "Título", "Autor", "Ano de Publicação", "Editora", "Disponível"
+                "ID", "CPF", "Nome", "Email", "Endereço"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, true
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -501,73 +494,68 @@ public class GerenciarDisponibilidade extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane4.setViewportView(tblLivros);
+        jScrollPane5.setViewportView(jTable3);
 
-        jLabel26.setFont(new java.awt.Font("Viner Hand ITC", 1, 48)); // NOI18N
-        jLabel26.setText("DISPONIBILIDADE");
+        jLabel24.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
+        jLabel24.setText("BIBLIOTECÁRIOS");
 
-        jLabel27.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
-        jLabel27.setText("GERENCIAR");
-
-        jLabel28.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel28.setIcon(new javax.swing.ImageIcon("C:\\Users\\laris\\OneDrive\\Documentos\\NetBeansProjects\\Biblioteca1\\Imagens\\logo_bibliotecaCorija (1) (2) (1).png")); // NOI18N
-
-        jLabel29.setFont(new java.awt.Font("Viner Hand ITC", 1, 14)); // NOI18N
-        jLabel29.setText("CORUJA");
-
-        jLabel30.setFont(new java.awt.Font("Tempus Sans ITC", 1, 10)); // NOI18N
-        jLabel30.setText("BIBLIOTECA ");
+        jLabel25.setFont(new java.awt.Font("Viner Hand ITC", 1, 48)); // NOI18N
+        jLabel25.setText("CADASTRADOS");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 868, Short.MAX_VALUE)
+                .addGap(476, 476, 476)
+                .addComponent(jLabel24)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnCancelar1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 507, Short.MAX_VALUE)
+                        .addComponent(jLabel31)
+                        .addGap(1742, 1742, 1742))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel27)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel26)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel28)
+                        .addGap(342, 342, 342)
+                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel30)
-                            .addComponent(jLabel29))))
-                .addContainerGap())
+                            .addComponent(jLabel33)
+                            .addComponent(jLabel32))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 1419, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1309, 1309, 1309)
+                        .addComponent(btnCancelar1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel31)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(5, 5, 5)
+                        .addGap(19, 19, 19)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel27)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel28)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addComponent(jLabel30)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel23)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel33)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel25)
+                                .addComponent(jLabel24)))))
+                .addGap(43, 43, 43)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
-                .addGap(70, 70, 70)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCancelar)
-                    .addComponent(btnCancelar1))
-                .addGap(14, 14, 14))
+                .addComponent(btnCancelar1)
+                .addContainerGap(76, Short.MAX_VALUE))
         );
 
         pack();
@@ -590,7 +578,7 @@ public class GerenciarDisponibilidade extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCpfActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        // Implementar a funcionalidade de voltar
+    
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
@@ -603,7 +591,7 @@ public class GerenciarDisponibilidade extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordField2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+     
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -616,40 +604,7 @@ public class GerenciarDisponibilidade extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnEmprestarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmprestarActionPerformed
-        String codigoLivro = txtCodLivro.getText();
-        String nomeUsuario = txtNomeUsuario.getText();
-
-        try {
-            // Buscar o livro e o usuário no banco de dados
-            LivroModel livro = LivroService.buscarLivroPorCodigo(codigoLivro);
-            UsuarioModel usuario = UsuarioService.buscarUsuarioPorNome(nomeUsuario);
-
-            if (livro == null) {
-                JOptionPane.showMessageDialog(this, "Livro não encontrado.");
-                return;
-            }
-
-            if (usuario == null) {
-                JOptionPane.showMessageDialog(this, "Usuário não encontrado.");
-                return;
-            }
-
-            if (!livro.getDisponivel()) {
-                // Livro já está indisponível, então marcar como disponível
-                livro.setDisponivel(true);
-                LivroService.atualizarLivro(livro);
-                JOptionPane.showMessageDialog(this, "Livro marcado como disponível.");
-            } else {
-                // Livro está disponível, então marcar como indisponível
-                livro.setDisponivel(false);
-                LivroService.atualizarLivro(livro);
-                JOptionPane.showMessageDialog(this, "Livro marcado como indisponível.");
-            }
-
-            carregarLivros(); // Atualizar a tabela de livros
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Erro ao atualizar a disponibilidade do livro: " + e.getMessage());
-        }
+        
     }//GEN-LAST:event_btnEmprestarActionPerformed
 
     private void btnCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar1ActionPerformed
@@ -657,31 +612,7 @@ public class GerenciarDisponibilidade extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelar1ActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        int selectedRow = tblLivros.getSelectedRow();
-if (selectedRow != -1) {
-    // Obter o valor da coluna que indica a disponibilidade
-    String disponivelStr = (String) tblLivros.getValueAt(selectedRow, 5);
-    boolean disponivel = Boolean.parseBoolean(disponivelStr); // Converter a string para booleano
-    int livroId = (int) tblLivros.getValueAt(selectedRow, 0);
-    LivroModel livro = LivroService.buscarLivroPorId(livroId);
-
-    if (disponivel) {
-        // Livro está disponível, então marcar como indisponível
-        livro.setDisponivel(false);
-        LivroService.atualizarLivro(livro);
-        JOptionPane.showMessageDialog(this, "Livro marcado como indisponível.");
-    } else {
-        // Livro está indisponível, então marcar como disponível
-        livro.setDisponivel(true);
-        LivroService.atualizarLivro(livro);
-        JOptionPane.showMessageDialog(this, "Livro marcado como disponível.");
-    }
-
-    carregarLivros(); // Atualizar a tabela de livros
-} else {
-    JOptionPane.showMessageDialog(this, "Selecione um livro para alterar a disponibilidade.");
-}
-
+       
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -715,12 +646,13 @@ if (selectedRow != -1) {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -737,10 +669,10 @@ if (selectedRow != -1) {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTable tblLivros;
+    private javax.swing.JTable jTable3;
     private javax.swing.JTextField txtBairro;
     private javax.swing.JFormattedTextField txtCelular;
     private javax.swing.JFormattedTextField txtCep;

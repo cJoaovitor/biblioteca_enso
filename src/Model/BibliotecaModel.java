@@ -1,14 +1,14 @@
 package Model;
 
-import View.ZPrincipal;
 import java.util.Scanner;
 import Dados.Dados;
+import View.MenuInicial;
 
 public class BibliotecaModel {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-         ZPrincipal telaPrincipal = new ZPrincipal();
+         MenuInicial telaPrincipal = new MenuInicla();
          telaPrincipal.setVisible(true); // Torna a tela visível
     }
 
