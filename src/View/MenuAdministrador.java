@@ -502,7 +502,11 @@ public class MenuAdministrador extends javax.swing.JFrame {
 
     private void btnVisualizarBibliotecariosCadastradosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarBibliotecariosCadastradosActionPerformed
 
+<<<<<<< HEAD
           VisualizarBibliotecáriosCadastrados tela = new VisualizarBibliotecáriosCadastrados();
+=======
+          VisualizarBibliotecariosCadastrados tela = new VisualizarBibliotecariosCadastrados();
+>>>>>>> f5296994deddd829a700ab004b65cc0cae078ef8
           tela.setVisible(true);
      
     }//GEN-LAST:event_btnVisualizarBibliotecariosCadastradosActionPerformed

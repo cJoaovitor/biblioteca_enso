@@ -218,5 +218,18 @@ public class LivroModel {
     }
 }
 
+<<<<<<< HEAD
    
+=======
+    
+    
+            
+        
+        
+        
+            
+        
+        
+    
+>>>>>>> f5296994deddd829a700ab004b65cc0cae078ef8
 }

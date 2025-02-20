@@ -475,7 +475,11 @@
               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="249" max="-2" attributes="0"/>
+              <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="249" max="-2" attributes="0"/>
                       <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
@@ -514,6 +518,49 @@
                   </Group>
               </Group>
               <EmptySpace pref="320" max="32767" attributes="0"/>
+=======
+                  <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="94" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="bntEditarDadosDeUsuário" min="-2" pref="224" max="-2" attributes="0"/>
+                  <Component id="bntRealizarDevolucao" min="-2" pref="224" max="-2" attributes="0"/>
+                  <Component id="bntRegistrarEmprestimo" alignment="0" min="-2" pref="224" max="-2" attributes="0"/>
+                  <Component id="bntRemoverLivro1" min="-2" pref="224" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="bntVisualizarCatalogo" alignment="0" min="-2" pref="224" max="-2" attributes="0"/>
+                  <Component id="bntRenovarEmprestimo" alignment="0" min="-2" pref="224" max="-2" attributes="0"/>
+                  <Component id="bntEditarDisponibilidadeDeLivro" min="-2" pref="224" max="-2" attributes="0"/>
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
+                      <Component id="bntPesquisarLivroDisponiveisParaEmprestimo" min="-2" pref="224" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="bntAdiconarLivro" alignment="1" min="-2" pref="224" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="bntConsultarHistoricoDeUsuario" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="btnCancelar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+>>>>>>> f5296994deddd829a700ab004b65cc0cae078ef8
           </Group>
       </Group>
     </DimensionLayout>
@@ -527,9 +574,38 @@
                       <Component id="jLabel29" min="-2" pref="48" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel16" min="-2" pref="77" max="-2" attributes="0"/>
+<<<<<<< HEAD
+=======
+                      <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="bntRenovarEmprestimo" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                  <Component id="bntEditarDadosDeUsuário" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                  <Component id="bntAdiconarLivro" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="bntRegistrarEmprestimo" min="-2" pref="44" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="bntRealizarDevolucao" min="-2" pref="44" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="bntEditarDisponibilidadeDeLivro" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                          <Component id="bntConsultarHistoricoDeUsuario" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                      </Group>
+>>>>>>> f5296994deddd829a700ab004b65cc0cae078ef8
                   </Group>
                   <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
+<<<<<<< HEAD
               <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
               <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -555,13 +631,29 @@
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
+=======
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+>>>>>>> f5296994deddd829a700ab004b65cc0cae078ef8
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="bntVisualizarCatalogo" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                           <Component id="bntRemoverLivro1" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                       </Group>
+<<<<<<< HEAD
                   </Group>
               </Group>
               <EmptySpace pref="177" max="32767" attributes="0"/>
+=======
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace pref="25" max="32767" attributes="0"/>
+                      <Component id="bntPesquisarLivroDisponiveisParaEmprestimo" min="-2" pref="44" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+>>>>>>> f5296994deddd829a700ab004b65cc0cae078ef8
               <Component id="btnCancelar" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
           </Group>
@@ -688,6 +780,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bntRemoverLivro1ActionPerformed"/>
       </Events>
     </Component>
+<<<<<<< HEAD
     <Component class="javax.swing.JLabel" name="jLabel17">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -696,5 +789,7 @@
         <Property name="text" type="java.lang.String" value="jLabel17"/>
       </Properties>
     </Component>
+=======
+>>>>>>> f5296994deddd829a700ab004b65cc0cae078ef8
   </SubComponents>
 </Form>

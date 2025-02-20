@@ -1,15 +1,23 @@
 package View;
 
+<<<<<<< HEAD:src/View/PesquisarUsuários.java
 import DAO.HistoricoDAO;
 import Model.EmprestimoModel;
 import Model.HistoricoModel;
 import Model.UsuarioModel;
 import java.time.format.DateTimeFormatter;
+=======
+import DAO.bibliotecarioDAO;
+import Model.BibliotecarioModel;
+import Dados.Dados;
+import java.util.ArrayList;
+>>>>>>> f5296994deddd829a700ab004b65cc0cae078ef8:src/View/VisualizarBibliotecariosCadastrados.java
 import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
+<<<<<<< HEAD:src/View/PesquisarUsuários.java
 public class PesquisarUsuários extends javax.swing.JFrame {
 
     public PesquisarUsuários() {
@@ -17,6 +25,39 @@ public class PesquisarUsuários extends javax.swing.JFrame {
     }
     
    
+=======
+public class VisualizarBibliotecariosCadastrados extends javax.swing.JFrame {
+    private List<BibliotecarioModel> bibliotecarios = new ArrayList<>();
+    DAO.bibliotecarioDAO b = new bibliotecarioDAO();
+        
+
+        public VisualizarBibliotecariosCadastrados() {
+            this.bibliotecarios = b.consutartudo();
+            initComponents();
+            preencherTabelaBibliotecarios();
+        }
+    
+ 
+    private void preencherTabelaBibliotecarios() {
+        DAO.bibliotecarioDAO b = new bibliotecarioDAO();
+        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+        model.setRowCount(0); // Limpa a tabela antes de preencher
+        
+        for (BibliotecarioModel bibliotecario : this.bibliotecarios) {
+            Object[] rowData = {
+                bibliotecario.getCodigoBibliotecario(),
+                bibliotecario.getIdusuario(),
+                bibliotecario.getCpf(),
+                bibliotecario.getNome(),
+                bibliotecario.getEmail(),
+                bibliotecario.getLogradouro() + ", " + bibliotecario.getNumero() + ", " + bibliotecario.getComplemento() + ", " + bibliotecario.getBairro() + ", " + bibliotecario.getUf() + ", " + bibliotecario.getCidade() + ", " + bibliotecario.getCep()
+            };
+            model.addRow(rowData);
+    }
+    }
+
+
+>>>>>>> f5296994deddd829a700ab004b65cc0cae078ef8:src/View/VisualizarBibliotecariosCadastrados.java
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -367,8 +408,12 @@ public class PesquisarUsuários extends javax.swing.JFrame {
 
         jLabel24.setBackground(new java.awt.Color(255, 255, 255));
 
+<<<<<<< HEAD:src/View/PesquisarUsuários.java
         jLabel22.setFont(new java.awt.Font("Viner Hand ITC", 1, 14)); // NOI18N
         jLabel22.setText("CORUJA");
+=======
+        jLabel21.setBackground(new java.awt.Color(255, 255, 255));
+>>>>>>> f5296994deddd829a700ab004b65cc0cae078ef8:src/View/VisualizarBibliotecariosCadastrados.java
 
         jLabel23.setFont(new java.awt.Font("Tempus Sans ITC", 1, 10)); // NOI18N
         jLabel23.setText("BIBLIOTECA ");
@@ -443,13 +488,26 @@ public class PesquisarUsuários extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+<<<<<<< HEAD:src/View/PesquisarUsuários.java
         jScrollPane5.setViewportView(jTable3);
+=======
+        jScrollPane3.setViewportView(jTable2);
+
+        jLabel31.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel33.setFont(new java.awt.Font("Tempus Sans ITC", 1, 10)); // NOI18N
+        jLabel33.setText("BIBLIOTECA ");
+
+        jLabel32.setFont(new java.awt.Font("Viner Hand ITC", 1, 14)); // NOI18N
+        jLabel32.setText("CORUJA");
+>>>>>>> f5296994deddd829a700ab004b65cc0cae078ef8:src/View/VisualizarBibliotecariosCadastrados.java
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD:src/View/PesquisarUsuários.java
                 .addContainerGap(131, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -483,6 +541,27 @@ public class PesquisarUsuários extends javax.swing.JFrame {
                                 .addComponent(btnBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(254, 254, 254)))
                         .addGap(467, 467, 467))))
+=======
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addComponent(jLabel24)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
+                .addComponent(jLabel31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel33)
+                    .addComponent(jLabel32))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 756, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+>>>>>>> f5296994deddd829a700ab004b65cc0cae078ef8:src/View/VisualizarBibliotecariosCadastrados.java
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

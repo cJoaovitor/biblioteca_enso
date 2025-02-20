@@ -1,20 +1,36 @@
 package View;
 
+<<<<<<< HEAD:src/View/VisualizarUsuáriosCadastrados.java
 import DAO.LivroDAO;
 import DAO.NotificacaoDAO;
 import DAO.usuarioDao;
 import javax.swing.JOptionPane;
 import Model.LivroModel;
 import Model.LivroTableModel;
+=======
+import DAO.usuarioDao;
+import Model.UsuarioModel;
+>>>>>>> f5296994deddd829a700ab004b65cc0cae078ef8:src/View/VisualizarUsuariosCadastrados.java
 import Dados.Dados;
 import Model.UsuarioModel;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JTextField;
 
+<<<<<<< HEAD:src/View/VisualizarUsuáriosCadastrados.java
 public class VisualizarUsuáriosCadastrados extends javax.swing.JFrame {
 
     public VisualizarUsuáriosCadastrados() {
+=======
+public class VisualizarUsuariosCadastrados extends javax.swing.JFrame {
+    private List<UsuarioModel> usuarios;
+    DAO.usuarioDao u = new usuarioDao();
+
+  
+
+    public VisualizarUsuariosCadastrados() {
+        this.usuarios = u.consutartudo();
+>>>>>>> f5296994deddd829a700ab004b65cc0cae078ef8:src/View/VisualizarUsuariosCadastrados.java
         initComponents();
          exibirTodos();
         

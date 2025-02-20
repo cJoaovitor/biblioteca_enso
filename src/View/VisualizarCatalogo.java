@@ -18,11 +18,33 @@ public class VisualizarCatalogo extends javax.swing.JFrame {
         exibirTodos();
     }
 
+<<<<<<< HEAD
    public void exibirTodos() {
         List<LivroModel> livros = livroDAO.buscarLivros();
         for (LivroModel livro : livros) {
             livro.exibir();
             System.out.println();
+=======
+    private void carregarLivros() {
+        try {
+            // Buscar todos os livros da classe Dados
+            DAO.LivroDAO l = new LivroDAO();
+            livros = l.buscarLivros();
+
+            // Criar um modelo de tabela personalizado para exibir os dados dos livros
+            LivroTableModel tableModel = new LivroTableModel(livros);
+            tblLivros.setModel(tableModel);
+
+            // Ajustar o tamanho das colunas da tabela
+            tblLivros.getColumnModel().getColumn(0).setPreferredWidth(50); // ID
+            tblLivros.getColumnModel().getColumn(1).setPreferredWidth(200); // Título
+            tblLivros.getColumnModel().getColumn(2).setPreferredWidth(150); // Autor
+            tblLivros.getColumnModel().getColumn(3).setPreferredWidth(100); // Ano de Publicação
+            tblLivros.getColumnModel().getColumn(4).setPreferredWidth(150); // Editora
+            tblLivros.getColumnModel().getColumn(5).setPreferredWidth(100); // Gênero
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Erro ao carregar os livros: " + e.getMessage());
+>>>>>>> f5296994deddd829a700ab004b65cc0cae078ef8
         }
     }
 

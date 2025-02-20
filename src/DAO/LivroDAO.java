@@ -83,6 +83,7 @@ public class LivroDAO {
 
         return livro;
     }
+<<<<<<< HEAD
             
             
     public ArrayList<Model.LivroModel> buscarLivros() {
@@ -119,5 +120,67 @@ public class LivroDAO {
     
 
 
+=======
+        public Model.LivroModel buscarLivroPorCodigo(String codigo) {
+    Model.LivroModel livro = null;
+
+    try {
+        String sql = "SELECT * FROM livro WHERE codigo = ?";
+        PreparedStatement ps = conexao.prepareStatement(sql);
+        ps.setString(1, codigo);
+
+        ResultSet rs = ps.executeQuery();
+
+        if (rs.next()) {
+            livro = new Model.LivroModel(
+                rs.getInt("idlivro"),
+                rs.getString("titulo"),
+                rs.getString("autor"),
+                rs.getString("genero"),
+                rs.getString("descricao"),
+                rs.getString("anoPublicacao"),
+                rs.getString("editora"),
+                rs.getString("livro_status")
+            );
+        }
+
+    } catch (SQLException e) {
+        System.out.println("Erro na consulta do livro: " + e);
+    }
+
+    return livro;
+}
+public ArrayList<Model.LivroModel> buscarLivros() {
+    Model.LivroModel livro = null;
+    ArrayList<Model.LivroModel> livros =new ArrayList<>();
+
+    try {
+        String sql = "SELECT * FROM livro ";
+        PreparedStatement ps = conexao.prepareStatement(sql);
+       
+
+        ResultSet rs = ps.executeQuery();
+
+        while (rs.next()) {
+            livro = new Model.LivroModel(
+                rs.getInt("idlivro"),
+                rs.getString("titulo"),
+                rs.getString("autor"),
+                rs.getString("genero"),
+                rs.getString("descricao"),
+                rs.getString("anoPublicacao"),
+                rs.getString("editora"),
+                rs.getString("livro_status")
+            );
+            livros.add(livro);
+        }
+
+    } catch (SQLException e) {
+        System.out.println("Erro na consulta do livro: " + e);
+    }
+
+    return livros;
+}
+>>>>>>> f5296994deddd829a700ab004b65cc0cae078ef8
     
 }

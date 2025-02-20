@@ -675,6 +675,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="525" max="-2" attributes="0"/>
               <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD:src/View/VisualizarUsuáriosCadastrados.form
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="347" max="-2" attributes="0"/>
@@ -685,9 +686,15 @@
                   <Component id="jLabel32" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
+=======
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="118" max="32767" attributes="0"/>
+>>>>>>> f5296994deddd829a700ab004b65cc0cae078ef8:src/View/VisualizarBibliotecariosCadastrados.form
               <Component id="jLabel31" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="1742" max="-2" attributes="0"/>
           </Group>
+<<<<<<< HEAD:src/View/VisualizarUsuáriosCadastrados.form
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
@@ -699,6 +706,11 @@
                       <Component id="btnCancelar1" min="-2" pref="149" max="-2" attributes="0"/>
                   </Group>
               </Group>
+=======
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+              <Component id="jScrollPane3" min="-2" pref="756" max="-2" attributes="0"/>
+>>>>>>> f5296994deddd829a700ab004b65cc0cae078ef8:src/View/VisualizarBibliotecariosCadastrados.form
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
